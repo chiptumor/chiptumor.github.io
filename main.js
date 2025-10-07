@@ -1,5 +1,7 @@
 import * as main from "/util/index.js";
+await main.addColorStyles();
 await main.addMenubar();
+await main.addPlayerToMenubar();
 await main.addTitle();
 await main.addClickToCopy();
 
