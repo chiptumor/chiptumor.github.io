@@ -21,7 +21,32 @@
 		notify me with them, I'd appreciate it.
 	</p>
 	<div id="grid">
-		<div class="announcement"></div>
+		<div class="announcement" data-visible="false">
+			<div class="preview">
+				<span data-content="announcement/preview"></span>
+			</div>
+			<div class="body" data-content="announcement/body"></div>
+			<div class="open-close" data-status="closed">
+				<div class="open" data-lucide="chevron-down"></div>
+				<div class="close" data-lucide="chevron-up"></div>
+			</div>
+		</div>
+		<div class="welcome" data-label="Welcome">
+			<div class="haio">Haio!!</div>
+			<h2>Welcome to my city!</h2>
+			<p>You should know me as <code data-copy="chiptumor">chiptumor</code> on most sites. I'm especially active on Discord and Instagram!</p>
+			<p>I love fiddling with code projects and messing with pixel art.</p>
+			<p>You should know me as the number one zoologist fanatic!</p>
+		</div>
+		<div class="status">
+			<div class="feeling">
+				<span>I'm feeling <span class="content" data-content="status/imFeeling">undefined</span>.</span>
+			</div>
+			<div class="body" data-content="status/body">
+				<p>Nothing was found for the status body.</p>
+				<p>If the above says '<span class="feeling-quote">I'm feeling <span class="content">undefined</span></span>,' there was likely an issue fetching or parsing the status file. Screenshot your console (hit <kbd>F12</kbd> or <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>i</kbd> and make sure you're looking at the console) and send me a screenie on Discord @ <code data-copy="chiptumor">chiptumor</code>!</p>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
