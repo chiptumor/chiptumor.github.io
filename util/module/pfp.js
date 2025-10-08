@@ -29,7 +29,7 @@ export async function setPfp() {
 	const json = await fetch("/util/resource/pfp.json")
 		.then(response => response.json());
 
-	const today = Date.now();
+	const today = new Date();
 
 	const pfp =
 		// safe mode
