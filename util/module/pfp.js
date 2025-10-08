@@ -1,4 +1,4 @@
-export async function addPfp() {
+export async function setPfp() {
 	const anchor = document.querySelector("a[data-content='pfp/anchor']");
 	const image = anchor?.querySelector("img[data-content='pfp/image']");
 
