@@ -1,4 +1,4 @@
-import * as main from "/util/index.js";
+import * as main from "/util/module/index.js";
 await main.addColorStyles();
 await main.addMenubar();
 await main.addPlayerToMenubar();
