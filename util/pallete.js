@@ -22,7 +22,7 @@ const colors = {
 			color.rotate(-5).darken(0.2),
 			color.rotate(-5).darken(0.1),
 			color.rotate(-5).darken(0.1),
-			color.rotate(-5).darken(0.1),
+			color.rotate(-5).darken(0.1)
 		],
 		light: (color) => [
 			color.rotate(2).lighten(0.8),
