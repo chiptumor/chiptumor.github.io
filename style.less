@@ -2,3 +2,21 @@
 
 @import "/util/style/pallete.less";
 @import "/util/style/main.less";
+
+#grid {
+	max-width: 1000px;
+	margin: auto;
+
+	display: grid;
+	grid-template-columns: 4fr 1fr 4fr;
+	grid-gap: 10px;
+	grid-template-areas:
+		"announcement announcement announcement"
+		"welcome      welcome      welcome     "
+		"status       status       status      "
+		"identity     zoologist    zoologist   "
+		"todo         todo         todo        "
+	;
+
+	div.announcement { grid-area: announcement; }
+}
