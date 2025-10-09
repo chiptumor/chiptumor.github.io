@@ -21,12 +21,12 @@ function log(type, ...messages) {
 window.addEventListener("load", () => document.body.prepend(consoleElement));
 
 window.addEventListener("error", (event) => {
-	window.alert(JSON.stringify(event, null, 4)); // DEBUG
-	log("error", `${event.message}\n${event.source} (${event.lineno}:${event.colno})`);
 	event.preventDefault();
+	window.alert(event); // DEBUG
+	log("error", `${event.message}\n${event.source} (${event.lineno}:${event.colno})`);
 });
 
 window.addEventListener("unhandledRejection", (event) => {
-	log("error", event.reason);
 	event.preventDefault();
+	log("error", event.reason);
 });
