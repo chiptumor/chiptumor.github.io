@@ -21,6 +21,7 @@ function log(type, ...messages) {
 window.addEventListener("load", () => document.body.prepend(consoleElement));
 
 window.addEventListener("error", (event) => {
+	window.alert(JSON.stringify(event, null, 4)); // DEBUG
 	log("error", `${event.message}\n${event.source} (${event.lineno}:${event.colno})`);
 	event.preventDefault();
 });
