@@ -5,7 +5,7 @@
 	<p>I made things external so they're easier to edit by themselves.</p>
 	<p>
 		Instead of editing the content within <code>index.html</code> itself, I'm using
-		an external file&mdash;<code>content/announcement.xml</code>&mdash;and plopping
+		an external file&mdash;<code>/content/announcement.xml</code>&mdash;and plopping
 		it here.
 	</p>
 	<p>I've also done similar for the status!</p>

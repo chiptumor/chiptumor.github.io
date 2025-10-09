@@ -10,10 +10,23 @@ import * as Lucide from "https://unpkg.com/lucide@latest";
 // TODO: check if namespace or default import
 window.addEventListener("load", Lucide.createIcons);
 
+// TODO: implement relative times with package
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
-	const today = new Date();
-	// https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/announcement.xml&page=1&per_page=1
+	const content = await fetch("/content/announcement.xml")
+		.then(response => response.text())
+		.then(text => new DOMParser().parseFromString(text, "text/xml"));
+
+	document.querySelector("#grid div.announcement").setAttribute("data-visible",
+		content.getElementsByTagName("visible")[0].getAttribute("bool"));
+	document.querySelector("[data-content='announcement/preview/content']").innerHTML
+		= content.getElementsByTagName("preview")[0].innerHTML;
+	document.querySelector("[data-content='announcement/body/content']").innerHTML
+		= content.getElementsByTagName("body")[0].innerHTML;
+
+	const [{ commit: { author: { date: dateString }}}] = await fetch(
+		"https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/announcement.xml&page=1&per_page=1"
+	).then(response => response.json());
 });
 
 // STATUS

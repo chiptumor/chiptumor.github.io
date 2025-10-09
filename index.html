@@ -11,7 +11,7 @@
 
 	<!-- JavaScript Time Ago -->
 	<script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script>
-	
+
 	<script src="./main.js" type="module"></script>
 	
 	<!-- Less-To-Css -->
@@ -33,10 +33,13 @@
 	<div id="grid">
 		<div class="announcement" data-visible="false">
 			<div class="preview">
-				<span data-content="announcement/preview"></span>
-				<span class="date" data-content="announcement/date/relative"></span>
+				<span data-content="announcement/preview/content"></span>
+				<span class="date" data-content="announcement/preview/date"></span>
 			</div>
-			<div class="body" data-content="announcement/body"></div>
+			<div class="body">
+				<div class="content" data-content="announcement/body/content"></div>
+				<span class="date" data-content="announcement/body/date"></span>
+			</div>
 			<div class="open-close" data-status="closed">
 				<div class="open" data-lucide="chevron-down"></div>
 				<div class="close" data-lucide="chevron-up"></div>
@@ -71,9 +74,9 @@
 				</p>
 			</div>
 			<div class="updated">
-				<span>Last updated:
-					<span class="relative" data-content="status/date/relative">???</span>
-					<span class="locale" data-content="status/date/locale">???</span>
+				<span>
+					<span class="relative" data-content="status/date/relative">??? ago</span>
+					<span class="locale" data-content="status/date/locale">?/?/?</span>
 				</span>
 			</div>
 		</div>
