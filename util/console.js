@@ -4,9 +4,10 @@ console.debug = (...message) => log("debug", ...message);
 console.warn = (...message) => log("warn", ...message);
 console.error = (...message) => log("error", ...message);
 
-function log(type, ...messages) {
-	const consoleElement = document.getElementById("console");
+const consoleElement = document.createElement("div");
+consoleElement.id = "console";
 
+function log(type, ...messages) {
 	const element = document.createElement("div");
 	element.className = type;
 	const message = messages.map(message => typeof message === "object"
@@ -16,3 +17,5 @@ function log(type, ...messages) {
 	element.textContent = message;
 	consoleElement.append(element);
 }
+
+window.addEventListener("load", () => document.body.prepend(consoleElement));
