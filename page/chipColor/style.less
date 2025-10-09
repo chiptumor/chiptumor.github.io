@@ -1,0 +1,27 @@
+body {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	flex-flow: row;
+	align-content: stretch;
+
+	background-color: gray
+}
+
+div.color {
+	flex: 1;
+}
+
+div[data-color="B"]  { background-color: black }
+div[data-color="-6"] { background-color: hsl(318, 85%, 5% ) }
+div[data-color="-5"] { background-color: hsl(322, 81%, 10%) }
+div[data-color="-4"] { background-color: hsl(327, 83%, 15%) }
+div[data-color="-3"] { background-color: hsl(332, 81%, 20%) }
+div[data-color="-2"] { background-color: hsl(337, 82%, 30%) }
+div[data-color="-1"] { background-color: hsl(342, 82%, 40%) }
+div[data-color="0"]  { background-color: hsl(347, 82%, 50%) }
+div[data-color="1"]  { background-color: hsl(349, 82%, 60%) }
+div[data-color="2"]  { background-color: hsl(351, 82%, 70%) }
+div[data-color="3"]  { background-color: hsl(353, 82%, 80%) }
+div[data-color="4"]  { background-color: hsl(357, 82%, 90%) }
+div[data-color="W"]  { background-color: white }
