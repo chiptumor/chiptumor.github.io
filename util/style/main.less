@@ -1,0 +1,46 @@
+body {
+	background-image: linear-gradient(to bottom right, @accent-4, 70%, @accent0);
+	background-size: cover;
+	background-attachment: fixed;
+
+	color: @white;
+	font-family: "IBM Plex Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	
+	h1 { font-size: 64px; }
+	h2 { font-size: 48px; }
+	h3 { font-size: 32px; }
+	h4 { font-size: 16px; }
+	h5 { font-size: 12px; }
+	h6 { font-size: 10px; }
+
+	p { font-size: 16px; }
+
+	a {
+		text-decoration: underline;
+		color: @white;
+		&:hover {
+			background-color: @white;
+			color: @accent-4;
+		}
+		&:active {
+			background-color: transparent;
+			color: @white;
+		}
+	}
+
+	blockquote {
+		padding-left: calc(1em - 3px);
+		margin-left: 1em;
+		border-left: 3px solid @accent1;
+		color: @accent3;
+	}
+
+	&::selection {
+		background-color: @white;
+		color: @accent-4;
+	}
+
+	[data-copy] {
+		cursor: pointer;
+	}
+}
