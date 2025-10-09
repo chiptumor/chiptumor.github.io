@@ -19,3 +19,13 @@ function log(type, ...messages) {
 }
 
 window.addEventListener("load", () => document.body.prepend(consoleElement));
+
+window.addEventListener("error", (event) => {
+	log("error", `${event.message}\n${event.source} (${event.lineno}:${event.colno})`);
+	event.preventDefault();
+});
+
+window.addEventListener("unhandledRejection", (event) => {
+	log("error", event.reason);
+	event.preventDefault();
+});
