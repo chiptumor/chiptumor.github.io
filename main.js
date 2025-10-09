@@ -15,7 +15,9 @@ window.addEventListener("load", Lucide.createIcons);
 window.addEventListener("load", async () => {
 	const content = await fetch("/content/announcement.xml")
 		.then(response => response.text())
-		.then(text => new DOMParser().parseFromString(`<root>${text}</root>`, "text/xml"));
+		.then(text => new DOMParser().parseFromString(text, "text/xml"));
+
+	console.log(content.getElementsByTagName("body")[0].innerHTML);
 
 	document.querySelector("#grid div.announcement").setAttribute("data-visible",
 		content.getElementsByTagName("visible")[0].getAttribute("bool"));
