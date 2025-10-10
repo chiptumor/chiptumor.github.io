@@ -12,6 +12,7 @@ div.box {
 	background-attachment: fixed;
 
 	border: 3px solid @accent0;
+	border-radius: 10px;
 
 	&::before {
 		content: attr(data-label);
@@ -64,6 +65,27 @@ div.box {
 
 	div.welcome {
 		position: relative;
+
+		h1.greeting {
+			display: flex;
+			margin: 0 0 -10px 0;
+			// padding-left: 0;
+
+			font-size: 64px;
+			font-weight: bold;
+
+			white-space-collapse: collapse;
+			span {
+				animation: greeting 2000ms cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite;
+
+				@keyframes greeting {
+					0%   { transform: translateY(0   ); }
+					50%  { transform: translateY(10px); }
+					100% { transform: translateY(0   ); }
+				}
+			}
+		}
+
 		a.pfp {
 			img {
 				width: 64px; height: 64px;
@@ -72,8 +94,14 @@ div.box {
 				object-fit: cover;
 
 				position: absolute;
-				top: 3px;
-				right: 3px;
+				top: 3px; right: 3px;
+
+				border: 3px solid @accent0;
+				border-radius: 50%;
+
+				&:hover {
+					border-color: @white;
+				}
 			}
 		}
 	}
