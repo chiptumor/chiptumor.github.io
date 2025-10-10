@@ -10,12 +10,6 @@ import * as Lucide from "https://unpkg.com/lucide@latest";
 // TODO: check if namespace or default import
 window.addEventListener("load", Lucide.createIcons);
 
-function decodeHtmlEntities(text) {
-	const element = document.createElement("div");
-	element.innerHTML = text;
-	return element.textContent;
-}
-
 // TODO: implement relative times with package
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
@@ -33,6 +27,25 @@ window.addEventListener("load", async () => {
 	const [{ commit: { author: { date: dateString }}}] = await fetch(
 		"https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/announcement.xml&page=1&per_page=1"
 	).then(response => response.json());
+});
+
+// GREETING
+window.addEventListener("load", () => {
+	const element = document.querySelector("#grid div.welcome h1.greeting");
+	const content = element.textContent;
+	element.innerHTML = "";
+
+	const diff = -200;
+
+	const length = (content.length * diff) + diff;
+
+	for (const character in content) {
+		const delay = length - (character * diff);
+		const span = document.createElement("span");
+		span.style.animationDelay = `${delay}ms`;
+		span.textContent = content[character];
+		element.append(span);
+	}
 });
 
 // STATUS
