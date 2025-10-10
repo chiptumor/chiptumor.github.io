@@ -12,11 +12,15 @@
 	grid-gap: 10px;
 	grid-template-areas:
 		"announcement announcement announcement"
-		"welcome      welcome      welcome     "
-		"status       status       status      "
+		"welcome      welcome      status      "
 		"identity     zoologist    zoologist   "
 		"todo         todo         todo        "
 	;
 
 	div.announcement { grid-area: announcement; }
+	div.welcome      { grid-area: welcome;      }
+	div.status       { grid-area: status;       }
+	div.identity     { grid-area: identity;     }
+	div.zoologist    { grid-area: zoologist;    }
+	div.todo         { grid-area: todo;         }
 }
