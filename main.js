@@ -41,14 +41,11 @@ window.addEventListener("load", () => {
 
 	for (const character in content) {
 		const delay = length - (character * diff);
-		console.debug(delay);
 		const span = document.createElement("span");
 		span.style.animationDelay = `${delay}ms`;
 		span.textContent = content[character];
 		element.append(span);
 	}
-
-	console.log(element.innerHTML);
 });
 
 // STATUS
