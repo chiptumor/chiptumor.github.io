@@ -28,9 +28,9 @@ window.addEventListener("load", async () => {
 	document.querySelector("#grid div.announcement").setAttribute("data-visible",
 		content.getElementsByTagName("visible")[0].getAttribute("bool"));
 	document.querySelector("[data-content='announcement/preview/content']").innerHTML
-		= decodeHtmlEntities(content.getElementsByTagName("preview")[0].innerHTML);
+		= content.getElementsByTagName("preview")[0].innerHTML;
 	document.querySelector("[data-content='announcement/body/content']").innerHTML
-		= decodeHtmlEntities(content.getElementsByTagName("body")[0].innerHTML);
+		= content.getElementsByTagName("body")[0].innerHTML;
 
 	const [{ commit: { author: { date: dateString }}}] = await fetch(
 		"https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/announcement.xml&page=1&per_page=1"
