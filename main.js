@@ -13,7 +13,7 @@ window.addEventListener("load", Lucide.createIcons);
 // TODO: implement relative times with package
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
-	const content = await fetch("/content/announcement.xml")
+	const content = await fetch("/content/announcement.xml", { cache: "no-cache" })
 		.then(response => response.text())
 		.then(text => new DOMParser().parseFromString(text, "text/xml"));
 
@@ -41,11 +41,14 @@ window.addEventListener("load", () => {
 
 	for (const character in content) {
 		const delay = length - (character * diff);
+		console.debug(delay);
 		const span = document.createElement("span");
 		span.style.animationDelay = `${delay}ms`;
 		span.textContent = content[character];
 		element.append(span);
 	}
+
+	console.log(element.innerHTML);
 });
 
 // STATUS
