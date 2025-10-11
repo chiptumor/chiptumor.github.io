@@ -1,1 +1,3 @@
-export async function addPlayerToMenubar() {};
+export async function addPlayer(options) {
+	console.debug("ran addPlayer");
+};

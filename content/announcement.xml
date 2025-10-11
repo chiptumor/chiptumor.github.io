@@ -1,14 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <announcement>
 	<visible bool="true"/>
-	<preview>Announcement works!</preview>
+
+	<preview>Work in progress</preview>
+
 	<body>
-		<p>If you're seeing this, the announcement banner works!</p>
-		<p>I made things external so they're easier to edit by themselves.</p>
+		<h2>This page is a work in progress.</h2>
 		<p>
-			Instead of editing the content within <code>index.html</code> itself, I'm using
-			an external file&#x2014;<code>/content/announcement.xml</code>&#x2014;and plopping
-			it here.
+			Above is (probably) a console, and below is possibly disfunctional or unstyled
+			content. Whatever happens, things will <i>not</i> look right.
 		</p>
-		<p>I've also done similar for the status!</p>
+		<p>
+			For now, don't follow any instructions below about debugging. I don't need it.
+			They're only there as the default texts in the future case that the scripts for
+			those <i>should</i> work, but don't.
+		</p>
 	</body>
 </announcement>

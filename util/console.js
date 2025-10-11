@@ -1,8 +1,31 @@
-console.log = (...message) => log("log", ...message);
-console.info = (...message) => log("info", ...message);
-console.debug = (...message) => log("debug", ...message);
-console.warn = (...message) => log("warn", ...message);
-console.error = (...message) => log("error", ...message);
+const original = {
+	log: console.log.bind(console),
+	info: console.info.bind(console),
+	debug: console.debug.bind(console),
+	warn: console.warn.bind(console),
+	error: console.error.bind(console),
+};
+
+console.log = (...message) => {
+	original.log(...message);
+	log("log", ...message);
+};
+console.info = (...message) => {
+	original.info(...message);
+	log("info", ...message);
+}
+console.debug = (...message) => {
+	original.debug(...message);
+	log("debug", ...message);
+}
+console.warn = (...message) => {
+	original.warn(...message);
+	log("warn", ...message);
+}
+console.error = (...message) => {
+	original.error(...message);
+	log("error", ...message);
+}
 
 const consoleElement = document.createElement("div");
 consoleElement.id = "console";

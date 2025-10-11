@@ -3,6 +3,11 @@
 @import "/util/style/pallete.less";
 @import "/util/style/main.less";
 
+body {
+	margin: 0;
+	padding: 100px 50px;
+}
+
 div.box {
 	padding: 8px 16px;
 
@@ -12,14 +17,13 @@ div.box {
 	background-attachment: fixed;
 
 	border: 3px solid @accent0;
-	border-radius: 10px;
 
 	&::before {
 		content: attr(data-label);
 		text-transform: uppercase;
 
 		position: absolute;
-		top: 0; left: 4px;
+		top: 0; left: 0;
 
 		padding: 0 3px;
 
@@ -28,7 +32,6 @@ div.box {
 
 		background-color: @accent0;
 		color: white;
-		border-radius: 0 0 3px 3px;
 
 		transform: translateY(calc(0px - 100% / 2)) scaleY(0);
 		transition: transform 100ms ease-out;
@@ -60,7 +63,64 @@ div.box {
 	div.todo         { grid-area: todo;         }
 
 	div.announcement {
+		position: relative;
 
+		div.preview {
+			padding: 3px 6px;
+			span.content {
+				text-transform: uppercase;
+			}
+		}
+
+		div.body {
+			padding: 16px 32px;
+		}
+
+		div.open-close {
+			&, div {
+				width: 24px; height: 24px;
+			}
+			
+			position: absolute;
+			bottom: 3px; right: 3px;
+
+			cursor: pointer;
+
+			&:hover:not(:active) {
+				background-color: @white;
+				color: @accent-6;
+			}
+		}
+
+		&[data-visible="true"] {
+			&[data-open="true"] {
+				div.preview,
+				div.open-close div.open
+					{ display: none; }
+				div.body,
+				div.open-close div.close
+					{ display: block; }
+			}
+
+			&[data-open="false"] {
+				div.preview,
+				div.open-close div.open
+					{ display: block; }
+				div.body,
+				div.open-close div.close
+					{ display: none; }
+
+				cursor: pointer;
+
+				&:hover {
+					border-color: @white;
+				}
+			}
+		}
+
+		&[data-visibile="false"] {
+			display: none;
+		}
 	}
 
 	div.welcome {
@@ -69,12 +129,12 @@ div.box {
 		h1.greeting {
 			display: flex;
 			margin: 0 0 -10px 0;
-			// padding-left: 0;
 
 			font-size: 64px;
 			font-weight: bold;
 
 			white-space-collapse: collapse;
+
 			span {
 				animation: greeting 2000ms cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite;
 
@@ -97,12 +157,28 @@ div.box {
 				top: 3px; right: 3px;
 
 				border: 3px solid @accent0;
-				border-radius: 50%;
+			}
 
-				&:hover {
-					border-color: @white;
-				}
+			&[href] img:hover {
+				border-color: @white;
 			}
 		}
 	}
+
+	div.status {
+		
+	}
 }
+
+// LAGGY:
+/* div.box {
+	border-radius: 10px;
+	&::before {
+		top: 0; left: 4px;
+		border-radius: 0 0 3px 3px;
+	}
+}
+
+#grid div.welcome a.pfp img {
+	border-radius: 50%;
+} */

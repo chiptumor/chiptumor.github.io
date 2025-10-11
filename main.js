@@ -3,16 +3,13 @@ await main.addColorStyles();
 await main.addTitle();
 await main.setClickToCopy();
 await main.addMenubar();
-await main.addPlayerToMenubar();
+await main.addPlayer({ menubar: true });
 await main.setPfp();
-
-import * as Lucide from "https://unpkg.com/lucide@latest";
-// TODO: check if namespace or default import
-window.addEventListener("load", Lucide.createIcons);
 
 // TODO: implement relative times with package
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
+	// DISPLAY CONTENT
 	const content = await fetch("/content/announcement.xml", { cache: "no-cache" })
 		.then(response => response.text())
 		.then(text => new DOMParser().parseFromString(text, "text/xml"));
@@ -27,6 +24,22 @@ window.addEventListener("load", async () => {
 	const [{ commit: { author: { date: dateString }}}] = await fetch(
 		"https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/announcement.xml&page=1&per_page=1"
 	).then(response => response.json());
+
+	// TOGGLE OPEN/CLOSE
+	const banner = document.querySelector("#grid div.announcement");
+	const button = banner.querySelector("div.open-close");
+
+	banner.addEventListener("click", () => {
+		if (banner.getAttribute("data-open") === "false")
+			banner.setAttribute("data-open", "true");
+	});
+
+	button.addEventListener("click", (event) => {
+		if (banner.getAttribute("data-open") === "true") {
+			banner.setAttribute("data-open", "false");
+			event.stopPropagation();
+		}
+	});
 });
 
 // GREETING
@@ -37,7 +50,7 @@ window.addEventListener("load", () => {
 
 	const diff = -200;
 
-	const length = (content.length * diff) + diff;
+	const length = (content.length * diff) - diff;
 
 	for (const character in content) {
 		const delay = length - (character * diff);

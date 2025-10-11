@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script src="/util/console.js"></script>
+	<!-- <script src="/util/console.js"></script> -->
 
 	<script>
 		var safe = !new URLSearchParams(window.location.search).has("s");
 	</script>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>chiptumor.github</title>
+	<title>chiptumor.github.io</title>
 	<link rel="shortcut icon" href="https://chiptumor.github.io/neocities/favicon.ico" type="image/x-icon"/>
-
-	<!-- JavaScript Time Ago -->
-	<!-- <script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script> -->
-
-	<script src="./main.js" type="module"></script>
 	
 	<!-- Less-To-Css -->
 	<link rel="stylesheet/less" type="text/css" href="style.less"/>
 	<script src="https://cdn.jsdelivr.net/npm/less"></script>
 
+	<script src="https://unpkg.com/lucide@0.545.0/dist/umd/lucide.min.js"></script>
+	<script> window.addEventListener("load", lucide.createIcons); </script>
+
+	<!-- JavaScript Time Ago -->
+	<!-- <script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script> -->
+
+	<script src="./main.js" type="module"></script>
 </head>
 <body>
-	<h1>This is a test.</h1>
-	<p>If, by some chance, you're seeing this, hello!</p>
-	<p>
-		Above is a console, and below is a bunch of unstyled content. Things will not
-		look right. For now, don't follow any instructions below about debugging. I
-		don't need it.
-	</p>
 	<div id="grid">
-		<div class="announcement box" data-visible="false">
+		<div class="announcement box" data-open="false" data-visible="false">
 			<div class="preview">
-				<span data-content="announcement/preview/content"></span>
+				<span class="content" data-content="announcement/preview/content"></span>
 				<span class="date" data-content="announcement/preview/date"></span>
 			</div>
 			<div class="body">
 				<div class="content" data-content="announcement/body/content"></div>
 				<span class="date" data-content="announcement/body/date"></span>
 			</div>
-			<div class="open-close" data-status="closed">
-				<div class="open" data-lucide="chevron-down"></div>
-				<div class="close" data-lucide="chevron-up"></div>
+			<div class="open-close">
+				<div class="open">
+					<svg data-lucide="chevron-down"></svg>
+				</div>
+				<div class="close">
+					<svg data-lucide="chevron-up"></svg>
+				</div>
 			</div>
 		</div>
 
@@ -102,9 +101,7 @@
 			</p>
 			<p>
 				I post images of her on Instagram! Find me at
-				<a href="http://instagram.com/chiptumor" target="_blank">
-					<code>@chiptumor</code>
-				</a>!
+				<a href="http://instagram.com/chiptumor" target="_blank"><code>@chiptumor</code></a>!
 			</p>
 		</div>
 
