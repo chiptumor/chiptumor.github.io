@@ -18,7 +18,7 @@ div.box {
 
 	border: 3px solid @accent0;
 
-	&::before {
+	&[data-label]::before {
 		content: attr(data-label);
 		text-transform: uppercase;
 
@@ -69,11 +69,20 @@ div.box {
 			padding: 3px 6px;
 			span.content {
 				text-transform: uppercase;
+				margin-right: 10px;
+			}
+			span.date {
+				color: @accent3;
 			}
 		}
 
 		div.body {
 			padding: 16px 32px;
+
+			p.date {
+				color: @accent3;
+				text-indent: 2em;
+			}
 		}
 
 		div.open-close {
@@ -97,15 +106,9 @@ div.box {
 				div.preview,
 				div.open-close div.open
 					{ display: none; }
-				div.body,
-				div.open-close div.close
-					{ display: block; }
 			}
 
 			&[data-open="false"] {
-				div.preview,
-				div.open-close div.open
-					{ display: block; }
 				div.body,
 				div.open-close div.close
 					{ display: none; }
@@ -165,8 +168,87 @@ div.box {
 		}
 	}
 
-	div.status {
-		
+	div.status div.box {
+		display: grid;
+		grid-auto-rows: max-content;
+
+		padding: 3px;
+
+		div.feeling, div.date {
+
+			> span {
+				max-width: fit-content;
+				background-color: @accent0;
+				padding: 0 5px;
+				text-transform: uppercase;
+			}
+		}
+
+		div.feeling span span.content {
+			font-weight: bold;
+		}
+
+		div.body {
+			padding: 0 13px;
+		}
+
+		div.date {
+			> span {
+				float: right;
+			}
+
+			&:not(:hover) > span span.locale
+				{ display: none; }
+			&:hover > span span.relative
+				{ display: none; }
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			
+			@size: 6px;
+
+			top: 3px;
+			left: -3px;
+			right: unset;
+			width: 0;
+			height: 0;
+			margin: 0 0 -@size -@size;
+			border-style: solid;
+			border-width: 0 0 @size @size;
+			border-color: transparent transparent @accent0 transparent;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	#grid {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"announcement"
+			"welcome     "
+			"status      "
+			"identity    "
+			"zoologist   "
+			"todo        "
+		;
+
+		div.status div.box::before {
+			
+			@size: 6px;
+
+			top: calc(-@size + -3px);
+			left: calc(@size + 3px);
+			right: unset;
+			width: 0;
+			height: 0;
+			margin: 0 0 -@size -@size;
+			border-style: solid;
+			border-width: 0 0 @size @size;
+			border-color: transparent transparent @accent0 transparent;
+		}
 	}
 }
 

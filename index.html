@@ -15,11 +15,17 @@
 	<link rel="stylesheet/less" type="text/css" href="style.less"/>
 	<script src="https://cdn.jsdelivr.net/npm/less"></script>
 
-	<script src="https://unpkg.com/lucide@0.545.0/dist/umd/lucide.min.js"></script>
+	<script src="https://unpkg.com/lucide@0.545.0/dist/umd/lucide.js"></script>
 	<script> window.addEventListener("load", lucide.createIcons); </script>
 
 	<!-- JavaScript Time Ago -->
-	<!-- <script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script> -->
+	<script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script>
+	<script>
+		(async () =>
+			await fetch("https://unpkg.com/javascript-time-ago@2.5.12/locale/en.json")
+				.then(response => response.json()).then(en => TimeAgo.addDefaultLocale(en))
+		)();
+	</script>
 
 	<script src="./main.js" type="module"></script>
 </head>
@@ -32,7 +38,7 @@
 			</div>
 			<div class="body">
 				<div class="content" data-content="announcement/body/content"></div>
-				<span class="date" data-content="announcement/body/date"></span>
+				<p class="date" data-content="announcement/body/date"></p>
 			</div>
 			<div class="open-close">
 				<div class="open">
@@ -49,11 +55,11 @@
 			<h1 class="greeting">Haio!!</h1>
 			<h2>Welcome to my city!</h2>
 			<p>
-				I'm known as <code data-copy="chiptumor">chiptumor</code>, my username on most
-				sites. I'm especially active on Discord and Instagram!
+				I'm known as chiptumor, my username on most sites. I'm especially active on
+				Discord and Instagram!
 			</p>
 			<p>I love fiddling with code projects and messing with pixel art.</p>
-			<p>You should know me as the number one zoologist fanatic!</p>
+			<p>You should know me as the number one Zoologist fanatic!</p>
 		</div></div>
 		<div class="status"><div class="box">
 			<div class="feeling">
@@ -61,17 +67,13 @@
 					<span class="content" data-content="status/imFeeling">undefined</span>.</span>
 			</div>
 			<div class="body" data-content="status/body">
-				<p>Nothing was found for the status body.</p>
 				<p>
-					If the above says
-					'<span class="feeling-quote">I'm feeling <span class="content">undefined</span></span>,'
-					there was likely an issue fetching or parsing the status file. Screenshot your
-					console (hit <kbd>F12</kbd> or <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>i</kbd>
-					and make sure you're looking at the console) and send me a screenie on Discord
-					at <code data-copy="chiptumor">@chiptumor</code>!
+					The status body at
+					<a href="/content/status.xml"><code>/content/status.xml</code></a> could not be
+					fetched or parsed.
 				</p>
 			</div>
-			<div class="updated">
+			<div class="date">
 				<span>
 					<span class="relative" data-content="status/date/relative">??? ago</span>
 					<span class="locale" data-content="status/date/locale">?/?/?</span>
@@ -101,7 +103,7 @@
 			</p>
 			<p>
 				I post images of her on Instagram! Find me at
-				<a href="http://instagram.com/chiptumor" target="_blank"><code>@chiptumor</code></a>!
+				<a href="http://instagram.com/chiptumor" target="_blank">@chiptumor</a>!
 			</p>
 		</div>
 
@@ -109,7 +111,7 @@
 			<h3>TODO:</h3>
 			<div data-content="todo/content">
 				<p>
-					The To-do list (<code><a href="/todo.md">/todo.md</a></code>) could not be
+					The To-do list at <a href="/todo.md"><code>/todo.md</code></a> could not be
 					fetched or parsed.
 				</p>
 			</div>
