@@ -39,7 +39,7 @@ export async function setPfp() {
 			// october
 			: today.getMonth() === 9 ? json.event.october
 			// else
-			: json.default[Math.floor(Math.random() * json.length)];
+			: json.default[Math.floor(Math.random() * json.default.length)];
 
 		pfp.source && anchor.setAttribute("href",      pfp.source);
 		pfp.artist && anchor.setAttribute("data-desc", pfp.artist);
