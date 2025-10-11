@@ -1,3 +1,3 @@
 export function setClickToCopy() {
-	console.debug("ran setClickToCopy");
+	console.info("ran setClickToCopy");
 };

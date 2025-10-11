@@ -1,3 +1,3 @@
 export async function addPlayer(options) {
-	console.debug("ran addPlayer");
+	console.info("ran addPlayer");
 };

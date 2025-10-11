@@ -1,3 +1,3 @@
 export async function addMenubar() {
-	console.debug("ran addMenubar");
+	console.info("ran addMenubar");
 };

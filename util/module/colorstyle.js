@@ -1,3 +1,3 @@
 export function addColorStyles() {
-	console.debug("ran addColorStyles");
+	console.info("ran addColorStyles");
 };

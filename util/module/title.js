@@ -1,3 +1,3 @@
 export function addTitle() {
-	console.debug("ran addTitle");
+	console.info("ran addTitle");
 };

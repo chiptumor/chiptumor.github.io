@@ -15,8 +15,14 @@ const colors = {
 		light: (color) => color,
 		dark: (color) => color
 	},
-	tinted: {
-		base: "",
+	glacier: {
+		base: "#E7E9ED",
+		index: 10,
+		light: (color) => color,
+		dark: (color) => color
+	},
+	blueberry: {
+		base: "#E0EBFF",
 		index: 10,
 		light: (color) => color,
 		dark: (color) => color
@@ -24,7 +30,7 @@ const colors = {
 	red: {
 		base: "#E9263D",
 		index: 6,
-		light: (chroma) => [
+		light: (color) => [
 			color.rotate(2).lighten(2),
 			color.rotate(2).lighten(2),
 			color.rotate(2).lighten(2),
