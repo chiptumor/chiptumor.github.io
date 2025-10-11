@@ -15,5 +15,17 @@
 			They're only there as the default texts in the future case that the scripts for
 			those <i>should</i> work, but don't.
 		</p>
+		<p>
+			Extra notes:
+		</p>
+		<blockquote>
+			<p>
+				Some links don't look quite right when you hover over them right
+				now. I'll figure out how I wanna style those eventually.
+			</p>
+			<p>
+				Also, the todo list doesn't work yet. Ignore that.
+			</p>
+		</blockquote>
 	</body>
 </announcement>

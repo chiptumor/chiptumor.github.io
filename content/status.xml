@@ -1,4 +1,26 @@
-<imFeeling>something</imFeeling>
-<body>
-	<p>This will be the status body.</p>
-</body>
+<?xml version="1.0" encoding="UTF-8"?>
+<status>
+	<imFeeling>proud</imFeeling>
+	<body>
+		<p>
+			i got the fuckin status and announcement stuff to work!!!
+		</p>
+		<p>
+			instead of changing it directly in the main page itself, im storing
+			it in an external file and slapping it here
+		</p>
+		<p>
+			the big benefit of this is that i dont have to change the date every
+			time!! i also check when the file was last updated and slap that
+			under here too
+		</p>
+		<p>
+			i did the same with the announcements too :<small>3</small> !!
+		</p>
+		<p>
+			i should not the date depends on the last commit, not necessarily
+			last <i>change,</i> so the announcement and status may share a date
+			sometimes
+		</p>
+	</body>
+</status>
