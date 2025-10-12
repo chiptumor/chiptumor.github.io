@@ -6,7 +6,6 @@ await main.addMenubar();
 await main.addPlayer({ menubar: true });
 await main.setPfp();
 
-// TODO: implement relative times with package
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
 	// DISPLAY CONTENT
@@ -15,7 +14,7 @@ window.addEventListener("load", async () => {
 		.then(text => new DOMParser().parseFromString(text, "text/xml"));
 
 	document.querySelector("#grid div.announcement").setAttribute("data-visible",
-		content.getElementsByTagName("visible")[0].getAttribute("bool"));
+		content.documentElement.getAttribute("visible"));
 	document.querySelector("[data-content='announcement/preview/content']").innerHTML
 		= content.getElementsByTagName("preview")[0].innerHTML;
 	document.querySelector("[data-content='announcement/body/content']").innerHTML

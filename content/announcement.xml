@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<announcement>
-	<visible bool="true"/>
-
+<announcement visible="true">
 	<preview>Work in progress</preview>
-
 	<body>
 		<h2>This page is a work in progress.</h2>
 		<p>
