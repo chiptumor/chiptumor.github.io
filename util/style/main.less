@@ -31,8 +31,25 @@ body {
 	blockquote {
 		margin-left: 1em;
 		padding-left: 1em;
-		border-left: 3px solid @accent1;
+
+		position: relative;
+
 		color: @accent3;
+
+		&::before {
+			content: "";
+			
+			display: block;
+			width: 3px;
+			border-radius: calc($width / 2);
+
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+
+			background-color: @accent1;
+		}
 	}
 
 	code {
