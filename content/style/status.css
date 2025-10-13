@@ -43,7 +43,7 @@ body {
 	color: white;
 }
 
-body * {
+body > * {
 	display: block;
 	padding: 8px 0;
 }
