@@ -1,19 +1,30 @@
-function dropdown(node) {
-
-};
+function cycle(nodes) {
+    for (const node of nodes) switch (node.tagName) {
+        case "text": {
+            
+        } break;
+        case "url": {
+            
+        } break;
+        case "copy": {
+            
+        } break;
+        case "dropdown": {
+            
+        } break;
+    }
+}
 
 export async function addMenubar() {
 	console.time("Create Menubar");
-	const menubar = await fetch("/util/module/resource/menubar.xml")
+	const xml = await fetch("/util/module/resource/menubar.xml")
 		.then(response => response.text())
 		.then(text => new DOMParser().parseFromString(text, "text/xml"));
 
 	const element = document.createElement("div");
 	element.setAttribute("id", "menubar");
-
-	for (const node of menubar.documentElement.children) {
-		if (node.tagName === "dropdown") {}
-	}
+    
+    const menubar = cycle(xml.documentElement.children);
 
 	console.timeEnd("Create Menubar");
 };
