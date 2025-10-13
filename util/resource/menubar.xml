@@ -1,0 +1,146 @@
+<menubar>
+	<url href="/" class="home">
+		<img src="/resource/chiptumor.png" alt="Home page"/>
+	</url>
+	<dropdown href="/page/social">Social
+		<url href="/page/social">
+			Socials page
+		</url>
+		<dropdown>Email
+			<url href="mailto:tipchumor@gmail.com" title="tipchumor@gmail.com">
+				Personal email
+			</url>
+			<url href="/page/social#email">
+				Read more...
+			</url>
+		</dropdown>
+		<dropdown>Discord
+			<copy value="chiptumor" title="chiptumor">
+				Copy username
+			</copy>
+			<url href="https://discord.com/users/1184619891215573042">
+				Open user link <i>(less reliable)</i>
+			</url>
+			<url href="/page/social#discord">
+				Read more...
+			</url>
+		</dropdown>
+		<dropdown>Instagram
+			<url href="https://instagram.com/chiptumor" title="@chiptumor">
+				Main profile
+			</url>
+			<dropdown>More accounts
+				<url href="https://instagram.com/jackie__off" title="@jackie__off">
+					Old shitpost account
+				</url>
+			</dropdown>
+			<url href="/page/social#instagram">
+				Read more...
+			</url>
+		</dropdown>
+		<!-- <dropdown>Twitter
+			<url href="https://twitter.com/chiptumor" title="@chiptumor">
+				Main profile
+			</url>
+			<url href="https://twitter.com/gayLycanthrope" title="@gayLycanthrope">
+				Zoologist parody account
+			</url>
+			<dropdown>More accounts
+				<%-- TODO: change @fish_n_tumors to chiptumor_archive_1 --%>
+				<url href="https://twitter.com/chiptumor_archive_1" title="@chiptumor_archive_1">
+					Old personal account <i>(private)</i>
+				</url>
+				<url href="https://twitter.com/chiptumor_archive_2" title="@chiptumor_archive_2">
+					Old gimmick account <i>(private)</i>
+				</url>
+			</dropdown>
+			<url href="/page/social#twitter">
+				Read more...
+			</url>
+		</dropdown> -->
+	</dropdown>
+	<dropdown>Music
+		<dropdown>YouTube boycott
+			<url href="/blog?index=***#entry:why">
+				Why boycott YouTube?
+			</url>
+			<url href="/blog?index=***#entry:what">
+				What can I do?
+			</url>
+			<dropdown>YouTube channels
+				<url href="https://youtube.com/@chiptumor" title="@chiptumor">
+					Main channel
+				</url>
+				<!-- <url href="https://youtube.com/@chipscope" title="@chipscope">
+					Oscilloscope views
+				</url> -->
+				<!-- <url href="https://youtube.com/@chipposting" title="@chipposting">
+					WIPs, dumps, and shitposting
+				</url> -->
+				<url href="/page/social#youtube">
+					Read more...
+				</url>
+			</dropdown>
+		</dropdown>
+		<!-- <dropdown>Soundcloud
+			<url href="https://soundcloud.com/chiptumor">
+				Visit profile
+			</url>
+			<url href="/page/social#soundcloud">
+				Read more...
+			</url>
+		</dropdown> -->
+	</dropdown>
+	<dropdown>Games
+		<!-- <dropdown>Steam
+			<url href="https://***">
+				View profile
+			</url>
+			<url href="/page/social#steam">
+				Read more...
+			</url>
+		</dropdown> -->
+		<dropdown>Roblox
+			<url href="https://roblox.com/users/1375134678/profile">
+				View profile
+			</url>
+			<url href="/page/social#roblox">
+				Read more...
+			</url>
+		</dropdown>
+		<dropdown>Xbox
+			<url href="https://xbox.com/en-US/play/user/chiptumor">
+				View profile
+			</url>
+			<url href="/page/social#xbox">
+				Read more...
+			</url>
+		</dropdown>
+	</dropdown>
+	<dropdown>Projects
+		<dropdown>Github
+			<url href="https://github.com/chiptumor">
+				View profile
+			</url>
+			<!-- <dropdown>Discord Message Archive
+				<url href="https://chiptumor.github.io/discord-message-archive">
+					Open project
+				</url>
+				<url href="https://github.com/chiptumor/discord-message-archive">
+					View source
+				</url>
+				<url href="/page/project/discord-message-archive">
+					Read more...
+				</url>
+			</dropdown> -->
+			<!-- <dropdown>eztxtfx
+				<url href="https://chiptumor.github.io/eztxtfx">
+					Open project page
+				</url>
+				<url href="https://github.com/chiptumor/eztxtfx">
+					View source
+				</url>
+			</dropdown> -->
+		</dropdown>
+	</dropdown>
+</menubar>
