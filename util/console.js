@@ -1,36 +1,22 @@
-const original = {
-	log: console.log.bind(console),
-	info: console.info.bind(console),
-	debug: console.debug.bind(console),
-	warn: console.warn.bind(console),
-	error: console.error.bind(console),
-};
+const keys = [
+	"log",
+	"info",
+	"debug",
+	"warn",
+	"error"
+];
 
-console.log = (...message) => {
-	original.log(...message);
-	log("log", ...message);
-};
-console.info = (...message) => {
-	original.info(...message);
-	log("info", ...message);
-}
-console.debug = (...message) => {
-	original.debug(...message);
-	log("debug", ...message);
-}
-console.warn = (...message) => {
-	original.warn(...message);
-	log("warn", ...message);
-}
-console.error = (...message) => {
-	original.error(...message);
-	log("error", ...message);
+const original = {};
+for (const key of keys) {
+	original[key] = console[key].bind(console);
+	console[key] = (...message) => log(key, ...message);
 }
 
 const consoleElement = document.createElement("div");
 consoleElement.id = "console";
 
 function log(type, ...messages) {
+	original[type](...messages);
 	const element = document.createElement("div");
 	element.className = type;
 	const message = messages.map(message => typeof message === "object"
@@ -45,7 +31,7 @@ window.addEventListener("load", () => document.body.prepend(consoleElement));
 
 window.addEventListener("error", (event) => {
 	event.preventDefault();
-	window.alert(event); // DEBUG
+	window.alert(JSON.stringify(event, null, 4)); // DEBUG
 	log("error", `${event.message}\n${event.source} (${event.lineno}:${event.colno})`);
 });
 
