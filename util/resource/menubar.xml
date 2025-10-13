@@ -46,7 +46,7 @@
 				Zoologist parody account
 			</url>
 			<dropdown>More accounts
-				<%-- TODO: change @fish_n_tumors to chiptumor_archive_1 --%>
+				<!-%- TODO: change @fish_n_tumors to chiptumor_archive_1 -%->
 				<url href="https://twitter.com/chiptumor_archive_1" title="@chiptumor_archive_1">
 					Old personal account <i>(private)</i>
 				</url>
