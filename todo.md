@@ -1,3 +1,3 @@
-# TODO:
+### TODO:
 
-get todo list to work
+* get todo list to work
