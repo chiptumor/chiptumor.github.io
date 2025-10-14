@@ -6,8 +6,6 @@ await main.addMenubar();
 await main.addPlayer({ menubar: true });
 await main.setPfp();
 
-import timeAgo from "/util/module/package/javascript-time-ago.js";
-
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
 	// DISPLAY CONTENT
@@ -24,12 +22,13 @@ window.addEventListener("load", async () => {
 	
 
 	// DISPLAY DATE
+	const timeAgo = new TimeAgo("en-US");
+	
 	const [{ commit: { author: { date: dateString }}}] = await fetch(
 		"https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/announcement.xml&page=1&per_page=1"
 	).then(response => response.json());
 
 	const date = new Date(dateString);
-
 	const relative = timeAgo.format(date.getTime());
 	const locale = date.toLocaleString();
 
@@ -88,12 +87,13 @@ window.addEventListener("load", async () => {
 		= content.getElementsByTagName("body")[0].innerHTML;
 	
 	// DISPLAY DATE
+	const timeAgo = new TimeAgo("en-US");
+
 	const [{ commit: { author: { date: dateString }}}] = await fetch(
 		"https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/status.xml&page=1&per_page=1"
 	).then(response => response.json());
 
 	const date = new Date(dateString);
-
 	const relative = timeAgo.format(date.getTime());
 	const locale = date.toLocaleString();
 

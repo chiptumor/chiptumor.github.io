@@ -28,6 +28,15 @@
 		window.addEventListener("load", lucide.createIcons);
 	</script>
 
+	<!-- JavaScript Time Ago -->
+	<script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script>
+	<script>
+		(async () =>
+			await fetch("https://unpkg.com/javascript-time-ago@2.5.12/locale/en.json")
+				.then(response => response.json()).then(en => TimeAgo.addDefaultLocale(en))
+		)();
+	</script>
+
 	<!-- Marked -->
 	<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
 
