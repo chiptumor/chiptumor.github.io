@@ -1,8 +1,5 @@
 function cycle(nodes, parent) {
 	for (const node of nodes) {
-		const samePath =
-			new URL(node.getAttribute("href"), window.location.origin).pathname
-			=== window.location.pathname;
 		switch (node.tagName) {
 			case "text": {
 				const element = document.createElement("div");
@@ -21,8 +18,11 @@ function cycle(nodes, parent) {
 				element.className = node.className;
 				element.classList.add("item", "url");
 				element.innerHTML = "<span>" + node.innerHTML + "</span>";
-				if (samePath) element.classList.add("located");
-
+				if (
+					new URL(node.getAttribute("href"), window.location.origin).pathname
+						=== window.location.pathname
+				) element.classList.add("located");
+				if (URL.parse(node.getAttribute("href"))) element.setAttribute("target", "_blank");
 
 				element.setAttribute("href",       node.getAttribute("href")  || "");
 				element.setAttribute("data-title", node.getAttribute("title") || "");
@@ -47,7 +47,10 @@ function cycle(nodes, parent) {
 
 				element.className = node.className;
 				element.classList.add("dropdown");
-				if (samePath) element.classList.add("located");
+				if (
+					new URL(node.getAttribute("href"), window.location.origin).pathname
+						=== window.location.pathname
+				) element.classList.add("located");
 
 				const text = node.childNodes[0];
 				if (text.nodeType === 3) {
@@ -57,6 +60,7 @@ function cycle(nodes, parent) {
 				}
 
 				const child = document.createElement("div");
+				child.classList.add("content");
 				element.append(child);
 
 				cycle(node.children, child);
@@ -76,12 +80,16 @@ export async function addMenubar() {
 		const xml = await fetch("/util/resource/menubar.xml")
 			.then(response => response.text())
 			.then(text => new DOMParser().parseFromString(text, "text/xml"));
+		const menubar = document.createElement("div");
+		menubar.setAttribute("id", "menubar");
+
 		const element = document.createElement("div");
-		element.setAttribute("id", "menubar");
+		element.classList.add("content");
+		menubar.append(element);
 		
 		cycle(xml.documentElement.children, element);
 
-		document.body.prepend(element);
+		document.body.prepend(menubar);
 	});
 	
 	console.timeEnd("Create Menubar");

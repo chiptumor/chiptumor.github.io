@@ -3,6 +3,9 @@
 	<url href="/?s" class="home">
 		<img src="/resource/chiptumor.png" alt="Home page"/>
 	</url>
+	<url href="/blog">
+		Blog
+	</url>
 	<dropdown href="/page/social">Social
 		<url href="/page/social">
 			Socials page
@@ -60,7 +63,7 @@
 			</url>
 		</dropdown> -->
 	</dropdown>
-	<dropdown>Music
+	<!-- <dropdown>Music
 		<dropdown>YouTube boycott
 			<url href="/blog?index=***#entry:why">
 				Why boycott YouTube?
@@ -72,26 +75,26 @@
 				<url href="https://youtube.com/@chiptumor" title="@chiptumor">
 					Main channel
 				</url>
-				<!-- <url href="https://youtube.com/@chipscope" title="@chipscope">
+				<!- - <url href="https://youtube.com/@chipscope" title="@chipscope">
 					Oscilloscope views
-				</url> -->
-				<!-- <url href="https://youtube.com/@chipposting" title="@chipposting">
+				</url> - ->
+				<!- - <url href="https://youtube.com/@chipposting" title="@chipposting">
 					WIPs, dumps, and shitposting
-				</url> -->
+				</url> - ->
 				<url href="/page/social#youtube">
 					Read more...
 				</url>
 			</dropdown>
 		</dropdown>
-		<!-- <dropdown>Soundcloud
+		<!- - <dropdown>Soundcloud
 			<url href="https://soundcloud.com/chiptumor">
 				Visit profile
 			</url>
 			<url href="/page/social#soundcloud">
 				Read more...
 			</url>
-		</dropdown> -->
-	</dropdown>
+		</dropdown> - ->
+	</dropdown> -->
 	<dropdown>Games
 		<!-- <dropdown>Steam
 			<url href="https://***">
