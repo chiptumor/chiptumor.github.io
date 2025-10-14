@@ -107,7 +107,8 @@ window.addEventListener("load", async () => {
 
 // TODO LIST
 window.addEventListener("load", async () => {
-	const file = await fetch("/todo.md").then(response => response.text());
+	const file = await fetch("/todo.md", { cache: "no-cache" })
+		.then(response => response.text());
 
 	document.querySelector("[data-content='todo/content']").innerHTML
 		= marked.parse(file);
