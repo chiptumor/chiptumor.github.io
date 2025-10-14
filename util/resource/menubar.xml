@@ -19,13 +19,13 @@
 			</url>
 		</dropdown>
 		<dropdown>Discord
-			<copy value="chiptumor" title="chiptumor">
+			<copy value="chiptumor" title="@chiptumor">
 				Copy username
 			</copy>
 			<url href="https://discord.com/users/1184619891215573042">
 				Open user link <i>(less reliable)</i>
 			</url>
-			<url href="/page/social#discord">
+			<url href="/page/social#discord" title="@chiptumor">
 				Read more...
 			</url>
 		</dropdown>
@@ -50,7 +50,7 @@
 				Zoologist parody account
 			</url>
 			<dropdown>More accounts
-				<!-%- TODO: change @fish_n_tumors to chiptumor_archive_1 -%->
+				<!- - TODO: change @fish_n_tumors to chiptumor_archive_1 - ->
 				<url href="https://twitter.com/chiptumor_archive_1" title="@chiptumor_archive_1">
 					Old personal account <i>(private)</i>
 				</url>
