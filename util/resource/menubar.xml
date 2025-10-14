@@ -22,10 +22,10 @@
 			<copy value="chiptumor" title="@chiptumor">
 				Copy username
 			</copy>
-			<url href="https://discord.com/users/1184619891215573042">
+			<url href="https://discord.com/users/1184619891215573042" title="@chiptumor">
 				Open user link <i>(less reliable)</i>
 			</url>
-			<url href="/page/social#discord" title="@chiptumor">
+			<url href="/page/social#discord">
 				Read more...
 			</url>
 		</dropdown>
@@ -105,7 +105,7 @@
 			</url>
 		</dropdown> -->
 		<dropdown>Roblox
-			<url href="https://roblox.com/users/1375134678/profile">
+			<url href="https://roblox.com/users/1375134678/profile" title="chiptumor (@cod3breaker61)">
 				View profile
 			</url>
 			<url href="/page/social#roblox">
@@ -113,7 +113,7 @@
 			</url>
 		</dropdown>
 		<dropdown>Xbox
-			<url href="https://xbox.com/en-US/play/user/chiptumor">
+			<url href="https://xbox.com/en-US/play/user/chiptumor" title="@chiptumor">
 				View profile
 			</url>
 			<url href="/page/social#xbox">
@@ -123,7 +123,7 @@
 	</dropdown>
 	<dropdown>Projects
 		<dropdown>Github
-			<url href="https://github.com/chiptumor">
+			<url href="https://github.com/chiptumor" title="@chiptumor">
 				View profile
 			</url>
 			<!-- <dropdown>Discord Message Archive
