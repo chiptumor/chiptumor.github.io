@@ -16,7 +16,10 @@
 		align-content: flex-start;
 		flex-basis: content;
 
-		a, [data-copy] { text-decoration: none; }
+		a, [data-copy] {
+			text-decoration: none;
+			&:hover { border-radius: 0; }
+		}
 
 		.item.url, .item.copy, .dropdown {
 			display: flex;
