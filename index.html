@@ -3,20 +3,24 @@
 <head>
 	<!-- <script src="/util/module/console.js"></script> -->
 
-	<script>
-		var safe = !new URLSearchParams(window.location.search).has("s");
-	</script>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>chiptumor.github.io</title>
 	<link rel="shortcut icon" href="https://chiptumor.github.io/neocities/favicon.ico" type="image/x-icon"/>
 	
+	<script>
+		var safe = !new URLSearchParams(window.location.search).has("s");
+	</script>
+	
 	<!-- Less-To-Css -->
 	<link rel="stylesheet/less" type="text/css" href="style.less"/>
 	<script src="https://cdn.jsdelivr.net/npm/less"></script>
 
+	<!-- Lucide Icons -->
 	<script src="https://unpkg.com/lucide@0.545.0/dist/umd/lucide.js"></script>
-	<script> window.addEventListener("load", lucide.createIcons); </script>
+	<script>
+		window.addEventListener("load", lucide.createIcons);
+	</script>
 
 	<!-- JavaScript Time Ago -->
 	<script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script>
@@ -26,6 +30,9 @@
 				.then(response => response.json()).then(en => TimeAgo.addDefaultLocale(en))
 		)();
 	</script>
+
+	<!-- Marked -->
+	<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
 
 	<script src="./main.js" type="module"></script>
 </head>
@@ -121,7 +128,7 @@
 			<h3>TODO:</h3>
 			<div data-content="todo/content">
 				<p>
-					The To-do list at <a href="/todo.md"><code>/todo.md</code></a> could not be
+					The to-do list at <a href="/todo.md"><code>/todo.md</code></a> could not be
 					fetched or parsed.
 				</p>
 			</div>

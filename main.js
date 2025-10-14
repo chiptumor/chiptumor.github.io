@@ -104,3 +104,11 @@ window.addEventListener("load", async () => {
 	document.querySelector("[data-content='status/date/locale']").textContent
 		= locale;
 });
+
+// TODO LIST
+window.addEventListener("load", async () => {
+	const file = await fetch("/todo.md").then(response => response.text());
+
+	document.querySelector("[data-content='todo/content']").innerHTML
+		= marked.parse(file);
+});
