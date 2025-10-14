@@ -1,7 +1,7 @@
 ### TODO
 
 * test site with webkit
-  * **LOOK AT ME!!** if you're on a webkit browser, especially safari on a mac, *please* help me diagnose webkit errors&mdash;look up how to open the browser console and send me a screenshot of the errors you find on this page at <div data-copy="chiptumor">chiptumor</div> on discord!!
+  > **LOOK AT ME!!** if you're on a webkit browser, especially safari on a mac, *please* help me diagnose webkit errors&mdash;look up how to open the browser console and send me a screenshot of the errors you find on this page at <span data-copy="chiptumor">@chiptumor</span> on discord!!
 * work on blog
   * style blog page
   * create first blog post

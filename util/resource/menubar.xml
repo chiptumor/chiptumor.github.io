@@ -3,7 +3,7 @@
 	<url href="/?s" class="home">
 		<img src="/resource/chiptumor.png" alt="Home page"/>
 	</url>
-	<url href="/blog">
+	<url href="/page/blog">
 		Blog
 	</url>
 	<dropdown href="/page/social">Social
@@ -65,10 +65,10 @@
 	</dropdown>
 	<!-- <dropdown>Music
 		<dropdown>YouTube boycott
-			<url href="/blog?index=***#entry:why">
+			<url href="/page/blog?index=***#entry:why">
 				Why boycott YouTube?
 			</url>
-			<url href="/blog?index=***#entry:what">
+			<url href="/page/blog?index=***#entry:what">
 				What can I do?
 			</url>
 			<dropdown>YouTube channels
