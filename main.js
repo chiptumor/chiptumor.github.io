@@ -6,6 +6,8 @@ await main.addMenubar();
 await main.addPlayer({ menubar: true });
 await main.setPfp();
 
+import timeAgo from "/util/module/package/javascript-time-ago.js";
+
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
 	// DISPLAY CONTENT
@@ -27,8 +29,6 @@ window.addEventListener("load", async () => {
 	).then(response => response.json());
 
 	const date = new Date(dateString);
-	
-	const timeAgo = new TimeAgo("en-US");
 
 	const relative = timeAgo.format(date.getTime());
 	const locale = date.toLocaleString();
@@ -93,8 +93,6 @@ window.addEventListener("load", async () => {
 	).then(response => response.json());
 
 	const date = new Date(dateString);
-	
-	const timeAgo = new TimeAgo("en-US");
 
 	const relative = timeAgo.format(date.getTime());
 	const locale = date.toLocaleString();
