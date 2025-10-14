@@ -1,0 +1,53 @@
+#title {
+	display: none;
+	flex-direction: column;
+	gap: 3px;
+
+	max-width: 200px;
+	padding: 4px 6px;
+	
+	position: fixed;
+	z-index: 2;
+
+	line-break: auto;
+
+	border: 1px solid @accent0;
+	background-image: linear-gradient(to bottom right, @accent-6, 70%, @accent-2);
+	background-size: cover;
+	background-attachment: fixed;
+
+	span.title {
+		display: block;
+		font-size: 16px;
+	}
+	span.desc {
+		display: block;
+		font-size: 12px;
+		color: @accent3;
+	}
+	span.ctc {
+		display: none;
+		span.success, span.failure {
+			display: none;
+			padding: 2px 5px;
+			max-width: max-content;
+
+			background-color: @accent0;
+
+			svg {
+				vertical-align: middle;
+			}
+		}
+	}
+
+	&.ctc-success span.ctc {
+		&, & span.success {
+			display: block;
+		}
+	}
+	&.ctc-failure span.ctc {
+		&, & span.failure {
+			display: block;
+		}
+	}
+}
