@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <menubar>
-	<url href="/" class="home">
+	<url href="/?s" class="home">
 		<img src="/resource/chiptumor.png" alt="Home page"/>
 	</url>
 	<dropdown href="/page/social">Social
