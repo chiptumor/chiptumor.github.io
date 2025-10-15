@@ -1,29 +1,173 @@
 @import "/util/pallete.less";
 
 body {
-	display: flex;
-	width: 100%;
-	height: 50px;
-	flex-flow: row;
-	align-content: stretch;
-
-	background-color: gray
+	margin: 0;
 }
 
-div.color {
-	flex: 1;
-}
+table {
+	width: 100vw;
+	height: 100vh;
+	border-spacing: 0;
 
-div[data-color="B"]  { background-color: black }
-div[data-color="-6"] { background-color: hsl(318, 85%, 5% ) }
-div[data-color="-5"] { background-color: hsl(322, 81%, 10%) }
-div[data-color="-4"] { background-color: hsl(327, 83%, 15%) }
-div[data-color="-3"] { background-color: hsl(332, 81%, 20%) }
-div[data-color="-2"] { background-color: hsl(337, 82%, 30%) }
-div[data-color="-1"] { background-color: hsl(342, 82%, 40%) }
-div[data-color="0"]  { background-color: hsl(347, 82%, 50%) }
-div[data-color="1"]  { background-color: hsl(349, 82%, 60%) }
-div[data-color="2"]  { background-color: hsl(351, 82%, 70%) }
-div[data-color="3"]  { background-color: hsl(353, 82%, 80%) }
-div[data-color="4"]  { background-color: hsl(357, 82%, 90%) }
-div[data-color="W"]  { background-color: white }
+	tr td[data-shade="black"] {
+		background-color: var(--black);
+		color: var(--white);
+	}
+	tr td[data-shade="white"] {
+		background-color: var(--white);
+	}
+
+	tr[data-color="grayscale"] {
+		td[data-shade="0"] { background-color: var(--grayscale_0); }
+		td[data-shade="1"] { background-color: var(--grayscale_1); }
+		td[data-shade="2"] { background-color: var(--grayscale_2); }
+		td[data-shade="3"] { background-color: var(--grayscale_3); }
+		td[data-shade="4"] { background-color: var(--grayscale_4); }
+		td[data-shade="5"] { background-color: var(--grayscale_5); }
+		td[data-shade="6"] { background-color: var(--grayscale_6); }
+		td[data-shade="7"] { background-color: var(--grayscale_7); }
+		td[data-shade="8"] { background-color: var(--grayscale_8); }
+		td[data-shade="9"] { background-color: var(--grayscale_9); }
+		td[data-shade="10"] { background-color: var(--grayscale_10); }
+	}
+
+	tr[data-color="glacier"] {
+		td[data-shade="0"] { background-color: var(--glacier_0); }
+		td[data-shade="1"] { background-color: var(--glacier_1); }
+		td[data-shade="2"] { background-color: var(--glacier_2); }
+		td[data-shade="3"] { background-color: var(--glacier_3); }
+		td[data-shade="4"] { background-color: var(--glacier_4); }
+		td[data-shade="5"] { background-color: var(--glacier_5); }
+		td[data-shade="6"] { background-color: var(--glacier_6); }
+		td[data-shade="7"] { background-color: var(--glacier_7); }
+		td[data-shade="8"] { background-color: var(--glacier_8); }
+		td[data-shade="9"] { background-color: var(--glacier_9); }
+		td[data-shade="10"] { background-color: var(--glacier_10); }
+	}
+
+	tr[data-color="blueberry"] {
+		td[data-shade="0"] { background-color: var(--blueberry_0); }
+		td[data-shade="1"] { background-color: var(--blueberry_1); }
+		td[data-shade="2"] { background-color: var(--blueberry_2); }
+		td[data-shade="3"] { background-color: var(--blueberry_3); }
+		td[data-shade="4"] { background-color: var(--blueberry_4); }
+		td[data-shade="5"] { background-color: var(--blueberry_5); }
+		td[data-shade="6"] { background-color: var(--blueberry_6); }
+		td[data-shade="7"] { background-color: var(--blueberry_7); }
+		td[data-shade="8"] { background-color: var(--blueberry_8); }
+		td[data-shade="9"] { background-color: var(--blueberry_9); }
+		td[data-shade="10"] { background-color: var(--blueberry_10); }
+	}
+
+	tr[data-color="red"] {
+		td[data-shade="0"] { background-color: var(--red_0); }
+		td[data-shade="1"] { background-color: var(--red_1); }
+		td[data-shade="2"] { background-color: var(--red_2); }
+		td[data-shade="3"] { background-color: var(--red_3); }
+		td[data-shade="4"] { background-color: var(--red_4); }
+		td[data-shade="5"] { background-color: var(--red_5); }
+		td[data-shade="6"] { background-color: var(--red_6); }
+		td[data-shade="7"] { background-color: var(--red_7); }
+		td[data-shade="8"] { background-color: var(--red_8); }
+		td[data-shade="9"] { background-color: var(--red_9); }
+		td[data-shade="10"] { background-color: var(--red_10); }
+	}
+
+	tr[data-color="orange"] {
+		td[data-shade="0"] { background-color: var(--orange_0); }
+		td[data-shade="1"] { background-color: var(--orange_1); }
+		td[data-shade="2"] { background-color: var(--orange_2); }
+		td[data-shade="3"] { background-color: var(--orange_3); }
+		td[data-shade="4"] { background-color: var(--orange_4); }
+		td[data-shade="5"] { background-color: var(--orange_5); }
+		td[data-shade="6"] { background-color: var(--orange_6); }
+		td[data-shade="7"] { background-color: var(--orange_7); }
+		td[data-shade="8"] { background-color: var(--orange_8); }
+		td[data-shade="9"] { background-color: var(--orange_9); }
+		td[data-shade="10"] { background-color: var(--orange_10); }
+	}
+
+	tr[data-color="yellow"] {
+		td[data-shade="0"] { background-color: var(--yellow_0); }
+		td[data-shade="1"] { background-color: var(--yellow_1); }
+		td[data-shade="2"] { background-color: var(--yellow_2); }
+		td[data-shade="3"] { background-color: var(--yellow_3); }
+		td[data-shade="4"] { background-color: var(--yellow_4); }
+		td[data-shade="5"] { background-color: var(--yellow_5); }
+		td[data-shade="6"] { background-color: var(--yellow_6); }
+		td[data-shade="7"] { background-color: var(--yellow_7); }
+		td[data-shade="8"] { background-color: var(--yellow_8); }
+		td[data-shade="9"] { background-color: var(--yellow_9); }
+		td[data-shade="10"] { background-color: var(--yellow_10); }
+	}
+
+	tr[data-color="green"] {
+		td[data-shade="0"] { background-color: var(--green_0); }
+		td[data-shade="1"] { background-color: var(--green_1); }
+		td[data-shade="2"] { background-color: var(--green_2); }
+		td[data-shade="3"] { background-color: var(--green_3); }
+		td[data-shade="4"] { background-color: var(--green_4); }
+		td[data-shade="5"] { background-color: var(--green_5); }
+		td[data-shade="6"] { background-color: var(--green_6); }
+		td[data-shade="7"] { background-color: var(--green_7); }
+		td[data-shade="8"] { background-color: var(--green_8); }
+		td[data-shade="9"] { background-color: var(--green_9); }
+		td[data-shade="10"] { background-color: var(--green_10); }
+	}
+
+	tr[data-color="cyan"] {
+		td[data-shade="0"] { background-color: var(--cyan_0); }
+		td[data-shade="1"] { background-color: var(--cyan_1); }
+		td[data-shade="2"] { background-color: var(--cyan_2); }
+		td[data-shade="3"] { background-color: var(--cyan_3); }
+		td[data-shade="4"] { background-color: var(--cyan_4); }
+		td[data-shade="5"] { background-color: var(--cyan_5); }
+		td[data-shade="6"] { background-color: var(--cyan_6); }
+		td[data-shade="7"] { background-color: var(--cyan_7); }
+		td[data-shade="8"] { background-color: var(--cyan_8); }
+		td[data-shade="9"] { background-color: var(--cyan_9); }
+		td[data-shade="10"] { background-color: var(--cyan_10); }
+	}
+
+	tr[data-color="blue"] {
+		td[data-shade="0"] { background-color: var(--blue_0); }
+		td[data-shade="1"] { background-color: var(--blue_1); }
+		td[data-shade="2"] { background-color: var(--blue_2); }
+		td[data-shade="3"] { background-color: var(--blue_3); }
+		td[data-shade="4"] { background-color: var(--blue_4); }
+		td[data-shade="5"] { background-color: var(--blue_5); }
+		td[data-shade="6"] { background-color: var(--blue_6); }
+		td[data-shade="7"] { background-color: var(--blue_7); }
+		td[data-shade="8"] { background-color: var(--blue_8); }
+		td[data-shade="9"] { background-color: var(--blue_9); }
+		td[data-shade="10"] { background-color: var(--blue_10); }
+	}
+
+	tr[data-color="purple"] {
+		td[data-shade="0"] { background-color: var(--purple_0); }
+		td[data-shade="1"] { background-color: var(--purple_1); }
+		td[data-shade="2"] { background-color: var(--purple_2); }
+		td[data-shade="3"] { background-color: var(--purple_3); }
+		td[data-shade="4"] { background-color: var(--purple_4); }
+		td[data-shade="5"] { background-color: var(--purple_5); }
+		td[data-shade="6"] { background-color: var(--purple_6); }
+		td[data-shade="7"] { background-color: var(--purple_7); }
+		td[data-shade="8"] { background-color: var(--purple_8); }
+		td[data-shade="9"] { background-color: var(--purple_9); }
+		td[data-shade="10"] { background-color: var(--purple_10); }
+	}
+
+	tr[data-color="magenta"] {
+		td[data-shade="0"] { background-color: var(--magenta_0); }
+		td[data-shade="1"] { background-color: var(--magenta_1); }
+		td[data-shade="2"] { background-color: var(--magenta_2); }
+		td[data-shade="3"] { background-color: var(--magenta_3); }
+		td[data-shade="4"] { background-color: var(--magenta_4); }
+		td[data-shade="5"] { background-color: var(--magenta_5); }
+		td[data-shade="6"] { background-color: var(--magenta_6); }
+		td[data-shade="7"] { background-color: var(--magenta_7); }
+		td[data-shade="8"] { background-color: var(--magenta_8); }
+		td[data-shade="9"] { background-color: var(--magenta_9); }
+		td[data-shade="10"] { background-color: var(--magenta_10); }
+	}
+}
