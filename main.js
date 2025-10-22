@@ -5,10 +5,29 @@ await main.addMenubar();
 await main.addPlayer({ menubar: true });
 await main.setPfp();
 
+// GREETING
+window.addEventListener("load", () => {
+	const element = document.querySelector("#grid div.welcome h1.greeting");
+	const content = element.textContent;
+	element.innerHTML = "";
+
+	const diff = -200;
+
+	const length = (content.length * diff) - diff;
+
+	for (const character in content) {
+		const delay = length - (character * diff);
+		const span = document.createElement("span");
+		span.style.animationDelay = `${delay}ms`;
+		span.textContent = content[character];
+		element.append(span);
+	}
+});
+
 // ANNOUNCEMENT
 window.addEventListener("load", async () => {
 	// DISPLAY CONTENT
-	const content = await fetch("/content/announcement.xml", { cache: "no-cache" })
+	const content = await fetch("/content/announcement.xml")
 		.then(response => response.text())
 		.then(text => new DOMParser().parseFromString(text, "text/xml"));
 
@@ -52,25 +71,6 @@ window.addEventListener("load", async () => {
 			event.stopPropagation();
 		}
 	});
-});
-
-// GREETING
-window.addEventListener("load", () => {
-	const element = document.querySelector("#grid div.welcome h1.greeting");
-	const content = element.textContent;
-	element.innerHTML = "";
-
-	const diff = -200;
-
-	const length = (content.length * diff) - diff;
-
-	for (const character in content) {
-		const delay = length - (character * diff);
-		const span = document.createElement("span");
-		span.style.animationDelay = `${delay}ms`;
-		span.textContent = content[character];
-		element.append(span);
-	}
 });
 
 // STATUS
