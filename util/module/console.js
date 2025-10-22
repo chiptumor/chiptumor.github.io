@@ -19,7 +19,7 @@ function log(type, ...messages) {
 	original[type](...messages);
 	const element = document.createElement("div");
 	element.className = type;
-	const message = messages.map(message => typeof message === "object"
+	const message = messages.map(message => message instanceof Object
 		? JSON.stringify(message, null, 4)
 		: message
 	).join(" ");
@@ -32,7 +32,7 @@ window.addEventListener("load", () => document.body.prepend(consoleElement));
 window.addEventListener("error", (event) => {
 	event.preventDefault();
 	window.alert(JSON.stringify(event, null, 4)); // DEBUG
-	log("error", `${event.message}\n${event.source} (${event.lineno}:${event.colno})`);
+	log("error", `${event.message}\n${event.filename} (${event.lineno}:${event.colno})`);
 });
 
 window.addEventListener("unhandledRejection", (event) => {
