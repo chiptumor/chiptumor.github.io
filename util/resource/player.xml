@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<player>
+	<audio data-content="player/audio"></audio>
+	<div class="info">
+		<div class="title"><span data-content="player/title"></span></div>
+		<div class="artist"><span data-content="player/artist"></span></div>
+		<div class="context">
+			<div class="chip"><span data-content="player/chip"></span></div>
+			<div class="software"><span data-content="player/software"></span></div>
+		</div>
+	</div>
+	<div class="controls">
+		<div class="play-pause" data-button="player/play-pause">
+			<div data-lucide="play"></div>
+			<div data-lucide="pause"></div>
+		</div>
+		<div>
+			<div data-button="player/prev">
+				<div data-lucide="skip-back"></div>
+			</div>
+			<div data-button="player/next">
+				<div data-lucide="skip-forward"></div>
+			</div>
+		</div>
+		<a data-button="player/reveal">
+			<div data-lucide="list-music"></div>
+		</a>
+	</div>
+	<div class="duration">
+		<div class="left">
+			<div data-content="player/elapsed">elapsed</div>
+		</div>
+		<div class="right">
+			<div data-content="player/remaining">remaining</div>
+			/
+			<div data-content="player/total">total</div>
+		</div>
+	</div>
+	<div class="progress">
+		<div data-content="player/progress"></div>
+	</div>
+</player>
