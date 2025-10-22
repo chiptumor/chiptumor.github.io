@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="/content/style/status.css"?>
 <status>
-	<imFeeling>proud</imFeeling>
+	<imFeeling>exhausted</imFeeling>
 	<body>
 		<p>
-			i got the fuckin status and announcement stuff to work!!!
+			even after ive left twenty billion repositories in the dust, i cant stop
+			starting new projects. i fucking love coding. so much
 		</p>
 		<p>
-			instead of changing it directly in the main page itself, im storing
-			it in an external file and slapping it here
+			im trying to work on this site as much as possible but i keep getting distracted
+			starting other learning projects like an npm package that makes using imageboard
+			APIs easier or a roblox game for the sake of learning luau
 		</p>
 		<p>
-			the big benefit of this is that i dont have to change the date every
-			time!! i also check when the file was last updated and slap that
-			under here too :<big>3</big>
+			i PROMISE im workin on things i PROMISE
 		</p>
 	</body>
 </status>
