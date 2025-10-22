@@ -8,7 +8,7 @@
 
 	background-image: linear-gradient(to bottom, var(--accent_1), var(--accent_2));
 
-	> div.content {
+	> menu {
 		a[href^="/page/social"] { display: none !important; } // TODO
 		display: flex;
 		flex-direction: row;
@@ -20,7 +20,7 @@
 			&:hover { border-radius: 0; }
 		}
 
-		.item.url, .item.copy, .dropdown {
+		li:has(> a), li[data-copy], li:has(> menu) {
 			display: flex;
 			align-items: center;
 			align-content: center;
@@ -37,18 +37,18 @@
 			}
 		}
 
-		.item {
+		li {
 			padding: 2px 6px;
 		}
-		.item.url, .item.copy {
+		li:has(> a), li[data-copy] {
 			cursor: pointer;
 		}
-		.dropdown {
+		li:has(> menu) {
 			padding: 2px 20px 2px 6px;
 			cursor: default;
 		}
 
-		> .dropdown {
+		> li:has(> menu) {
 			position: relative;
 
 			> span {
@@ -75,7 +75,7 @@
 				}
 			}
 
-			> div.content {
+			> menu {
 				display: none;
 				position: absolute;
 				top: calc(100% + 2px);
@@ -85,7 +85,7 @@
 				min-width: max-content;
 			}
 
-			.dropdown {
+			li:has(> menu) {
 				position: relative;
 	
 				> span {
@@ -112,7 +112,7 @@
 					}
 				}
 	
-				> div.content {
+				> menu {
 					display: none;
 					position: absolute;
 					top: -2px;
