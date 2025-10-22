@@ -1,6 +1,6 @@
 import * as main from "/util/module/index.js";
-await main.addTitle();
-await main.setClickToCopy();
+main.addTitle();
+main.setClickToCopy();
 await main.addMenubar();
 await main.addPlayer({ menubar: true });
 await main.setPfp();
