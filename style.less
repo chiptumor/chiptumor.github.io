@@ -54,6 +54,7 @@ div.box {
 	grid-template-areas:
 		"announcement announcement announcement"
 		"welcome      welcome      status      "
+		"projects     projects     projects    "
 		"identity     zoologist    zoologist   "
 		"todo         todo         todo        "
 	;
@@ -61,6 +62,7 @@ div.box {
 	div.announcement { grid-area: announcement; }
 	div.welcome      { grid-area: welcome;      }
 	div.status       { grid-area: status;       }
+	div.projects     { grid-area: projects;     }
 	div.identity     { grid-area: identity;     }
 	div.zoologist    { grid-area: zoologist;    }
 	div.todo         { grid-area: todo;         }
@@ -223,6 +225,10 @@ div.box {
 			border-width: 0 0 @size @size;
 			border-color: transparent transparent var(--accent_6) transparent;
 		}
+	}
+
+	div.projects {
+		
 	}
 }
 
