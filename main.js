@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
 
 	const diff = -200;
 
-	const length = (content.length * diff) - diff;
+	const length = content.length - 1 * diff;
 
 	for (const character in content) {
 		const delay = length - (character * diff);
