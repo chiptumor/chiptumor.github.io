@@ -11,8 +11,9 @@
 	> menu {
 		li:has(> a[href^="/page/social"]) { display: none !important; } // TODO
 
-		li.home img {
-			height: 8px; // TODO
+		li.home {
+			img { height: 12px; }
+			&:hover img { filter: brightness(0%); }
 		}
 
 		display: flex;
@@ -51,7 +52,7 @@
 
 		li, menu {
 			padding: 2px 6px;
-			padding-inline: 0;
+			margin: 0;
 
 			position: relative;
 
@@ -105,8 +106,8 @@
 			}
 
 			> menu {
-				top: calc(100% + 2px);
-				left: -2px;
+				top: 100%;
+				left: -8px;
 			}
 
 			li:has(> menu) {
@@ -125,12 +126,12 @@
 				}
 	
 				> menu {
-					top: -2px;
-					left: calc(100% + 2px);
+					top: -4px;
+					left: calc(100% - 4px);
 				}
 			}
 		}
 		
-		.located { border-color: var(--white); }
+		.located { border-color: var(--accent_7); }
 	}
 }

@@ -12,10 +12,7 @@
   >
   > then to open the console either
   >
-  > * in the menubar, navigate to **Develop** > **Show JavaScript Console**
-  >
-  >   or
-  >
+  > * in the menubar, navigate to **Develop** > **Show JavaScript Console**, *or*
   > * press <key>cmd</key> + <key>option</key> + <key>c</key>
   >
   > after youve opened the console take a screenshot of where you see errors and send them to me at <span data-copy="chiptumor">chiptumor</span> on discord!!!
