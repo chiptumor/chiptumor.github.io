@@ -1,8 +1,8 @@
 export async function addPlayer(options) {
 	console.time("Add player");
 
-	if (options.menubar) {
-		window.addEventListener("load", async () => {
+	window.addEventListener("load", async () => {
+		if (options.menubar) {
 			const element = document.getElementById("menubar");
 			if (!element) throw new Error("No menubar element found.");
 
@@ -16,8 +16,27 @@ export async function addPlayer(options) {
 			menubar.append(element);
 
 			element.innerHTML = xml.documentElement.innerHTML;
+		}
 
-			console.timeEnd("Add player");
-		});
-	}
+		const audio = document.getElementById("player/audio");
+
+		const title = document.getElementById("player/title");
+		const artist = document.getElementById("player/artist");
+		const chip = document.getElementById("player/chip");
+		const software = document.getElementById("player/software");
+
+		const play = document.getElementById("player/play-pause");
+		const prev = document.getElementById("player/prev");
+		const next = document.getElementById("player/next");
+		const reveal = document.getElementById("player/reveal");
+
+		const elapsed = document.getElementById("player/elapsed");
+		const remaining = document.getElementById("player/remaining");
+		const total = document.getElementById("player/total");
+		const progress = document.getElementById("player/progress");
+
+		console.timeEnd("Add player");
+	});
+
+
 };
