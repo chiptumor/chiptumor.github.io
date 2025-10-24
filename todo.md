@@ -4,12 +4,14 @@
   > **LOOK AT ME!!** if you're on a webkit browser, especially safari on a mac, *please* help me diagnose webkit errors!
   >
   > to enable the console
+  >
   > * open Safari
   > * in the menubar, navigate to **Safari menu** > **Preferences**
   > * select the **Advanced** tab
   > * enable **Show features for web developers** at the bottom
   >
   > then to open the console either
+  >
   > * in the menubar, navigate to **Develop** > **Show JavaScript Console**
   >
   >   or
