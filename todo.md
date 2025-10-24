@@ -1,17 +1,22 @@
 ### TODO
 
 * test site with webkit
-  > **LOOK AT ME!!** if you're on a webkit browser, especially safari on a mac, *please* help me diagnose webkit errors&mdash;check out how to open the browser console and send me a screenshot of the errors you find on this page at <span data-copy="chiptumor">@chiptumor</span> on discord!!
+  > **LOOK AT ME!!** if you're on a webkit browser, especially safari on a mac, *please* help me diagnose webkit errors!
   >
-  > To enable the console...
-  > * Open Safari
-  > * Navigate, in the menubar, to **Safari menu** > **Preferences**
-  > * Select the **Advanced** tab
-  > * Check **Show features for web developers** at the bottom
-  > Then, to open the console, either...
-  > * Navigate, in the menubar, to **Develop** > **Show JavaScript Console**, or
-  > * Press <key>cmd</key> + <key>option</key> + <key>c</key>
-  > 
+  > to enable the console
+  > * open Safari
+  > * in the menubar, navigate to **Safari menu** > **Preferences**
+  > * select the **Advanced** tab
+  > * enable **Show features for web developers** at the bottom
+  >
+  > then to open the console either
+  > * in the menubar, navigate to **Develop** > **Show JavaScript Console**
+  >
+  >   or
+  >
+  > * press <key>cmd</key> + <key>option</key> + <key>c</key>
+  >
+  > after youve opened the console take a screenshot of where you see errors and send them to me at <span data-copy="chiptumor">chiptumor</span> on discord!!!
 * fix header sizing
 * add to projects panel
 * add music player
