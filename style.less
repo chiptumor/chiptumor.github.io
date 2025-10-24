@@ -11,7 +11,7 @@ body {
 	padding: 100px 50px;
 }
 
-div.box {
+div.panel {
 	padding: 8px 16px;
 
 	position: relative;
@@ -173,7 +173,7 @@ div.box {
 		}
 	}
 
-	div.status div.box {
+	div.status div.panel {
 		display: grid;
 		grid-auto-rows: max-content;
 
@@ -244,7 +244,7 @@ div.box {
 			"todo        "
 		;
 
-		div.status div.box::before {
+		div.status div.panel::before {
 			
 			@size: 6px;
 
@@ -262,7 +262,7 @@ div.box {
 }
 
 // LAGGY:
-/* div.box {
+/* div.panel {
 	border-radius: 10px;
 	&::before {
 		top: 0; left: 4px;
