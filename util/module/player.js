@@ -1,4 +1,6 @@
 export async function addPlayer(options) {
+	console.time("Add player");
+
 	if (options.menubar) {
 		window.addEventListener("load", async () => {
 			const element = document.getElementById("menubar");
@@ -8,6 +10,9 @@ export async function addPlayer(options) {
 				.then(response => response.text())
 				.then(text => new DOMParser().parseFromString(text, "text/xml"));
 			
+			const element 
 		});
 	}
+
+	console.timeEnd("Add player");
 };

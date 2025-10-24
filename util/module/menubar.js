@@ -43,7 +43,7 @@ function cycle(nodes, parent) {
 					const span = document.createElement("span");
 					span.innerHTML = text.nodeValue.trim();
 					element.append(span);
-				} else console.warn("addMenubar: Dropdown tag doesn't have beginning text node.");
+				} else console.error("addMenubar: Dropdown tag doesn't have beginning text node.");
 
 				const child = document.createElement("menu");
 				child.classList.add("content");
