@@ -1,7 +1,6 @@
 ### TODO
 
 * test site with webkit
-
   > **LOOK AT ME!!** if you're on a webkit browser, especially safari on a mac, *please* help me diagnose webkit errors!
   >
   > to enable the console
@@ -20,7 +19,6 @@
   > * press <key>cmd</key> + <key>option</key> + <key>c</key>
   >
   > after youve opened the console take a screenshot of where you see errors and send them to me at <span data-copy="chiptumor">chiptumor</span> on discord!!!
-
 * fix header sizing
 * add to projects panel
 * add music player

@@ -2,7 +2,8 @@ function cycle(nodes, parent) {
 	for (const node of nodes) {
 		const element = document.createElement("li");
 		
-		element.className = node.className;
+		if (node.className) element.className = node.className;
+
 		node.getAttribute("title") &&
 			element.setAttribute("data-title", node.getAttribute("title") || "");
 		node.getAttribute("desc")  &&
@@ -60,24 +61,39 @@ function cycle(nodes, parent) {
 	}
 }
 
-export async function addMenubar() {
+import * as player from "/util/module/player.js";
+
+export async function addMenubar(options) {
 	console.time("Create Menubar");
 
 	window.addEventListener("load", async () => {
 		const xml = await fetch("/util/resource/menubar.xml")
 			.then(response => response.text())
 			.then(text => new DOMParser().parseFromString(text, "text/xml"));
-		const div = document.createElement("div");
-		div.setAttribute("id", "menubar");
+		const menubar = document.createElement("div");
+		menubar.setAttribute("id", "menubar");
 
 		const menu = document.createElement("menu");
-		div.append(menu);
+		menubar.append(menu);
 		
 		cycle(xml.documentElement.children, menu);
 
-		document.body.prepend(div);
+		document.body.prepend(menubar);
+		
+		if (options.playlist) {
+			const xml = await fetch("/util/resource/player.xml")
+				.then(response => response.text())
+				.then(text => new DOMParser().parseFromString(text, "text/xml"));
+				
+			const element = document.createElement("div");
+			element.setAttribute("class", "player");
+			menubar.append(element);
+
+			element.innerHTML = xml.documentElement.innerHTML;
+
+			await player.setPlayer();
+		}
 
 		console.timeEnd("Create Menubar");
 	});
-	
 };

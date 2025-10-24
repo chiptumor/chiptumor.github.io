@@ -1,8 +1,7 @@
 import * as main from "/util/module/index.js";
 main.addTitle();
 main.setClickToCopy();
-await main.addMenubar();
-await main.addPlayer({ menubar: true });
+await main.addMenubar({ playlist: true });
 await main.setPfp();
 
 // TODO LIST
@@ -22,13 +21,13 @@ window.addEventListener("load", () => {
 
 	const diff = -200;
 
-	const length = content.length - 1 * diff;
+	const length = (content.length - 1) * diff;
 
-	for (const character of content) {
+	for (const character in content) {
 		const delay = length - (character * diff);
 		const span = document.createElement("span");
 		span.style.animationDelay = `${delay}ms`;
-		span.textContent = character;
+		span.textContent = content[character];
 		element.append(span);
 	}
 });
