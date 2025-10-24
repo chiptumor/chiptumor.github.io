@@ -10,9 +10,9 @@ export async function addPlayer(options) {
 				.then(response => response.text())
 				.then(text => new DOMParser().parseFromString(text, "text/xml"));
 			
-			const element 
+			const menubar = document.getElementById("menubar");
+
+			console.timeEnd("Add player");
 		});
 	}
-
-	console.timeEnd("Add player");
 };

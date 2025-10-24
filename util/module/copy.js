@@ -1,6 +1,4 @@
 export function setClickToCopy() {
-	console.time("Set Click-to-Copy");
-
 	window.addEventListener("click", async (event) => {
 		const element = event.target.closest("[data-copy]");
 		if (element) {
@@ -19,6 +17,4 @@ export function setClickToCopy() {
 			}, 1500);
 		}
 	});
-
-	console.timeEnd("Set Click-to-Copy");
 };

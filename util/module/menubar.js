@@ -76,7 +76,8 @@ export async function addMenubar() {
 		cycle(xml.documentElement.children, menu);
 
 		document.body.prepend(div);
+
+		console.timeEnd("Create Menubar");
 	});
 	
-	console.timeEnd("Create Menubar");
 };

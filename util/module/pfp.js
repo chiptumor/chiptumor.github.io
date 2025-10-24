@@ -45,6 +45,7 @@ export async function setPfp() {
 		pfp.artist && anchor.setAttribute("data-desc", pfp.artist);
 		pfp.image  && image .setAttribute("src",       pfp.image );
 		pfp.artist && image .setAttribute("alt",       pfp.artist);
+		
+		console.timeEnd("Set PFP");
 	});
-	console.timeEnd("Set PFP");
 }

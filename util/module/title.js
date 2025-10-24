@@ -48,6 +48,8 @@ export function addTitle() {
 		element.append(title, desc, ctc);
 
 		document.body.prepend(element);
+
+		console.timeEnd("Add Title");
 	});
 
 	window.addEventListener("mousemove", (event) => {
@@ -69,6 +71,4 @@ export function addTitle() {
 			element.querySelector("span.desc").innerHTML = "";
 		}
 	});
-
-	console.timeEnd("Add Title");
 };
