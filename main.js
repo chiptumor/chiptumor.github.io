@@ -5,6 +5,15 @@ await main.addMenubar();
 await main.addPlayer({ menubar: true });
 await main.setPfp();
 
+// TODO LIST
+window.addEventListener("load", async () => {
+	const file = await fetch("/todo.md", { cache: "no-cache" })
+		.then(response => response.text());
+
+	document.querySelector("[data-content='todo/content']").innerHTML
+		= marked.parse(file);
+});
+
 // GREETING
 window.addEventListener("load", () => {
 	const element = document.querySelector("#grid div.welcome h1.greeting");
@@ -100,13 +109,4 @@ window.addEventListener("load", async () => {
 		= relative;
 	document.querySelector("[data-content='status/date/locale']").textContent
 		= locale;
-});
-
-// TODO LIST
-window.addEventListener("load", async () => {
-	const file = await fetch("/todo.md", { cache: "no-cache" })
-		.then(response => response.text());
-
-	document.querySelector("[data-content='todo/content']").innerHTML
-		= marked.parse(file);
 });
