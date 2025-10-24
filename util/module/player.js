@@ -11,6 +11,11 @@ export async function addPlayer(options) {
 				.then(text => new DOMParser().parseFromString(text, "text/xml"));
 			
 			const menubar = document.getElementById("menubar");
+			const element = document.createElement("div");
+			element.setAttribute("class", "player");
+			menubar.append(element);
+
+			element.innerHTML = xml.documentElement.innerHTML;
 
 			console.timeEnd("Add player");
 		});
