@@ -1,6 +1,35 @@
+@hue: grayscale, glacier, blueberry, red, orange, yellow, green, cyan, blue, purple, magenta;
+@shade: range(0, 10, 1);
+
+@accent: red;
+
 :root {
 	--black: hsl(0, 0%, 0%);
 	--white: hsl(0, 0%, 100%);
+
+	each(@shade, {
+		--accent_@{value}: var(--@{accent}_@{value});
+	});
+
+	/* WHEN @container WORKS
+		each(@hue, {
+			@container style(--accent: @value) {
+				--accent_0:  var(--@{value}_0);
+				--accent_1:  var(--@{value}_1);
+				--accent_2:  var(--@{value}_2);
+				--accent_3:  var(--@{value}_3);
+				--accent_4:  var(--@{value}_4);
+				--accent_5:  var(--@{value}_5);
+				--accent_6:  var(--@{value}_6);
+				--accent_7:  var(--@{value}_7);
+				--accent_8:  var(--@{value}_8);
+				--accent_9:  var(--@{value}_9);
+				--accent_10: var(--@{value}_10);
+			}
+		});
+		
+		--accent: red;
+	*/
 
 	--grayscale_0:  hsl(0, 0%, 8% );
 	--grayscale_1:  hsl(0, 0%, 17%);
@@ -134,6 +163,7 @@
 	--magenta_9:  hsl(338, 85%, 80%);
 	--magenta_10: hsl(344, 85%, 90%);
 
+	/*
 	--accent_0:  var(--red_0);
 	--accent_1:  var(--red_1);
 	--accent_2:  var(--red_2);
@@ -145,4 +175,5 @@
 	--accent_8:  var(--red_8);
 	--accent_9:  var(--red_9);
 	--accent_10: var(--red_10);
+	*/
 }
