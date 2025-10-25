@@ -47,7 +47,6 @@ function cycle(nodes, parent) {
 				} else console.error("addMenubar: Dropdown tag doesn't have beginning text node.");
 
 				const child = document.createElement("menu");
-				child.classList.add("content");
 				element.append(child);
 
 				cycle(node.children, child);

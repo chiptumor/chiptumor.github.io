@@ -10,17 +10,17 @@
 		</div>
 	</div>
 	<div class="controls">
-		<div class="play-pause" id="player/play-pause">
+		<button class="play-pause" id="player/play-pause">
 			<div data-lucide="play"></div>
 			<div data-lucide="pause"></div>
-		</div>
+		</button>
 		<div>
-			<div id="player/prev">
+			<button id="player/prev">
 				<div data-lucide="skip-back"></div>
-			</div>
-			<div id="player/next">
+			</button>
+			<button id="player/next">
 				<div data-lucide="skip-forward"></div>
-			</div>
+			</button>
 		</div>
 		<a id="player/reveal">
 			<div data-lucide="list-music"></div>
