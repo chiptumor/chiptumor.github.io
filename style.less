@@ -59,13 +59,19 @@ div.panel {
 		"todo         todo         todo        "
 	;
 
-	div.announcement { grid-area: announcement; }
-	div.welcome      { grid-area: welcome;      }
-	div.status       { grid-area: status;       }
-	div.projects     { grid-area: projects;     }
-	div.identity     { grid-area: identity;     }
-	div.zoologist    { grid-area: zoologist;    }
-	div.todo         { grid-area: todo;         }
+	@panels:
+		announcement,
+		welcome,
+		status,
+		projects,
+		identity,
+		zoologist,
+		todo
+	;
+
+	each(@panels, {
+		div.@{value} { grid-area: @value }
+	});
 
 	div.announcement {
 		position: relative;
@@ -344,16 +350,3 @@ div.panel {
 		}
 	}
 }
-
-// LAGGY:
-/* div.panel {
-	border-radius: 10px;
-	&::before {
-		top: 0; left: 4px;
-		border-radius: 0 0 3px 3px;
-	}
-}
-
-#grid div.welcome a.pfp img {
-	border-radius: 50%;
-} */
