@@ -154,12 +154,11 @@
 	};
 };
 
-@accent: red;
-
 :root {
 	--black: hsl(0, 0%, 0%);
 	--white: hsl(0, 0%, 100%);
 
+	@accent: red;
 	each(@color[@@accent], {
 		--accent_@{key}: var(--@{accent}_@{key});
 	});
