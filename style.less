@@ -21,7 +21,27 @@ div.panel {
 
 	border: 3px solid var(--accent_6);
 
-	&[data-label]::before {
+	&[data-label] {
+		padding: 23px 32px 8px 32px;
+
+		&::before {
+			content: attr(data-label);
+			text-transform: uppercase;
+
+			position: absolute;
+			top: 0; left: 0;
+
+			padding: 0 3px;
+
+			font-size: 12px;
+			font-weight: bolder;
+
+			background-color: var(--accent_6);
+			color: var(--white);
+		}
+	}
+
+	/* &[data-label]::before {
 		content: attr(data-label);
 		text-transform: uppercase;
 
@@ -41,7 +61,7 @@ div.panel {
 	}
 	&:hover::before {
 		transform: none;
-	}
+	} */
 }
 
 #grid {
