@@ -14,11 +14,6 @@ function cycle(nodes, parent) {
 				element.innerHTML = "<span>" + node.innerHTML + "</span>";
 			} break;
 			case "url": {
-				if (
-					new URL(node.getAttribute("href"), window.location.origin).pathname
-					=== window.location.pathname
-				) element.classList.add("located");
-
 				const anchor = document.createElement("a");
 				
 				if (URL.parse(node.getAttribute("href"))) anchor.setAttribute("target", "_blank");
@@ -34,11 +29,6 @@ function cycle(nodes, parent) {
 				element.setAttribute("data-copy",  node.getAttribute("value") || "");
 			} break;
 			case "dropdown": {
-				if (
-					new URL(node.getAttribute("href"), window.location.origin).pathname
-						=== window.location.pathname
-				) element.classList.add("located");
-
 				const text = node.childNodes[0];
 				if (text.nodeType === 3) {
 					const span = document.createElement("span");
@@ -79,7 +69,7 @@ export async function addMenubar(options) {
 
 		document.body.prepend(menubar);
 		
-		if (options.playlist) {
+		if (options.player) {
 			const xml = await fetch("/util/resource/player.xml")
 				.then(response => response.text())
 				.then(text => new DOMParser().parseFromString(text, "text/xml"));

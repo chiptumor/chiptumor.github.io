@@ -3,7 +3,7 @@
 	<url href="/?s" class="home">
 		<img src="/resource/wordmark.png" alt="Home page"/>
 	</url>
-	<url href="/page/blog">
+	<url href="/blog">
 		Blog
 	</url>
 	<dropdown href="/page/social">Social
