@@ -7,7 +7,7 @@
 			This page and/or other pages may be unstyled or completely dysfunctional. Give
 			me some grace while I get things workin'.
 		</p>
-		<details>
+		<!-- <details>
 			<summary>Mac, iOS / WebKit</summary>
 
 			<p>
@@ -38,7 +38,13 @@
 				<b>Develop</b> &#8594; <b>Show JavaScript Console</b>, or pressing
 				<kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>c</kbd>.
 			</p>
-		</details>
+			<p>
+				Once you've done that, try refreshing a few times, once or twice without cache
+				(<kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>r</kbd>), take some screenshots of
+				the errors you encounter, and send them to me at
+				<span data-copy="chiptumor">chiptumor</span> on Discord!
+			</p>
+		</details> -->
 
 		<p>
 			Extra notes:
