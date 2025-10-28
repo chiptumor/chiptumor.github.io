@@ -24,7 +24,7 @@
 				</li>
 				<li>
 					In the menubar at the top, navigate to
-					<b>Safari</b> &amp;rightarrow; <b>Preferences</b>
+					<b>Safari</b> &rightarrow; <b>Preferences</b>
 				</li>
 				<li>
 					Select the <b>Advanced</b> tab
@@ -35,7 +35,7 @@
 			</ul>
 			<p>
 				You should then be able to open the console by navigating, in the menubar, to
-				<b>Develop</b> &amp;rightarrow; <b>Show JavaScript Console</b>, or pressing
+				<b>Develop</b> &rightarrow; <b>Show JavaScript Console</b>, or pressing
 				<kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>c</kbd>.
 			</p>
 		</details>
