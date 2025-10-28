@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="/content/style/status.css"?>
 <status>
-	<imFeeling>exhausted</imFeeling>
+	<imFeeling>renewed</imFeeling>
 	<body>
 		<p>
-			even after ive left twenty billion repositories in the dust, i cant stop
-			starting new projects. i fucking love coding. so much
+			im managing a lot of progress on the site so far, things are lookin' good
+			:<i>)</i>
 		</p>
 		<p>
-			im trying to work on this site as much as possible but i keep getting distracted
-			starting other learning projects like an npm package that makes using imageboard
-			APIs easier or a roblox game for the sake of learning luau
+			i should say the music player probably wont be done for a good few; it's takin a
+			lot longer to figure out how i'm gonna go about that than i thought
 		</p>
 		<p>
-			i PROMISE im workin on things i PROMISE
+			it will be done eventually though. eventually
 		</p>
 	</body>
 </status>
