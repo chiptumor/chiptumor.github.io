@@ -3,20 +3,20 @@
 	<url href="/?s" class="home">
 		<img src="/resource/wordmark.png" alt="Home page"/>
 	</url>
-	<url href="/blog">
+	<!-- <url href="/blog">
 		Blog
-	</url>
+	</url> -->
 	<dropdown href="/page/social">Social
-		<url href="/page/social">
+		<!-- <url href="/page/social">
 			Socials page
-		</url>
+		</url> -->
 		<dropdown>Email
 			<url href="mailto:tipchumor@gmail.com" title="tipchumor@gmail.com">
 				Personal email
 			</url>
-			<url href="/page/social#email">
+			<!-- <url href="/page/social#email">
 				Read more...
-			</url>
+			</url> -->
 		</dropdown>
 		<dropdown>Discord
 			<copy value="chiptumor">
@@ -25,9 +25,9 @@
 			<url href="https://discord.com/users/1184619891215573042">
 				Open user link <i>(less reliable)</i>
 			</url>
-			<url href="/page/social#discord">
+			<!-- <url href="/page/social#discord">
 				Read more...
-			</url>
+			</url> -->
 		</dropdown>
 		<dropdown>Instagram
 			<url href="https://instagram.com/chiptumor">
@@ -38,9 +38,9 @@
 					Old shitpost account
 				</url>
 			</dropdown>
-			<url href="/page/social#instagram">
+			<!-- <url href="/page/social#instagram">
 				Read more...
-			</url>
+			</url> -->
 		</dropdown>
 		<!-- <dropdown>Twitter
 			<url href="https://twitter.com/chiptumor">
@@ -108,17 +108,17 @@
 			<url href="https://roblox.com/users/1375134678/profile" title="chiptumor (@cod3breaker61)">
 				View profile
 			</url>
-			<url href="/page/social#roblox">
+			<!-- <url href="/page/social#roblox">
 				Read more...
-			</url>
+			</url> -->
 		</dropdown>
 		<dropdown>Xbox
 			<url href="https://xbox.com/en-US/play/user/chiptumor">
 				View profile
 			</url>
-			<url href="/page/social#xbox">
+			<!-- <url href="/page/social#xbox">
 				Read more...
-			</url>
+			</url> -->
 		</dropdown>
 	</dropdown>
 	<dropdown>Projects
