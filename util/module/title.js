@@ -49,26 +49,26 @@ export function addTitle() {
 
 		document.body.prepend(element);
 
+		window.addEventListener("mousemove", (event) => {
+			const element = document.getElementById("title");
+	
+			element.style.top = (event.clientY + 20) + "px";
+			element.style.left = (event.clientX) + "px";
+	
+			const title = event.target.closest("[data-title], [data-desc]")?.getAttribute("data-title") || "";
+			const desc = event.target.closest("[data-title], [data-desc]")?.getAttribute("data-desc") || "";
+	
+			if (title || desc) {
+				element.style.display = "flex";
+				element.querySelector("span.title").innerHTML = title;
+				element.querySelector("span.desc").innerHTML = desc;
+			} else {
+				element.style.display = "none";
+				element.querySelector("span.title").innerHTML = "";
+				element.querySelector("span.desc").innerHTML = "";
+			}
+		});
+		
 		console.timeEnd("Add Title");
-	});
-
-	window.addEventListener("mousemove", (event) => {
-		const element = document.getElementById("title");
-
-		element.style.top = (event.clientY + 20) + "px";
-		element.style.left = (event.clientX) + "px";
-
-		const title = event.target.closest("[data-title], [data-desc]")?.getAttribute("data-title") || "";
-		const desc = event.target.closest("[data-title], [data-desc]")?.getAttribute("data-desc") || "";
-
-		if (title || desc) {
-			element.style.display = "flex";
-			element.querySelector("span.title").innerHTML = title;
-			element.querySelector("span.desc").innerHTML = desc;
-		} else {
-			element.style.display = "none";
-			element.querySelector("span.title").innerHTML = "";
-			element.querySelector("span.desc").innerHTML = "";
-		}
 	});
 };
