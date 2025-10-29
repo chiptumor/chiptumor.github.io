@@ -1,7 +1,7 @@
 import * as main from "/util/module/index.js";
 main.addTitle();
 main.setClickToCopy();
-await main.addMenubar({ player: true });
+await main.addMenubar({ player: false });
 await main.setPfp();
 
 // TODO LIST

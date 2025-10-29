@@ -4,20 +4,56 @@
 	<body>
 		<h2>This site is a work in progress.</h2>
 		<p>
-			This page and/or other pages are unstyled or completely dysfunctional. Give me
-			some grace while I get things workin'.
+			This page and/or other pages may be unstyled or completely dysfunctional. Give
+			me some grace while I get things workin'.
 		</p>
+		<!-- <details>
+			<summary>Mac, iOS / WebKit</summary>
+
+			<p>
+				If you're having any issues on Safari or iOS in general, please do me a favor
+				and help me diagnose errors. I do not have access to my own Mac, and I
+				desperately need the help.
+			</p>
+			<p>
+				If you don't already have the console enabled, and you're on a Mac:
+			</p>
+			<ul>
+				<li>
+					Open Safari
+				</li>
+				<li>
+					In the menubar at the top, navigate to
+					<b>Safari</b> &#8594; <b>Preferences</b>
+				</li>
+				<li>
+					Select the <b>Advanced</b> tab
+				</li>
+				<li>
+					At the bottom, enable <b>Show features for web developers</b>
+				</li>
+			</ul>
+			<p>
+				You should then be able to open the console by navigating, in the menubar, to
+				<b>Develop</b> &#8594; <b>Show JavaScript Console</b>, or pressing
+				<kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>c</kbd>.
+			</p>
+			<p>
+				Once you've done that, try refreshing a few times, once or twice without cache
+				(<kbd>cmd</kbd> + <kbd>option</kbd> + <kbd>r</kbd>), take some screenshots of
+				the errors you encounter, and send them to me at
+				<span data-copy="chiptumor">chiptumor</span> on Discord!
+			</p>
+		</details> -->
+
 		<p>
 			Extra notes:
 		</p>
 		<blockquote>
 			<p>
 				I'm touchin' up on some stuff and makin' an attempt to get the music player to
-				work. I'm mostly just foolin' around now until it works again.
+				work. I'm mostly just foolin' around now until stuff works.
 			</p>
-			<p>
-				Do any of you even read these things?
-			</p>
-		</blockquote>
+	</blockquote>
 	</body>
 </announcement>
