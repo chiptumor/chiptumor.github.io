@@ -35,7 +35,7 @@ export async function setPfp() {
 
 		const pfp =
 			// safe mode
-			safe ? json.brand.logo
+			safe ? json.chip.tumor
 			// october
 			: today.getMonth() === 9 ? json.event.october
 			// else
