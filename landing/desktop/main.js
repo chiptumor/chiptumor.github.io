@@ -39,7 +39,6 @@ async function shortcut() {
 			}
 		}
 		redirect();
-
 	} catch (e) {
 		terminal.innerText += "Uh oh! Error encountered:\n" +
 			"\n\tmessage: " + e.message +
