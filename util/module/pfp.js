@@ -28,24 +28,30 @@ export async function setPfp() {
 			return;
 		}
 
-		const json = await fetch("/util/resource/pfp.json")
+		const json = await fetch("https://raw.githubusercontent.com/chiptumor/chiptumor/main/res/profile/rest.json")
 			.then(response => response.json());
 
 		const today = new Date();
 
 		const pfp =
 			// safe mode
-			safe ? json.chip.tumor
-			// october
-			: today.getMonth() === 9 ? json.event.october
+			safe ?
+				randomItem(json.generic.icon.chip.tumor)
+			// halloween
+			: today.getMonth() === 9 ?
+				randomItem(json.festive.halloween.icon.zoologist)
 			// else
-			: json.default[Math.floor(Math.random() * json.default.length)];
+			: randomItem(json.generic.icon.zoologist);
 
 		pfp.source && anchor.setAttribute("href",       pfp.source);
 		pfp.artist && anchor.setAttribute("data-title", pfp.artist);
-		pfp.image  && image .setAttribute("src",        pfp.image );
+		pfp.image  && image .setAttribute("src",        pfp.path  );
 		pfp.artist && image .setAttribute("alt",        pfp.artist);
 		
 		console.timeEnd("Set PFP");
 	});
+}
+
+function randomItem(array) {
+	return array[Math.floor(Math.random() * array.length)];
 }
