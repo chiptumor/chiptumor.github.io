@@ -45,7 +45,7 @@ export async function setPfp() {
 
 		pfp.source && anchor.setAttribute("href",       pfp.source);
 		pfp.artist && anchor.setAttribute("data-title", pfp.artist);
-		pfp.image  && image .setAttribute("src",        pfp.path  );
+		pfp.path   && image .setAttribute("src",        pfp.path  );
 		pfp.artist && image .setAttribute("alt",        pfp.artist);
 		
 		console.timeEnd("Set PFP");
