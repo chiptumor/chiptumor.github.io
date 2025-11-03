@@ -1,11 +1,19 @@
-name: Deploy Neocities landing page
+name: Deploy landing pages
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      neocities:
+        description: "Neocities"
+        type: boolean
+        required: false
+        default: true
 
 jobs:
   deploy:
     name: "Deploy to Neocities"
     runs-on: ubuntu-latest
+    if: ${{ inputs.neocities }}
     steps:
       - uses: actions/checkout@v1
       - uses: kognise/neocities-deploy-action@v1
