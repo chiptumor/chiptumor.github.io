@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menubar>
 	<url href="/?s" class="home">
-		<img src="/resource/wordmark.png" alt="Home page"/>
+		<img src="https://chiptumor.github.io/chiptumor/res/brand/wordmark.png" alt="Home page"/>
 	</url>
 	<!-- <url href="/blog">
 		Blog

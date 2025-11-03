@@ -28,7 +28,7 @@ export async function setPfp() {
 			return;
 		}
 
-		const json = await fetch("https://raw.githubusercontent.com/chiptumor/chiptumor/main/res/profile/rest.json")
+		const json = await fetch("https://chiptumor.github.io/chiptumor/res/profile/rest.json")
 			.then(response => response.json());
 
 		const today = new Date();
