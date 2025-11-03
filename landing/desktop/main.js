@@ -62,5 +62,5 @@ async function redirect() {
 button.addEventListener("dblclick", shortcut, {once:true}); // listen for 2 clicks...
 
 document.getElementById("credit").addEventListener("dblclick", function() {
-	location.href = "https://twitter.com/cotardstovi";
+	location.href = "https://twitter.com/uyaubot";
 });
