@@ -4,6 +4,8 @@ main.setClickToCopy();
 await main.addMenubar({ player: false });
 await main.setPfp();
 
+import { TimeAgo } from "/util/module/timeago.js";
+
 // TODO LIST
 window.addEventListener("load", async () => {
 	const file = await fetch("/todo.md", { cache: "no-cache" })
