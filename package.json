@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "sass": "^1.94.2"
+  },
+  "devDependencies": {
+    "vite": "^7.2.6"
+  }
+}
