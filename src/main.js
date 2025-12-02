@@ -1,1 +1,1 @@
-import "/util/module/lucide.js";
+import "./util/module/lucide.js";
