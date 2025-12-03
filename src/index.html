@@ -57,7 +57,9 @@
             <header class="dynamic-width"><div>
                 I'm feeling {{ content.status.feeling }}.
             </div></header>
-            {{ content.status.body }}
+            <div class="content">
+                {{ content.status.body }}
+            </div>
             <time datetime="{{ content.status.time.value }}" class="dynamic-width"><div>
                 <span class="relative">{{ content.status.time.relative }}</span>
                 <span class="locale">{{ content.status.time.locale }}</span>
@@ -66,7 +68,8 @@
         <section id="socials">
             <div class="tabs">
                 <button class="active" data-tab="Discord">
-                    
+                    <img src="" alt="Icon" class="icon"/>
+                    <span>Discord</span>
                 </button>
             </div>
         </section>
