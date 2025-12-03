@@ -10,7 +10,7 @@ body {
     padding: 100px 50px;
 }
 
-#grid {
+main {
     max-width: 1000px;
     margin: auto;
 
@@ -18,18 +18,20 @@ body {
     grid-template-columns: 4fr 1fr 4fr;
     grid-gap: 10px;
     grid-template-areas:
-        "banner    banner    banner  "
+        "marquee   marquee   marquee "
         "welcome   welcome   status  "
         "zoologist zoologist identity"
-        "social    projects  projects"
+        "social    social    social  "
+        "projects  projects  projects"
         "todo      todo      todo    "
     ;
 
     @panels:
-        banner,
+        marquee,
         welcome,   status,
         zoologist, identity,
-        social,    projects,
+        social,
+        projects,
         todo
     ;
 

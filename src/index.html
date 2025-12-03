@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta -->
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>chiptumor.github.io</title>
@@ -8,9 +9,9 @@
 
     <!-- OpenGraph -->
     <meta property="og:title" content="chiptumor.github.io"/>
-    <meta property="og:description" content="Take a gander at my city if you dare..."/>
-    <meta property="og:url" content="https://chiptumor.github.io/?s"/>
-    <meta property="og:image" content="https://chiptumor.github.io/resource/pfp/default/twitter-Boss_Lee_S2-1801284351658762471.png"/>
+    <meta property="og:description" content="home of the #1 zoologist fanatic"/>
+    <meta property="og:url" content="https://chiptumor.github.io/"/>
+    <meta property="og:image" content="{{ content.opengraph.pfp }}"/>
     <meta name="theme-color" data-react-helmet="true" content="#E9263D"/>
 
     <link rel="stylesheet" type="text/css" href="./style.less"/>
@@ -18,20 +19,49 @@
     <script src="./main.js" type="module"></script>
 </head>
 <body>
-    <div id="main">
-        <section class="banner">
+    <main>
+        <section class="marquee">
             <details>
                 <summary>
-                    <span>Announcement preview</span>
-                    <time>date</time>
+                    <span>{{ content.marquee.summary }}</span>
+                    <time datetime="{{ content.marquee.time.value }}">
+                        {{ content.marquee.time.relative }}
+                    </time>
                 </summary>
-                <h1>Steamed hams</h1>
-                <p>Well, Seymour, I made it... Despite your directions.</p>
-                <p>Ah, superintendent Chalmers, welcome! I hope you're prepared for an unforgettable luncheon.</p>
-                <time>long date</time>
+                {{ content.marquee.details.content }}
+                <time datetime="{{ content.marquee.time.value }}">
+                    {{ content.marquee.time.locale }}
+                </time>
             </details>
         </section>
-        
-    </div>
+        <section class="welcome"><div class="grid-item-dynamic-height">
+            <div class="avatar">
+                <a target="_blank">
+                    <img/>
+                </a>
+            </div>
+            <hgroup>
+                <h1>Haio!!</h1>
+                <p>Welcome to my city!</p>
+            </hgroup>
+            <p>
+                I'm <i>the</i> number one Zoologist fanatic.
+            </p>
+            <p>
+                I don't do much besides fiddle with code, chiptune (doesn't that sound
+                familiar?), and pixel art. I'm, however, very passionate about everything I do!
+            </p>
+        </div></section>
+        <section class="status"><div class="grid-item-dynamic-height">
+            <header><div class="flex-item-dynamic-width">
+                I'm feeling {{ content.status.feeling }}.
+            </div></header>
+            {{ content.status.body }}
+            <time datetime="{{ content.status.time.value }}"><div class="flex-item-dynamic-width">
+                <span class="relative">{{ content.status.time.relative }}</span>
+                <span class="locale">{{ content.status.time.locale }}</span>
+            </div></time>
+        </div></section>
+    </main>
 </body>
 </html>
