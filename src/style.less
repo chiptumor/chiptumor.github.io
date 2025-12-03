@@ -36,8 +36,6 @@ main {
     ;
 
     each(@panels, {
-        div.@{value} { grid-area: @value }
+        section#@{value} { grid-area: @value }
     });
-
-    
 }

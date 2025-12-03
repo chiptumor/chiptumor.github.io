@@ -10,7 +10,7 @@ const octokit = new Octokit();
 
 const handlebar = {
     opengraph: {
-        pfp:
+        avatar:
             await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
                 owner: "chiptumor",
                 repo: "chiptumor",
@@ -20,10 +20,10 @@ const handlebar = {
                     "accept": "application/vnd.github.raw+json"
                 }
             })
-                .then(response => response.json())
-                .then(({ generic: { icon: { zoologist: array }}}) =>
-                    array[Math.floor(Math.random() * array.length)].path
-                )
+            .then(response => response.json())
+            .then(({ generic: { icon: { zoologist: array }}}) =>
+                array[Math.floor(Math.random() * array.length)].path
+            )
     },
     content: {
         marquee: await (async () => {
