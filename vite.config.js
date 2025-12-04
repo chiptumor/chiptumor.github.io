@@ -32,6 +32,12 @@ const handlebar = {
     }
 };
 
+{
+    { // opengraph
+        
+    }
+}
+
 export default defineConfig({
     plugins: [
         {

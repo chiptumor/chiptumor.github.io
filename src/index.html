@@ -16,6 +16,11 @@
 
     <link rel="stylesheet" type="text/css" href="./style.less"/>
 
+    <!-- #region imports -->
+        <!-- var TimeAgo -->
+        <script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script>
+        <script src="./lib/module/timeago.js"></script>
+    <!-- #endregion imports -->
     <script src="./main.js" type="module"></script>
 </head>
 <body>
@@ -26,7 +31,7 @@
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
                     <time datetime="{{ content.marquee.time.value }}">
-                        {{ content.marquee.time.relative }}
+                        <handlebar with="content.marquee.time.relative"/>
                     </time>
                 </summary>
                 {{ content.marquee.details }}
@@ -65,13 +70,6 @@
                 <span class="locale">{{ content.status.time.locale }}</span>
             </div></time>
         </div></section>
-        <!--
-|[ I'm feeling... ] <-- |
-|-----------------------|
-|        Content        |
-|-----------------------|
-|   - ->   [ 2 days ago ]|
-        -->
         <section id="zoologist">
             <p>
                 There is no one on this planet I love more than
@@ -87,8 +85,11 @@
                 Some honorable mentions:
                 <ul>
                     <li>
-                        <a>
-                            <img/>
+                        <a href="https://twitter.com/uyaubot/status/1948913026763227441">
+                            <img alt="Twitter/uyaubot" src="./res/zoologist/uyaubot.jpg"/>
+                        </a>
+                        <a href="https://instagram.com/p/DQjdrkaDuFK/">
+                            <img alt="Instagram/kissyboos" src="./res/zoologist/uyaubot.jpg"/>
                         </a>
                     </li>
                 </ul>
@@ -100,7 +101,6 @@
                 Roblox. However, if you'd like, you could call me <b>Hazel!</b>
             </p>
             <p>You may have also known me as:</p>
-
             <details>
                 <summary>Belle</summary>
                 <p>
@@ -110,7 +110,7 @@
                 </p>
                 <p>
                     Eventually, while playing
-                    <a>
+                    <a href="https://roblox.com/games/11645956561">
                         a game
                     </a>
                     with a friend, he mentioned that a character's name sounds like something that'd
@@ -120,23 +120,40 @@
                 <p>
                     With that being said, Belle is now my preferred middle name again.
                 </p>
-                <p>
-                    Thank you, man. I owe you a few thousand dollars.
+                <p style="font-size: 1.5em;">
+                    Thank you,
+                    <a href="https://fussyfelidae.bsky.social/">
+                        Nick.
+                    </a>
+                    I owe you the world.
                 </p>
-                <!-- TODO: ask nick if i can shout him out -->
             </details>
         </section>
-        <section id="social">
+        <section id="social" data-active="Discord">
             <fieldset class="tabs">
-                <button class="active" data-tab="Discord">
-                    <img src="" alt="Icon" class="icon"/>
-                    <img src="" alt="Discord" class="logo"/>
+                <button data-tab="Discord">
+                    <img src="./res/social/discord/icon.svg" alt="Discord" class="icon"/>
+                    <img src="./res/social/discord/logo.svg" alt="Discord" class="logo"/>
                 </button>
-                <button class="" data-tab="Instagram">
-                    <img src="" alt="Icon" class="icon"/>
+                <button data-tab="Instagram">
+                    <img src="" alt="Instagram" class="icon"/>
                     <img src="" alt="Instagram" class="logo"/>
                 </button>
             </fieldset>
+            <div class="display">
+                <div data-tab="Discord">
+                    {{ content.social.discord.profile }}
+                    <div class="content">
+                        <p>
+                            I'm most active on Discord. If you ever need something, <i>this</i> is the place
+                            to find me! Feel free to add me if you can't message me otherwise.
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="projects">
             
