@@ -14,13 +14,8 @@
     <meta property="og:image" content="{{ content.opengraph.avatar }}"/>
     <meta name="theme-color" data-react-helmet="true" content="#E9263D"/>
 
+    <!-- Links -->
     <link rel="stylesheet" type="text/css" href="./style.less"/>
-
-    <!-- #region imports -->
-        <!-- var TimeAgo -->
-        <script src="https://unpkg.com/javascript-time-ago@2.5.12/bundle/javascript-time-ago.js"></script>
-        <script src="./lib/module/timeago.js"></script>
-    <!-- #endregion imports -->
     <script src="./main.js" type="module"></script>
 </head>
 <body>
@@ -30,13 +25,13 @@
             <details>
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
-                    <time datetime="{{ content.marquee.time.value }}">
+                    <time datetime="content.marquee.time.value" replace="datetime">
                         <handlebar with="content.marquee.time.relative"/>
                     </time>
                 </summary>
                 {{ content.marquee.details }}
-                <time datetime="{{ content.marquee.time.value }}">
-                    {{ content.marquee.time.locale }}
+                <time datetime="content.marquee.time.value" replace="datetime">
+                    <handlebar with="content.marquee.time.locale"/>
                 </time>
             </details>
         </section>
@@ -45,6 +40,7 @@
                 <a target="_blank">
                     <img/>
                 </a>
+                <script src="./lib/script/pfp.js"></script>
             </div>
             <hgroup>
                 <h1>Haio!!</h1>
@@ -65,9 +61,13 @@
             <div class="grid-item">
                 {{ content.status.body }}
             </div>
-            <time datetime="{{ content.status.time.value }}" class="dynamic-width"><div>
-                <span class="relative">{{ content.status.time.relative }}</span>
-                <span class="locale">{{ content.status.time.locale }}</span>
+            <time datetime="content.status.time.value" replace="datetime" class="dynamic-width"><div>
+                <span class="relative">
+                    <handlebar with="content.status.time.relative"/>
+                </span>
+                <span class="locale">
+                    <handlebar with="content.status.time.locale"/>
+                </span>
             </div></time>
         </div></section>
         <section id="zoologist">
@@ -89,7 +89,7 @@
                             <img alt="Twitter/uyaubot" src="./res/zoologist/uyaubot.jpg"/>
                         </a>
                         <a href="https://instagram.com/p/DQjdrkaDuFK/">
-                            <img alt="Instagram/kissyboos" src="./res/zoologist/uyaubot.jpg"/>
+                            <img alt="Instagram/kissyboos" src="./res/zoologist/kissyboos.png"/>
                         </a>
                     </li>
                 </ul>
@@ -101,33 +101,43 @@
                 Roblox. However, if you'd like, you could call me <b>Hazel!</b>
             </p>
             <p>You may have also known me as:</p>
-            <details>
-                <summary>Belle</summary>
-                <p>
-                    For a while, I was clueless about what my preferred name is. For that period, I
-                    went by my preferred middle name, Belle. I was unsure enough that I even
-                    considered it my first name for a while.
-                </p>
-                <p>
-                    Eventually, while playing
-                    <a href="https://roblox.com/games/11645956561">
-                        a game
-                    </a>
-                    with a friend, he mentioned that a character's name sounds like something that'd
-                    fit me. I considered it for a while and eventually decided that it <i>does</i>
-                    suit me&mdash;enough so that I prefer it as my name now!
-                </p>
-                <p>
-                    With that being said, Belle is now my preferred middle name again.
-                </p>
-                <p style="font-size: 1.5em;">
-                    Thank you,
-                    <a href="https://fussyfelidae.bsky.social/">
-                        Nick.
-                    </a>
-                    I owe you the world.
-                </p>
-            </details>
+            <ul>
+                <li><details>
+                    <summary>Belle</summary>
+                    <p>
+                        For a while, I was clueless about what my preferred name is. For that period, I
+                        went by my preferred middle name, Belle. I was unsure enough that I even
+                        considered it my first name for a while.
+                    </p>
+                    <p>
+                        Eventually, while playing
+                        <a href="https://roblox.com/games/11645956561">
+                            a game
+                        </a>
+                        with a friend, he mentioned that a character's name sounds like something that'd
+                        fit me. I considered it for a while and eventually decided that it <i>does</i>
+                        suit me&mdash;enough so that I prefer it as my name now!
+                    </p>
+                    <p>
+                        With that being said, Belle is now my preferred middle name again.
+                    </p>
+                    <p style="font-size: 1.5em;">
+                        Thank you,
+                        <a href="https://fussyfelidae.bsky.social/">
+                            Nick.
+                        </a>
+                        I owe you the world.
+                    </p>
+                </details></li>
+            </ul>
+            <p>
+                I am loosely <b>finsexual</b>&mdash;attracted to anyone
+                <i>feminine-presenting.</i> 'Loosely' because there's plenty of exceptions I
+                make, and my sexuality in general has been a struggle.
+            </p>
+            <p>
+                I'm otherwise <b>panromantic.</b>
+            </p>
         </section>
         <section id="social" data-active="Discord">
             <fieldset class="tabs">
@@ -149,7 +159,12 @@
                             to find me! Feel free to add me if you can't message me otherwise.
                         </p>
                         <p>
-
+                            I'm less likely to respond to a simple 'hey.' Tell me what's up! I.e.:
+                            <blockquote>
+                                hey, u seem like a fun friend 2 have :] tell me abt chiptune trackers :0 what r
+                                those like?
+                            </blockquote>
+                            (Also see <a href="https://nohello.net/en">nohello.net</a>)
                         </p>
                     </div>
                 </div>
@@ -157,6 +172,15 @@
         </section>
         <section id="projects">
             
+        </section>
+        <section id="todo">
+            {{ content.todo }}
+            <p>Site last updated
+                <time datetime="content.site.updated.value" replace="datetime">
+                    <handlebar with="content.site.updated.relative"/>
+                    (<handlebar with="content.site.updated.locale"/>)
+                </time>
+            </p>
         </section>
     </main>
 </body>

@@ -8,35 +8,59 @@ import { XMLParser } from "fast-xml-parser";
 
 const octokit = new Octokit();
 
-const handlebar = {
-    opengraph: {
-        avatar:
-            await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
-                owner: "chiptumor",
-                repo: "chiptumor",
-                path: "main/res/profile/rest.json",
-                headers: {
-                    "X-GitHub-Api-Version": "2022-11-28",
-                    "accept": "application/vnd.github.raw+json"
-                }
-            })
-            .then(response => response.json())
-            .then(({ generic: { icon: { zoologist: array }}}) =>
-                array[Math.floor(Math.random() * array.length)].path
-            )
-    },
+({
     content: {
-        marquee: await (async () => {
-            
-        })()
+        opengraph: {
+            avatar
+        },
+        menubar: {
+            playlist
+        },
+        marquee: {
+            summary,
+            details,
+            time: {
+                value
+            }
+        },
+        status: {
+            feeling,
+            body,
+            time: { value }
+        },
+        social: {
+            discord: {
+                profile
+            }
+        },
+        todo
+    }
+});
+
+const handlebar = {
+    content: {
+        opengraph: {
+            avatar:
+                await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
+                    owner: "chiptumor",
+                    repo: "chiptumor",
+                    path: "main/res/profile/rest.json",
+                    headers: {
+                        "X-GitHub-Api-Version": "2022-11-28",
+                        "accept": "application/vnd.github.raw+json"
+                    }
+                })
+                .then(response => response.json())
+                .then(({ generic: { icon: { zoologist: array }}}) =>
+                    array[Math.floor(Math.random() * array.length)].path
+                )
+        },
+        marquee:
+            await (async () => {
+                
+            })()
     }
 };
-
-{
-    { // opengraph
-        
-    }
-}
 
 export default defineConfig({
     plugins: [
