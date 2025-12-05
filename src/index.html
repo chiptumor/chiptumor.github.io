@@ -21,7 +21,7 @@
 <body>
     {{ content.menubar.playlist }}
     <main>
-        <section id="marquee">
+        <section id="marquee" data-visible="{{ content.marquee.visible }}">
             <details>
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
