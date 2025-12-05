@@ -3,35 +3,9 @@ import { glob } from "glob";
 import * as FileSystem from "node:fs/promises";
 
 import { Octokit } from "octokit";
-import { DOMParser } from "@xmldom/xmldom";
+import { DOMParser, XMLSerializer } from "@xmldom/xmldom";
 
 const octokit = new Octokit();
-
-({
-    content: {
-        opengraph: {
-            avatar
-        },
-        menubar: {
-            playlist
-        },
-        marquee: {
-            visible,
-            summary,
-            details
-        },
-        status: {
-            feeling,
-            body
-        },
-        social: {
-            discord: {
-                profile
-            }
-        },
-        todo
-    }
-});
 
 const handlebar = {
     content: {
@@ -51,6 +25,10 @@ const handlebar = {
                 return array[Math.floor(Math.random() * array.length)].path;
             })()
         },
+        menubar: await (async () => {
+            const element = await FileSystem.readFile("./lib/menubar.xml", "utf8");
+            return element;
+        })(),
         marquee: await (async () => {
             const xml =
                 await FileSystem.readFile("./content/marquee.xml", "utf8")
@@ -69,6 +47,9 @@ const handlebar = {
                 feeling: xml.getElementsByTagName("imFeeling")[0].nodeValue,
                 body: xml.getElementsByTagName("body")[0].nodeValue
             };
+        })(),
+        todo: await (async () => {
+
         })()
     }
 };
