@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="/content/style/status.css"?>
 <status>
-	<imFeeling>renewed</imFeeling>
+	<imFeeling>whatever</imFeeling>
 	<body>
-		<p>
-			im managing a lot of progress on the site so far, things are lookin' good
-			:<i>)</i>
-		</p>
-		<p>
-			i should say the music player probably wont be done for a good few; it's takin a
-			lot longer to figure out how i'm gonna go about that than i thought
-		</p>
-		<p>
-			it will be done eventually though. eventually
-		</p>
+		<p>Currently only testing this.</p>
+        <p>If this works, hi!</p>
 	</body>
 </status>

@@ -1,0 +1,41 @@
+@import "./.util/style/pallete.less";
+@import "./.util/style/initial.less";
+
+@import "./.util/style/element/panel.less";
+@import "./.util/style/element/menubar.less";
+@import "./.util/style/element/title.less";
+
+body {
+    margin: 0;
+    padding: 100px 50px;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 4fr 1fr 4fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "marquee   marquee   marquee "
+        "welcome   welcome   status  "
+        "zoologist zoologist identity"
+        "social    social    social  "
+        "projects  projects  projects"
+        "todo      todo      todo    "
+    ;
+
+    @panels:
+        marquee,
+        welcome,   status,
+        zoologist, identity,
+        social,
+        projects,
+        todo
+    ;
+
+    each(@panels, {
+        section#@{value} { grid-area: @value }
+    });
+}

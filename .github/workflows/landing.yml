@@ -11,7 +11,7 @@ on:
 
 jobs:
   deploy:
-    name: "Deploy to Neocities"
+    name: "Neocities"
     runs-on: ubuntu-latest
     if: ${{ inputs.neocities }}
     steps:

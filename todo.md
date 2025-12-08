@@ -1,10 +1,3 @@
-### TODO
+- this is a bullet point
 
-* test site with webkit
-* add music player
-  * download and add songs
-* work on blog
-  * style blog page
-  * create first blog post
-  * [use github api to display blog posts](https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28)
-* add to projects panel
+[view repo before pull request](https://github.com/chiptumor/chiptumor.github.io/tree/1bb0ce55918c046b009e3a90ad2c8499a3b7461a)

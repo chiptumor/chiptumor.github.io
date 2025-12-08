@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chiptumor.github.io</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="chiptumor.github.io" />
+    <meta property="og:description" content="home of the #1 zoologist fanatic" />
+    <meta property="og:url" content="https://chiptumor.github.io/" />
+    <meta property="og:image" content="{{ content.opengraph.avatar }}" />
+    <meta name="theme-color" data-react-helmet="true" content="#E9263D" />
+
+    <!-- Links -->
+    <link rel="stylesheet" type="text/css" href="./style.less" />
+    <script src="./main.js" type="module"></script>
+</head>
+<body>
+    {{ content.menubar }}
+    <main>
+        <section id="marquee" data-visible="{{ content.marquee.visible }}">
+            <details>
+                <summary>
+                    <span>{{ content.marquee.summary }}</span>
+                    <time datetime="content.marquee.time.value" replace="datetime">
+                        <handlebar with="content.marquee.time.relative" />
+                    </time>
+                </summary>
+                {{ content.marquee.details }}
+                <time datetime="content.marquee.time.value" replace="datetime">
+                    <handlebar with="content.marquee.time.locale" />
+                </time>
+            </details>
+        </section>
+        <section id="welcome" class="dynamic-height"><div>
+            <script src="./.util/script/pfp.js"></script>
+            <a target="_blank">
+                <img class="avatar" />
+            </a>
+            <hgroup>
+                <!-- Make 'Haio!!' wavy -->
+                <script>
+                    const diff = -200;
+                    
+                    const element = document.currentScript.nextElementSibling;
+                    const content = element.textContent;
+                    element.innerHTML = "";
+                    const length = content.length - 1;
+                    for (const i in content) {
+                        const delay = (length - i) * diff;
+                        const span = document.createElement("span");
+                        span.style.animationDelay = `${delay}ms`;
+                        span.textContent = content[i];
+                        element.append(span);
+                    }
+                </script>
+                <h1>Haio!!</h1>
+                <p>Welcome to my city!</p>
+            </hgroup>
+            <p>
+                I'm <em>the</em> number one Zoologist fanatic.
+            </p>
+            <p>
+                I don't do much besides fiddle with code, chiptune (doesn't that sound
+                familiar?), and pixel art. I'm, however, very passionate about everything I do!
+            </p>
+        </div></section>
+        <section id="status" class="dynamic"><div>
+            <header class="dynamic"><div>
+                I'm feeling {{ content.status.feeling }}.
+            </div></header>
+            <div class="grid-item">
+                {{ content.status.body }}
+            </div>
+            <time datetime="content.status.time.value" replace="datetime" class="dynamic-width"><div>
+                <span class="relative">
+                    <handlebar with="content.status.time.relative" />
+                </span>
+                <span class="locale">
+                    <handlebar with="content.status.time.locale" />
+                </span>
+            </div></time>
+        </div></section>
+        <section id="zoologist">
+            <p>
+                There is no one on this planet I love more than
+                <a href="https://terraria.wiki.gg/wiki/Zoologist">
+                    the Zoologist.
+                </a>
+            </p>
+            <p>
+                Eventually, I'll put up a Wall of Wife for art of her made for me. I'm still
+                trying to organize all of that, and it's taking a long while.
+            </p>
+            <p>
+                Some honorable mentions:
+                <ul>
+                    <li>
+                        <a href="https://twitter.com/uyaubot/status/1948913026763227441">
+                            <img alt="Twitter/uyaubot" src="./.res/zoologist/uyaubot.jpg" />
+                        </a>
+                        <a href="https://instagram.com/p/DQjdrkaDuFK/">
+                            <img alt="Instagram/kissyboos" src="./.res/zoologist/kissyboos.png" />
+                        </a>
+                    </li>
+                </ul>
+            </p>
+        </section>
+        <section id="identity">
+            <p>
+                I usually go by <b>Chip</b> in spaces where only my username is apparent, like
+                Roblox. However, if you'd like, you could call me <b>Hazel!</b>
+            </p>
+            <p>You may have also known me as:</p>
+            <ul>
+                <li><details>
+                    <summary>Belle</summary>
+                    <p>
+                        For a while, I was clueless about what my preferred name is. For that period, I
+                        went by my preferred middle name, Belle. I was unsure enough that I even
+                        considered it my first name for a while.
+                    </p>
+                    <p>
+                        Eventually, while playing
+                        <a href="https://roblox.com/games/11645956561">
+                            a game
+                        </a>
+                        with a friend, he mentioned that a character's name sounds like something that'd
+                        fit me. I considered it for a while and eventually decided that it <em>does</em>
+                        suit me&mdash;enough so that I prefer it as my name now!
+                    </p>
+                    <p>
+                        With that being said, Belle is now my preferred middle name again.
+                    </p>
+                    <p style="font-size: 1.5em;">
+                        Thank you,
+                        <a href="https://fussyfelidae.bsky.social/">
+                            Nick.
+                        </a>
+                        I owe you the world.
+                    </p>
+                </details></li>
+            </ul>
+            <p>
+                I am <b>panromantic.</b>
+            </p>
+            <p>
+                My sexuality is a more personal thing&mdash;if you ask, and you're nice about it,
+            </p>
+        </section>
+        <section id="social" data-active="Discord">
+            <fieldset class="tabs">
+                <button data-tab="Discord">
+                    <img src="./.res/social/discord/icon.svg" alt="Discord" class="icon" />
+                    <img src="./.res/social/discord/logo.svg" alt="Discord" class="logo" />
+                </button>
+                <button data-tab="Instagram">
+                    <img src="" alt="Instagram" class="icon" />
+                    <img src="" alt="Instagram" class="logo" />
+                </button>
+            </fieldset>
+            <div class="display">
+                <div data-tab="Discord">
+                    {{ content.social.discord.profile }}
+                    <div class="content">
+                        <p>
+                            I'm most active on Discord. If you ever need something, <em>this</em> is the
+                            place to find me! Feel free to add me if you can't message me otherwise.
+                        </p>
+                        <p>
+                            I'm less likely to respond to a simple 'hey.' Tell me what's up! I.e.:
+                            <blockquote>
+                                hey, u seem like a fun friend 2 have :] tell me abt chiptune trackers :0 what r
+                                those like?
+                            </blockquote>
+                            (Also see <a href="https://nohello.net/en">nohello.net</a>)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            
+        </section>
+        <section id="todo">
+            {{ content.todo }}
+            <p>Site last updated
+                <time datetime="content.site.updated.value" replace="datetime">
+                    <handlebar with="content.site.updated.relative" />
+                    (<handlebar with="content.site.updated.locale" />)
+                </time>
+            </p>
+        </section>
+    </main>
+</body>
+</html>
