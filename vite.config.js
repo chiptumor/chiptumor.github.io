@@ -1,14 +1,14 @@
 import { defineConfig } from "vite";
 import { glob } from "glob";
 import * as FileSystem from "node:fs/promises";
+import * as Path from "node:path";
+import * as Url from "node:url";
 
 import { Octokit } from "octokit";
 import { JSDOM } from "jsdom";
 
-const octokit = new Octokit();
 async function github({ repo, path }) {
-    return await octokit.request("GET /repos/{repo}/contents/{path}", {
-        repo, path,
+    return await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
         headers: {
             "x-GitHub-Api-Version": "2022-11-28",
             "accept": "application/vnd.github.raw+json"
@@ -27,7 +27,7 @@ const handlebar = {
                 const { generic: { icon: { zoologist: array }}} =
                     await github({
                         repo: "chiptumor/chiptumor",
-                        path: "main/res/profile/rest.json"
+                        path: "res/profile/rest.json"
                     })
                     .then(response => response.json());
                 return array[Math.floor(Math.random() * array.length)].path;
@@ -38,22 +38,22 @@ const handlebar = {
             return element;
         })(),
         marquee: await (async () => {
-            const xml =
+            const document =
                 await FileSystem.readFile("./content/marquee.xml", "utf8")
-                .then(file => parseDOM(file));
+                .then(file => parseDOM(file).window.document);
             return {
-                visible: xml.documentElement.getAttribute("visible"),
-                summary: xml.getElementsByTagName("preview")[0].innerHTML,
-                details: xml.getElementsByTagName("body")[0].innerHTML
+                visible: document.documentElement.getAttribute("visible"),
+                summary: document.getElementsByTagName("preview")[0].innerHTML,
+                details: document.getElementsByTagName("body")[0].innerHTML
             };
         })(),
         status: await (async () => {
-            const xml =
+            const document =
                 await FileSystem.readFile("./content/status.xml", "utf8")
-                .then(file => parseDOM(file));
+                .then(file => parseDOM(file).window.document);
             return {
-                feeling: xml.getElementsByTagName("imFeeling")[0].innerHTML,
-                body: xml.getElementsByTagName("body")[0].innerHTML
+                feeling: document.getElementsByTagName("imFeeling")[0].innerHTML,
+                body: document.getElementsByTagName("body")[0].innerHTML
             };
         })(),
         social: {
@@ -70,6 +70,16 @@ const handlebar = {
 };
 
 export default defineConfig({
+    root: "src",
+    build: {
+        outDir: "../dist/",
+        rollupOptions: {
+            input: glob.sync("src/**/*.html"),
+            external: [
+                "javascript-time-ago"
+            ]
+        }
+    },
     plugins: [
         {
             name: "replace-handlebars",
@@ -81,10 +91,5 @@ export default defineConfig({
                 });
             }
         }
-    ],
-    build: {
-        rollupOptions: {
-            input: glob.sync("src/**/*.html")
-        }
-    }
+    ]
 })
