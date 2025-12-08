@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <!-- Meta -->
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>chiptumor.github.io</title>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="chiptumor.github.io"/>
-    <meta property="og:description" content="home of the #1 zoologist fanatic"/>
-    <meta property="og:url" content="https://chiptumor.github.io/"/>
-    <meta property="og:image" content="{{ content.opengraph.avatar }}"/>
-    <meta name="theme-color" data-react-helmet="true" content="#E9263D"/>
+    <meta property="og:title" content="chiptumor.github.io" />
+    <meta property="og:description" content="home of the #1 zoologist fanatic" />
+    <meta property="og:url" content="https://chiptumor.github.io/" />
+    <meta property="og:image" content="{{ content.opengraph.avatar }}" />
+    <meta name="theme-color" data-react-helmet="true" content="#E9263D" />
 
     <!-- Links -->
-    <link rel="stylesheet" type="text/css" href="./style.less"/>
+    <link rel="stylesheet" type="text/css" href="./style.less" />
     <script src="./main.js" type="module"></script>
 </head>
 <body>
@@ -26,28 +26,42 @@
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
                     <time datetime="content.marquee.time.value" replace="datetime">
-                        <handlebar with="content.marquee.time.relative"/>
+                        <handlebar with="content.marquee.time.relative" />
                     </time>
                 </summary>
                 {{ content.marquee.details }}
                 <time datetime="content.marquee.time.value" replace="datetime">
-                    <handlebar with="content.marquee.time.locale"/>
+                    <handlebar with="content.marquee.time.locale" />
                 </time>
             </details>
         </section>
         <section id="welcome" class="dynamic-height"><div>
-            <div class="avatar">
-                <a target="_blank">
-                    <img/>
-                </a>
-                <script src="./util/script/pfp.js"></script>
-            </div>
+            <script src="./.util/script/pfp.js"></script>
+            <a target="_blank">
+                <img class="avatar" />
+            </a>
             <hgroup>
+                <!-- Make 'Haio!!' wavy -->
+                <script>
+                    const diff = -200;
+                    
+                    const element = document.currentScript.nextElementSibling;
+                    const content = element.textContent;
+                    element.innerHTML = "";
+                    const length = content.length - 1;
+                    for (const i in content) {
+                        const delay = (length - i) * diff;
+                        const span = document.createElement("span");
+                        span.style.animationDelay = `${delay}ms`;
+                        span.textContent = content[i];
+                        element.append(span);
+                    }
+                </script>
                 <h1>Haio!!</h1>
                 <p>Welcome to my city!</p>
             </hgroup>
             <p>
-                I'm <i>the</i> number one Zoologist fanatic.
+                I'm <em>the</em> number one Zoologist fanatic.
             </p>
             <p>
                 I don't do much besides fiddle with code, chiptune (doesn't that sound
@@ -63,10 +77,10 @@
             </div>
             <time datetime="content.status.time.value" replace="datetime" class="dynamic-width"><div>
                 <span class="relative">
-                    <handlebar with="content.status.time.relative"/>
+                    <handlebar with="content.status.time.relative" />
                 </span>
                 <span class="locale">
-                    <handlebar with="content.status.time.locale"/>
+                    <handlebar with="content.status.time.locale" />
                 </span>
             </div></time>
         </div></section>
@@ -86,10 +100,10 @@
                 <ul>
                     <li>
                         <a href="https://twitter.com/uyaubot/status/1948913026763227441">
-                            <img alt="Twitter/uyaubot" src="./res/zoologist/uyaubot.jpg"/>
+                            <img alt="Twitter/uyaubot" src="./.res/zoologist/uyaubot.jpg" />
                         </a>
                         <a href="https://instagram.com/p/DQjdrkaDuFK/">
-                            <img alt="Instagram/kissyboos" src="./res/zoologist/kissyboos.png"/>
+                            <img alt="Instagram/kissyboos" src="./.res/zoologist/kissyboos.png" />
                         </a>
                     </li>
                 </ul>
@@ -115,7 +129,7 @@
                             a game
                         </a>
                         with a friend, he mentioned that a character's name sounds like something that'd
-                        fit me. I considered it for a while and eventually decided that it <i>does</i>
+                        fit me. I considered it for a while and eventually decided that it <em>does</em>
                         suit me&mdash;enough so that I prefer it as my name now!
                     </p>
                     <p>
@@ -131,23 +145,21 @@
                 </details></li>
             </ul>
             <p>
-                I am loosely <b>finsexual</b>&mdash;attracted to anyone
-                <i>feminine-presenting.</i> 'Loosely' because there's plenty of exceptions I
-                make, and my sexuality in general has been a struggle.
+                I am <b>panromantic.</b>
             </p>
             <p>
-                I'm otherwise <b>panromantic.</b>
+                My sexuality is a more personal thing&mdash;if you ask, and you're nice about it,
             </p>
         </section>
         <section id="social" data-active="Discord">
             <fieldset class="tabs">
                 <button data-tab="Discord">
-                    <img src="./res/social/discord/icon.svg" alt="Discord" class="icon"/>
-                    <img src="./res/social/discord/logo.svg" alt="Discord" class="logo"/>
+                    <img src="./.res/social/discord/icon.svg" alt="Discord" class="icon" />
+                    <img src="./.res/social/discord/logo.svg" alt="Discord" class="logo" />
                 </button>
                 <button data-tab="Instagram">
-                    <img src="" alt="Instagram" class="icon"/>
-                    <img src="" alt="Instagram" class="logo"/>
+                    <img src="" alt="Instagram" class="icon" />
+                    <img src="" alt="Instagram" class="logo" />
                 </button>
             </fieldset>
             <div class="display">
@@ -155,8 +167,8 @@
                     {{ content.social.discord.profile }}
                     <div class="content">
                         <p>
-                            I'm most active on Discord. If you ever need something, <i>this</i> is the place
-                            to find me! Feel free to add me if you can't message me otherwise.
+                            I'm most active on Discord. If you ever need something, <em>this</em> is the
+                            place to find me! Feel free to add me if you can't message me otherwise.
                         </p>
                         <p>
                             I'm less likely to respond to a simple 'hey.' Tell me what's up! I.e.:
@@ -177,8 +189,8 @@
             {{ content.todo }}
             <p>Site last updated
                 <time datetime="content.site.updated.value" replace="datetime">
-                    <handlebar with="content.site.updated.relative"/>
-                    (<handlebar with="content.site.updated.locale"/>)
+                    <handlebar with="content.site.updated.relative" />
+                    (<handlebar with="content.site.updated.locale" />)
                 </time>
             </p>
         </section>
