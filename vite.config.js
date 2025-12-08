@@ -70,9 +70,10 @@ const handlebar = {
 };
 
 export default defineConfig({
-    root: "src",
+    root: "src/",
     build: {
         outDir: "../dist/",
+        emptyOutDir: true,
         rollupOptions: {
             input: glob.sync("src/**/*.html"),
             external: [
