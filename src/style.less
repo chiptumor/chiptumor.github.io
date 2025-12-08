@@ -1,9 +1,9 @@
-@import "./.util/style/pallete.less";
-@import "./.util/style/initial.less";
+@import "./util/style/pallete.less";
+@import "./util/style/initial.less";
 
-@import "./.util/style/element/panel.less";
-@import "./.util/style/element/menubar.less";
-@import "./.util/style/element/title.less";
+@import "./util/style/element/panel.less";
+@import "./util/style/element/menubar.less";
+@import "./util/style/element/title.less";
 
 body {
     margin: 0;
@@ -18,12 +18,12 @@ main {
     grid-template-columns: 4fr 1fr 4fr;
     grid-gap: 10px;
     grid-template-areas:
-        "marquee   marquee   marquee "
-        "welcome   welcome   status  "
-        "zoologist zoologist identity"
-        "social    social    social  "
-        "projects  projects  projects"
-        "todo      todo      todo    "
+        "marquee   marquee   marquee  "
+        "welcome   welcome   status   "
+        "identity  zoologist zoologist"
+        "social    social    social   "
+        "projects  projects  projects "
+        "todo      todo      todo     "
     ;
 
     @panels:

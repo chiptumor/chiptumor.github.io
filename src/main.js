@@ -1,1 +1,3 @@
-import TimeAgo from "javascript-time-ago";
+import TimeAgo from "https://esm.sh/javascript-time-ago";
+
+console.log(TimeAgo);

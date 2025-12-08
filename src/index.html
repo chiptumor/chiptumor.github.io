@@ -36,16 +36,17 @@
             </details>
         </section>
         <section id="welcome" class="dynamic-height"><div>
-            <script type="module" src="./.util/script/pfp.js"></script>
+            <script type="module" src="./util/script/pfp.js"></script>
             <a target="_blank">
                 <img class="avatar" />
             </a>
             <hgroup>
+                <h1>Haio!!</h1>
                 <!-- Make 'Haio!!' wavy -->
                 <script>
                     const diff = -200;
                     
-                    const element = document.currentScript.nextElementSibling;
+                    const element = document.currentScript.previousElementSibling;
                     const content = element.textContent;
                     element.innerHTML = "";
                     const length = content.length - 1;
@@ -57,7 +58,6 @@
                         element.append(span);
                     }
                 </script>
-                <h1>Haio!!</h1>
                 <p>Welcome to my city!</p>
             </hgroup>
             <p>
@@ -100,10 +100,10 @@
                 <ul>
                     <li>
                         <a href="https://twitter.com/uyaubot/status/1948913026763227441">
-                            <img alt="Twitter/uyaubot" src="./.res/zoologist/uyaubot.jpg" />
+                            <img alt="Twitter/uyaubot" src="./res/zoologist/uyaubot.jpg" />
                         </a>
                         <a href="https://instagram.com/p/DQjdrkaDuFK/">
-                            <img alt="Instagram/kissyboos" src="./.res/zoologist/kissyboos.png" />
+                            <img alt="Instagram/kissyboos" src="./res/zoologist/kissyboos.png" />
                         </a>
                     </li>
                 </ul>
@@ -154,8 +154,8 @@
         <section id="social" data-active="Discord">
             <fieldset class="tabs">
                 <button data-tab="Discord">
-                    <img src="./.res/social/discord/icon.svg" alt="Discord" class="icon" />
-                    <img src="./.res/social/discord/logo.svg" alt="Discord" class="logo" />
+                    <img src="./res/social/discord/icon.svg" alt="Discord" class="icon" />
+                    <img src="./res/social/discord/logo.svg" alt="Discord" class="logo" />
                 </button>
                 <button data-tab="Instagram">
                     <img src="" alt="Instagram" class="icon" />

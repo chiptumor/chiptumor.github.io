@@ -4,7 +4,6 @@ import * as FileSystem from "node:fs/promises";
 import * as Path from "node:path";
 import * as Url from "node:url";
 
-import { Octokit } from "octokit";
 import { JSDOM } from "jsdom";
 
 async function github({ repo, path }) {
@@ -70,12 +69,11 @@ const handlebar = {
 };
 
 export default defineConfig({
-    root: "src/",
     build: {
-        outDir: "../dist/",
         emptyOutDir: true,
+        assetsInlineLimit: 0,
         rollupOptions: {
-            input: glob.sync("./**/*.html"),
+            input: glob.sync("src/**/*.html"),
             external: [
                 "javascript-time-ago"
             ]
@@ -84,12 +82,23 @@ export default defineConfig({
     plugins: [
         {
             name: "replace-handlebars",
-            async transformIndexHtml(html) {
+            transformIndexHtml(html) {
                 const regex = /\{\{\s*([\w.]+)\s*\}\}/g;
                 return html.replace(regex, (match, path) => {
                     const value = path.split(".").reduce((obj, key) => obj?.[key], handlebar);
                     return value ?? match;
                 });
+            }
+        },
+        {
+            name: 'remove-src-dir-from-html-path',
+            enforce: 'post',
+            generateBundle(_, bundle) {
+                const regex = /^src\//;
+                for (const item of Object.values(bundle)) {
+                    if (!regex.test(item.fileName)) continue;
+                    item.fileName = item.fileName.replace(regex, "");
+                }
             }
         }
     ]
