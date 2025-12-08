@@ -7,8 +7,10 @@
   },
   "dependencies": {
     "express": "^5.2.1",
-    "jsdom": "^27.2.0",
-    "sass": "^1.94.2"
+    "vite": "^7.2.7",
+    "glob": "^13.0.0",
+    "octokit": "^5.0.5",
+    "jsdom": "^27.2.0"
   },
   "devDependencies": {
     "vite": "^7.2.6"
