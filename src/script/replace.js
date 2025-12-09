@@ -1,8 +1,8 @@
 import replace from "../util/script/replace.js";
 import TimeAgo from "../util/module/timeago.js";
 
-const json =
-    await Promise.all(
+const json = await ( 
+    Promise.all(
         [
             "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?per_page=1",
             "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/marquee.xml&per_page=1",
@@ -14,7 +14,8 @@ const json =
     .then(
         ([ site, marquee, status, avatar ]) =>
         ({ site, marquee, status, avatar })
-    );
+    )
+);
 
 const template = {
     content: {
@@ -53,12 +54,13 @@ const template = {
         },
         avatar: (() => {
             const today = new Date();
-            const avatar =
+            const avatar = (
                 // if october
                 today.getMonth() === 9 ?
                     randomItem(json.avatar.festive.halloween.icon.zoologist)
                 : // else
-                    randomItem(json.avatar.generic.icon.zoologist);
+                    randomItem(json.avatar.generic.icon.zoologist)
+            );
             return {
                 artist: avatar.artist,
                 source: avatar.source,
