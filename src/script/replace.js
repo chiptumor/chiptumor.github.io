@@ -1,8 +1,8 @@
 import replace from "../util/script/replace.js";
 import TimeAgo from "../util/module/timeago.js";
 
-const json = await
-    Promise.all(
+const json =
+    await Promise.all(
         [
             "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?per_page=1",
             "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/marquee.xml&per_page=1",
