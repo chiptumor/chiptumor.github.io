@@ -21,6 +21,7 @@
 
     <!-- Scripts -->
     <script src="./util/module/lucide.js" type="module"></script>
+    <script src="./script/replace.js" type="module"></script>
 </head>
 <body>
     {{ content.menubar }}
@@ -42,41 +43,11 @@
                 <svg data-lucide="chevron-down"></svg>
                 <svg data-lucide="chevron-up"></svg>
             </button>
-            <!-- Display marquee update times -->
         </section>
         <section id="welcome">
             <a target="_blank" href="content.avatar.source" data-title="content.avatar.artist" data-replace-attr="href data-title">
                 <img class="avatar" src="content.avatar.file" alt="content.avatar.artist" data-replace-attr="src alt" />
             </a>
-            <!-- Display random zoologist avatar -->
-            <script> (async () => {
-                const avatar =
-                    await fetch("https://raw.githubusercontent.com/chiptumor/chiptumor/main/res/profile/rest.json")
-                    .then(response => response.json())
-                    .then(json => {
-                        const today = new Date();
-                        return (
-                            // if october
-                            today.getMonth() === 9 ?
-                                randomItem(json.festive.halloween.icon.zoologist)
-                            : // else
-                                randomItem(json.generic.icon.zoologist)
-                        );
-                    });
-                const anchor = document.currentScript.previousElementSibling;
-                const image = anchor.firstElementChild;
-                try {
-                    anchor.setAttribute("href",       avatar.source);
-                    image .setAttribute("src",        avatar.path  );
-                    anchor.setAttribute("data-title", avatar.artist);
-                    image .setAttribute("alt",        avatar.artist);
-                } catch (error) {
-                    console.error("Failed to set avatar (Likely missing source, path, or artist property for selected item)", avatar, error)
-                }
-                function randomItem(array) {
-                    return array[Math.floor(Math.random() * array.length)];
-                }
-            })() </script>
             <hgroup>
                 <h1>Haio!!</h1>
                 <!-- Make 'Haio!!' wavy -->
