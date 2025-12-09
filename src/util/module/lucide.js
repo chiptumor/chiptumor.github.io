@@ -1,4 +1,4 @@
-import "https://unpkg.com/lucide@0.545.0/dist/umd/lucide.js";
+import { createIcons, icons } from "lucide";
 
-window.addEventListener("load", lucide.createIcons);
-new MutationObserver(lucide.createIcons);
+document.addEventListener("DOMContentLoaded", () => createIcons({ icons }));
+new MutationObserver(() => createIcons({ icons }));

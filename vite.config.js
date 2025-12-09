@@ -2,31 +2,23 @@ import { defineConfig } from "vite";
 import { glob } from "glob";
 import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
-import * as Path from "node:path";
-import * as Url from "node:url";
-
 
 async function github({ repo, path }) {
-    return await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
-        headers: {
-            "x-GitHub-Api-Version": "2022-11-28",
-            "accept": "application/vnd.github.raw+json"
-        }
-    });
+    return await fetch(`https://raw.githubusercontent.com/${repo}/${path}`);
 }
 
 function parseDOM(string) {
     return new JSDOM(string, { contentType: "text/xml" });
 }
 
-const handlebar = {
+const template = {
     content: {
         opengraph: {
             avatar: await (async () => {
                 const { generic: { icon: { zoologist: array }}} =
                     await github({
                         repo: "chiptumor/chiptumor",
-                        path: "res/profile/rest.json"
+                        path: "main/res/profile/rest.json"
                     })
                     .then(response => response.json());
                 return array[Math.floor(Math.random() * array.length)].path;
@@ -81,18 +73,19 @@ export default defineConfig({
     },
     plugins: [
         {
-            name: "replace-handlebars",
+            name: "replace-templates",
             transformIndexHtml(html) {
                 const regex = /\{\{\s*([\w.]+)\s*\}\}/g;
                 return html.replace(regex, (match, path) => {
-                    const value = path.split(".").reduce((obj, key) => obj?.[key], handlebar);
+                    const value = path.split(".").reduce((obj, key) => obj?.[key], template);
                     return value ?? match;
+                    // TODO: convert client templates to elements
                 });
             }
         },
         {
-            name: 'remove-src-dir-from-html-path',
-            enforce: 'post',
+            name: "remove-src-dir-from-path",
+            enforce: "post",
             generateBundle(_, bundle) {
                 const regex = /^src\//;
                 for (const item of Object.values(bundle)) {

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script nomodule src="./util/script/nomodule.js"></script>
+
     <!-- Meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,9 +16,11 @@
     <meta property="og:image" content="{{ content.opengraph.avatar }}" />
     <meta name="theme-color" data-react-helmet="true" content="#E9263D" />
 
-    <!-- Links -->
-    <link rel="stylesheet" type="text/css" href="./style.less" />
-    <script src="./main.js" type="module"></script>
+    <!-- Stylesheet -->
+    <link href="./style.less" rel="stylesheet" type="text/css" />
+
+    <!-- Scripts -->
+    <script src="./util/module/lucide.js" type="module"></script>
 </head>
 <body>
     {{ content.menubar }}
@@ -25,29 +29,57 @@
             <details>
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
-                    <time datetime="content.marquee.time.value" data-replace="datetime">
-                        <handlebar with="content.marquee.time.relative" />
+                    <time datetime="content.marquee.time.value" data-replace-attr="datetime">
+                        <replace>content.marquee.time.relative</replace>
                     </time>
                 </summary>
                 {{ content.marquee.details }}
-                <time datetime="content.marquee.time.value" data-replace="datetime">
-                    <handlebar with="content.marquee.time.locale" />
+                <time datetime="content.marquee.time.value" data-replace-attr="datetime">
+                    <replace>content.marquee.time.locale</replace>
                 </time>
             </details>
             <button>
                 <svg data-lucide="chevron-down"></svg>
                 <svg data-lucide="chevron-up"></svg>
             </button>
+            <!-- Display marquee update times -->
         </section>
         <section id="welcome">
-            <script type="module" src="./util/script/pfp.js"></script>
-            <a target="_blank">
-                <img class="avatar" />
+            <a target="_blank" href="content.avatar.source" data-title="content.avatar.artist" data-replace-attr="href data-title">
+                <img class="avatar" src="content.avatar.file" alt="content.avatar.artist" data-replace-attr="src alt" />
             </a>
+            <!-- Display random zoologist avatar -->
+            <script> (async () => {
+                const avatar =
+                    await fetch("https://raw.githubusercontent.com/chiptumor/chiptumor/main/res/profile/rest.json")
+                    .then(response => response.json())
+                    .then(json => {
+                        const today = new Date();
+                        return
+                            // if october
+                            today.getMonth() === 9 ?
+                                randomItem(json.festive.halloween.icon.zoologist)
+                            : // else
+                                randomItem(json.generic.icon.zoologist);
+                    });
+                const anchor = document.currentScript.previousElementSibling;
+                const image = anchor.firstElementChild;
+                try {
+                    anchor.setAttribute("href",       avatar.source);
+                    image .setAttribute("src",        avatar.path  );
+                    anchor.setAttribute("data-title", avatar.artist);
+                    image .setAttribute("alt",        avatar.artist);
+                } catch (error) {
+                    console.error("Failed to set avatar (Likely missing source, path, or artist property for selected item)", avatar, error)
+                }
+                function randomItem(array) {
+                    return array[Math.floor(Math.random() * array.length)];
+                }
+            })() </script>
             <hgroup>
                 <h1>Haio!!</h1>
                 <!-- Make 'Haio!!' wavy -->
-                <script>
+                <script> (() => {
                     const diff = -200;
                     
                     const element = document.currentScript.previousElementSibling;
@@ -61,7 +93,7 @@
                         span.textContent = content[i];
                         element.append(span);
                     }
-                </script>
+                })() </script>
                 <p>Welcome to my city!</p>
             </hgroup>
             <p>
@@ -79,12 +111,12 @@
             <div class="content">
                 {{ content.status.body }}
             </div>
-            <time datetime="content.status.time.value" data-replace="datetime">
+            <time datetime="content.status.time.value" data-replace-attr="datetime">
                 <span class="relative">
-                    <handlebar with="content.status.time.relative" />
+                    <replace>content.status.time.relative</replace>
                 </span>
                 <span class="locale">
-                    <handlebar with="content.status.time.locale" />
+                    <replace>content.status.time.locale</replace>
                 </span>
             </time>
         </section>
@@ -115,8 +147,8 @@
         </section>
         <section id="identity">
             <p>
-                I usually go by <b>Chip</b> in spaces where only my username is apparent, like
-                Roblox. However, if you'd like, you could call me <b>Hazel!</b>
+                I usually go by <b>Chip</b> in spaces where only my username is apparent.
+                However, if you'd like, you could call me <b>Hazel!</b>
             </p>
             <p>You may have also known me as:</p>
             <ul>
@@ -184,14 +216,14 @@
             </div>
         </section>
         <section id="projects">
-            
+            projex wuddafuk
         </section>
         <section id="todo">
             {{ content.todo }}
             <p>Site last updated
-                <time datetime="content.site.updated.value" data-replace="datetime">
-                    <handlebar with="content.site.updated.relative" />
-                    (<handlebar with="content.site.updated.locale" />)
+                <time datetime="content.site.updated.value" data-replace-attr="datetime">
+                    <replace>content.site.updated.relative</replace>
+                    (<replace>content.site.updated.locale</replace>)
                 </time>
             </p>
         </section>
