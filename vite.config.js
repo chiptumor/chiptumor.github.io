@@ -73,7 +73,10 @@ export default defineConfig({
         emptyOutDir: true,
         assetsInlineLimit: 0,
         rollupOptions: {
-            input: glob.sync("src/**/*.html"),
+            input: [
+                ...glob.sync("src/**/*.html"),
+                "src/.well-known/discord"
+            ],
             external: [
                 "javascript-time-ago"
             ]
