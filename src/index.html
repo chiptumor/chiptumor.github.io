@@ -55,12 +55,13 @@
                     .then(response => response.json())
                     .then(json => {
                         const today = new Date();
-                        return
+                        return (
                             // if october
                             today.getMonth() === 9 ?
                                 randomItem(json.festive.halloween.icon.zoologist)
                             : // else
-                                randomItem(json.generic.icon.zoologist);
+                                randomItem(json.generic.icon.zoologist)
+                        );
                     });
                 const anchor = document.currentScript.previousElementSibling;
                 const image = anchor.firstElementChild;
