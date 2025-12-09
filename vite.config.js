@@ -67,10 +67,7 @@ export default defineConfig({
         emptyOutDir: true,
         assetsInlineLimit: 0,
         rollupOptions: {
-            input: glob.sync("src/**/*.html"),
-            external: [
-                "javascript-time-ago"
-            ]
+            input: glob.sync("src/**/*.html")
         }
     },
     plugins: [

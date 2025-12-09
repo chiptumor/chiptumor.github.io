@@ -22,12 +22,6 @@ body {
 
 		text-decoration: underline;
 		color: inherit;
-		&:hover:not(:active) {
-			border-radius: 3px;
-			
-			background-color: var(--white);
-			color: var(--accent_2);
-		}
 	}
 
 	blockquote {
@@ -76,6 +70,10 @@ body {
 	::selection {
 		background-color: var(--white);
 		color: var(--accent_2);
+	}
+
+	replace, [data-replace-attr] {
+		display: none !important;
 	}
 }
 
