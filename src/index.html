@@ -25,17 +25,21 @@
             <details>
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
-                    <time datetime="content.marquee.time.value" replace="datetime">
+                    <time datetime="content.marquee.time.value" data-replace="datetime">
                         <handlebar with="content.marquee.time.relative" />
                     </time>
                 </summary>
                 {{ content.marquee.details }}
-                <time datetime="content.marquee.time.value" replace="datetime">
+                <time datetime="content.marquee.time.value" data-replace="datetime">
                     <handlebar with="content.marquee.time.locale" />
                 </time>
             </details>
+            <button>
+                <svg data-lucide="chevron-down"></svg>
+                <svg data-lucide="chevron-up"></svg>
+            </button>
         </section>
-        <section id="welcome" class="dynamic-height"><div>
+        <section id="welcome">
             <script type="module" src="./util/script/pfp.js"></script>
             <a target="_blank">
                 <img class="avatar" />
@@ -67,23 +71,23 @@
                 I don't do much besides fiddle with code, chiptune (doesn't that sound
                 familiar?), and pixel art. I'm, however, very passionate about everything I do!
             </p>
-        </div></section>
-        <section id="status" class="dynamic"><div>
-            <header class="dynamic"><div>
+        </section>
+        <section id="status">
+            <h2>
                 I'm feeling {{ content.status.feeling }}.
-            </div></header>
-            <div class="grid-item">
+            </h2>
+            <div class="content">
                 {{ content.status.body }}
             </div>
-            <time datetime="content.status.time.value" replace="datetime" class="dynamic-width"><div>
+            <time datetime="content.status.time.value" data-replace="datetime">
                 <span class="relative">
                     <handlebar with="content.status.time.relative" />
                 </span>
                 <span class="locale">
                     <handlebar with="content.status.time.locale" />
                 </span>
-            </div></time>
-        </div></section>
+            </time>
+        </section>
         <section id="zoologist">
             <p>
                 There is no one on this planet I love more than
@@ -188,7 +192,7 @@
         <section id="todo">
             {{ content.todo }}
             <p>Site last updated
-                <time datetime="content.site.updated.value" replace="datetime">
+                <time datetime="content.site.updated.value" data-replace="datetime">
                     <handlebar with="content.site.updated.relative" />
                     (<handlebar with="content.site.updated.locale" />)
                 </time>

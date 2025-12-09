@@ -1,3 +1,3 @@
-import TimeAgo from "https://esm.sh/javascript-time-ago";
+import "./util/script/lucide.js";
 
-console.log(TimeAgo);
+// import TimeAgo from "https://esm.sh/javascript-time-ago";

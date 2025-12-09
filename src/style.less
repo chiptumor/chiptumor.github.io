@@ -20,6 +20,7 @@ main {
     grid-template-areas:
         "marquee   marquee   marquee  "
         "welcome   welcome   status   "
+        "welcome   welcome   ......   "
         "identity  zoologist zoologist"
         "social    social    social   "
         "projects  projects  projects "
@@ -38,4 +39,16 @@ main {
     each(@panels, {
         section#@{value} { grid-area: @value }
     });
+
+    section { .panel(); }
+
+    #marquee {
+        position: relative;
+
+        summary {
+            &::marker {
+                content: none;
+            }
+        }
+    }
 }

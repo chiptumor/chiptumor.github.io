@@ -1,10 +1,10 @@
 import { defineConfig } from "vite";
 import { glob } from "glob";
+import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
 import * as Path from "node:path";
 import * as Url from "node:url";
 
-import { JSDOM } from "jsdom";
 
 async function github({ repo, path }) {
     return await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
