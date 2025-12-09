@@ -1,19 +1,6 @@
 import replace from "../util/script/replace.js";
 import TimeAgo from "../util/module/timeago.js";
 
-json.marquee.time.value
-json.marquee.time.relative
-json.marquee.time.locale
-json.avatar.source
-json.avatar.artist
-json.avatar.file
-json.status.time.value
-json.status.time.relative
-json.status.time.locale
-json.site.updated.value
-json.site.updated.relative
-json.site.updated.locale
-
 const json = await
     Promise.all(
         [
@@ -28,7 +15,6 @@ const json = await
         ([ site, marquee, status, avatar ]) =>
         ({ site, marquee, status, avatar })
     );
-
 
 const template = {
     content: {
