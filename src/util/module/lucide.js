@@ -1,4 +1,9 @@
-import { createIcons, icons } from "lucide";
+import { createIcons, ChevronDown, ChevronUp } from "lucide";
 
-document.addEventListener("DOMContentLoaded", () => createIcons({ icons }));
-new MutationObserver(() => createIcons({ icons }));
+const create = () => createIcons({ icons: {
+    ChevronDown,
+    ChevronUp
+}});
+
+create();
+new MutationObserver(create);

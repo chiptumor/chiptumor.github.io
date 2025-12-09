@@ -60,6 +60,8 @@ const template = {
     }
 };
 
+import lucidePreprocess from "vite-plugin-lucide-preprocess";
+
 export default defineConfig({
     build: {
         emptyOutDir: true,
@@ -72,6 +74,8 @@ export default defineConfig({
         }
     },
     plugins: [
+        lucidePreprocess(),
+        
         {
             name: "replace-templates",
             transformIndexHtml(html) {

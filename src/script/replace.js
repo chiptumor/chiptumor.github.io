@@ -1,6 +1,8 @@
 import replace from "../util/script/replace.js";
 import TimeAgo from "../util/module/timeago.js";
 
+console.debug("running src/script/replace.js");
+
 const json = await ( 
     Promise.all(
         [
