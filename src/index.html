@@ -17,11 +17,11 @@
     <meta name="theme-color" data-react-helmet="true" content="#E9263D" />
 
     <!-- Stylesheet -->
-    <link href="./style.less" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./style.less" />
 
     <!-- Scripts -->
-    <script src="./util/module/lucide.js" type="module"></script>
-    <script src="./script/replace.js" type="module"></script>
+    <script type="module" src="./util/module/lucide.js"></script>
+    <script type="module" src="./script/replace.js"></script>
 </head>
 <body>
     {{ content.menubar }}
@@ -36,7 +36,9 @@
                 </summary>
                 {{ content.marquee.details }}
                 <time datetime="content.marquee.time.value" data-replace-attr="datetime">
-                    <replace>content.marquee.time.locale</replace>
+                    <p>
+                        <replace>content.marquee.time.locale</replace>
+                    </p>
                 </time>
             </details>
             <button class="open-close">
@@ -44,6 +46,22 @@
                 <svg data-lucide="chevron-up"></svg>
             </button>
         </section>
+        <!-- Make marquee banner functional -->
+        <script> (() => {
+            const section = document.currentScript.previousElementSibling;
+            const details = section.children[0];
+            const button = section.children[1];
+            section.addEventListener("click", event => {
+                event.preventDefault();
+                if (!details.open) details.open = true;
+            });
+            button.addEventListener("click", event => {
+                if (details.open) {
+                    details.open = false;
+                    event.stopPropagation();
+                }
+            });
+        })() </script>
         <section id="welcome">
             <a target="_blank" href="content.avatar.source" data-title="content.avatar.artist" data-replace-attr="href data-title">
                 <img class="avatar" src="content.avatar.file" alt="content.avatar.artist" data-replace-attr="src alt" />
