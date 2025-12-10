@@ -1,12 +1,14 @@
-import replace from "../util/script/replace.js";
+import { reduce, replace } from "../util/script/replace.js";
 import TimeAgo from "../util/module/timeago.js";
 
 const json = await ( 
     Promise.all(
         [
             fetch(
-                "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?per_page=1",
-                { cache: "no-cache" }
+                "https://api.github.com/repos/chiptumor/chiptumor.github.io/issues?per_page=5"
+            ),
+            fetch(
+                "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?per_page=5"
             ),
             fetch(
                 "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/marquee.xml&per_page=1",
@@ -23,22 +25,23 @@ const json = await (
         .map(item => item.then(response => response.json()))
     )
     .then(
-        ([ site, marquee, status, avatar ]) =>
-        ({ site, marquee, status, avatar })
+        ([ issues, commits, marquee, status, avatar ]) =>
+        ({ issues, commits, marquee, status, avatar })
     )
 );
 
 const template = {
     content: {
         site: {
-            updated: (() => {
-                const string = json.site[0].commit.author.date;
-                const date = new Date(string);
-                return {
-                    value: string,
-                    relative: TimeAgo.format(date.getTime()),
-                    locale: date.toLocaleString()
-                };
+            issues: (() => {
+                if (!json.issues.length) {
+                    const element = document.createElement("p");
+                    element.textContent = "No open issues currently.";
+                    return element;
+                }
+            })(),
+            commits: (() => {
+                
             })()
         },
         marquee: {
@@ -46,9 +49,9 @@ const template = {
                 const string = json.marquee[0].commit.author.date;
                 const date = new Date(string);
                 return {
-                    value: string,
-                    relative: TimeAgo.format(date.getTime()),
-                    locale: date.toLocaleString()
+                    value: () => string,
+                    relative: () => TimeAgo.format(date.getTime()),
+                    locale: () => date.toLocaleString()
                 };
             })()
         },
@@ -57,9 +60,9 @@ const template = {
                 const string = json.status[0].commit.author.date;
                 const date = new Date(string);
                 return {
-                    value: string,
-                    relative: TimeAgo.format(date.getTime()),
-                    locale: date.toLocaleString()
+                    value: () => string,
+                    relative: () => TimeAgo.format(date.getTime()),
+                    locale: () => date.toLocaleString()
                 };
             })()
         },
@@ -73,9 +76,9 @@ const template = {
                     randomItem(json.avatar.generic.icon.zoologist)
             );
             return {
-                artist: avatar.artist,
-                source: avatar.source,
-                file: avatar.path
+                artist: () => avatar.artist,
+                source: () => avatar.source,
+                file: () => avatar.path
             };
             function randomItem(array) {
                 return array[Math.floor(Math.random() * array.length)];

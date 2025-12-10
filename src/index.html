@@ -30,14 +30,19 @@
             <details>
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
-                    <time datetime="content.marquee.time.value" data-replace-attr="datetime">
-                        <replace>content.marquee.time.relative</replace>
+                    <time datetime="content.marquee.time.value" rep-attr="datetime">
+                        <replace hide with="content.marquee.time.relative"></replace>
                     </time>
                 </summary>
                 {{ content.marquee.details }}
-                <time datetime="content.marquee.time.value" data-replace-attr="datetime">
+                <time datetime="content.marquee.time.value" rep-attr="datetime">
                     <p>
-                        <replace>content.marquee.time.locale</replace>
+                        <replace with="content.marquee.time.locale">
+                            Loading...
+                            <fail>
+                                Couldn't get marquee update time.
+                            </fail>
+                        </replace>
                     </p>
                 </time>
             </details>
@@ -65,8 +70,8 @@
             });
         })() </script>
         <section id="welcome">
-            <a target="_blank" href="content.avatar.source" data-title="content.avatar.artist" data-replace-attr="href data-title">
-                <img class="avatar" src="content.avatar.file" alt="content.avatar.artist" data-replace-attr="src alt" />
+            <a target="_blank" href="content.avatar.source" data-title="content.avatar.artist" rep-attr="href data-title">
+                <img class="avatar" src="content.avatar.file" alt="content.avatar.artist" rep-attr="src alt" />
             </a>
             <hgroup>
                 <h1>Haio!!</h1>
@@ -103,12 +108,22 @@
             <div class="content">
                 {{ content.status.body }}
             </div>
-            <time datetime="content.status.time.value" data-replace-attr="datetime">
+            <time datetime="content.status.time.value" rep-attr="datetime">
                 <span class="relative">
-                    <replace>content.status.time.relative</replace>
+                    <replace with="content.status.time.relative">
+                        Loading...
+                        <fail>
+                            Undefined
+                        </fail>
+                    </replace>
                 </span>
                 <span class="locale">
-                    <replace>content.status.time.locale</replace>
+                    <replace with="content.status.time.locale">
+                        Loading...
+                        <fail>
+                            Couldn't get status update time.
+                        </fail>
+                    </replace>
                 </span>
             </time>
         </section>
@@ -134,14 +149,14 @@
                         fit me. I considered it for a while and eventually decided that it <em>does</em>
                         suit me&mdash;enough so that I prefer it as my name now!
                     </p>
-                    <p>
-                        With that being said, Belle is now my preferred middle name again.
-                    </p>
                     <p style="font-size: 1.5em;">
                         Thank you,
                         <a href="https://fussyfelidae.bsky.social/">
                             Nick.</a>
-                        I owe you the world.
+                            I owe you the world.
+                    </p>
+                    <p>
+                        With that being said, Belle is now my preferred middle name again.
                     </p>
                 </details></li>
             </ul>
@@ -214,9 +229,19 @@
             <h2>To-do</h2>
             {{ content.todo }}
             <h3>Latest issues</h3>
-            <replace>content.site.issues</replace>
+            <replace with="content.site.issues">
+                <p>Loading issues...</p>
+                <fail>
+                    <p>Couldn't load issues.</p>
+                </fail>
+            </replace>
             <h3>Latest commits</h3>
-            <replace>content.site.commits</replace>
+            <replace with="content.site.commits">
+                <p>Loading commits...</p>
+                <fail>
+                    <p>Couldn't load commits.</p>
+                </fail>
+            </replace>
         </section>
     </main>
 </body>

@@ -130,8 +130,9 @@ body {
 		color: var(--accent_2);
 	}
 
-	replace, [data-replace-attr] {
-		display: none !important;
+	replace[hide], [data-replace_attr][hide],
+	replace > fail:first-of-type {
+		display: none;
 	}
 }
 
