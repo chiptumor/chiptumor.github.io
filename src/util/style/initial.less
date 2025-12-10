@@ -18,8 +18,6 @@ body {
 	h6 { font-size: 0.67em; }
 
 	a {
-		cursor: pointer;
-
 		text-decoration: underline;
 		color: inherit;
 	}
@@ -36,7 +34,7 @@ body {
 			content: "";
 			
 			display: block;
-			width: 3px;
+			width: 0.25em;
 			border-radius: calc($width / 2);
 
 			position: absolute;
@@ -49,7 +47,7 @@ body {
 	}
 
 	code {
-		padding: 0 3px;
+		padding: 0 0.25em;
 
 		border: 1px solid var(--accent_6); // COLOR
 		border-radius: 3px;
@@ -133,16 +131,5 @@ body {
 	replace[hide], [data-replace_attr][hide],
 	replace > fail:first-of-type {
 		display: none;
-	}
-}
-
-.revertAnchor() {
-	a {
-		text-decoration: none;
-		&:hover {
-			border-radius: unset;
-			background-color: unset;
-			color: unset;
-		}
 	}
 }
