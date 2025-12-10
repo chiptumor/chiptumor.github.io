@@ -5,7 +5,7 @@ const json = await (
     Promise.all(
         [
             fetch(
-                "https://api.github.com/repos/chiptumor/chiptumor.github.io/issues?per_page=5"
+                "https://api.github.com/repos/chiptumor/chiptumor.github.io/issues?sort=updated&per_page=5"
             ),
             fetch(
                 "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?per_page=5"
@@ -36,9 +36,23 @@ const template = {
             issues: (() => {
                 if (!json.issues.length) {
                     const element = document.createElement("p");
-                    element.textContent = "No open issues currently.";
+                    element.textContent = "No open issues currently. Hooray!";
                     return element;
                 }
+                const ul = document.createElement("ul");
+                ul.classList.add("issues");
+                for (const issue of json.issues) {
+                    ul.innerHTML += [
+                        `<li><a href="${issue.html_url}">`,
+                            `<p>${issue.title}`,
+                                `<time datetime="${issue.updated_at}">`,
+                                    `${TimeAgo.format(new Date(issue.updated_at), "twitter")}`,
+                                `</time>`,
+                            `</p>`,
+                        `</a></li>`
+                    ].join("");
+                }
+                return ul;
             })(),
             commits: (() => {
                 
@@ -50,7 +64,7 @@ const template = {
                 const date = new Date(string);
                 return {
                     value: string,
-                    relative: TimeAgo.format(date.getTime()),
+                    relative: TimeAgo.format(date),
                     locale: date.toLocaleString()
                 };
             })()
@@ -61,7 +75,7 @@ const template = {
                 const date = new Date(string);
                 return {
                     value: string,
-                    relative: TimeAgo.format(date.getTime()),
+                    relative: TimeAgo.format(date),
                     locale: date.toLocaleString()
                 };
             })()
