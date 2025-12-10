@@ -211,12 +211,10 @@
         <section id="todo">
             <h2>To-do</h2>
             {{ content.todo }}
-            <p>Site last updated
-                <time datetime="content.site.updated.value" data-replace-attr="datetime">
-                    <replace>content.site.updated.relative</replace>
-                    (<replace>content.site.updated.locale</replace>)
-                </time>
-            </p>
+            <h3>Latest issues</h3>
+            <replace>content.site.issues</replace>
+            <h3>Latest commits</h3>
+            <replace>content.site.commits</replace>
         </section>
     </main>
 </body>
