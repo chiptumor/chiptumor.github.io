@@ -209,4 +209,37 @@ main {
 			border-color: transparent transparent var(--accent_6) transparent;
         }
     }
+
+    #identity {
+
+    }
+
+    #zoologist {
+        ul.honorable-mentions {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            align-items: center;
+            padding: 0;
+            list-style: none;
+
+            li {
+                flex: 1;
+                img {
+                    position: relative;
+                    width: 100%;
+                    min-width: 8em;
+                    transition:
+                        transform 100ms ease-out,
+                        filter    100ms ease-out;
+                    &:hover {
+                        transform: scale(1.2);
+                        filter: drop-shadow(#0003 0 0.25em 1em);
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+    }
 }

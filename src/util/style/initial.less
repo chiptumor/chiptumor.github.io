@@ -67,6 +67,10 @@ body {
 		border-radius: 3px;
 	}
 	
+	ul {
+		padding-inline-start: 2em;
+	}
+	
 	li:has(details) {
 		list-style: none;
 	}
@@ -76,6 +80,7 @@ body {
 
 		> summary {
 			list-style: none;
+			cursor: pointer;
 		}
 
 		&:not([open]) {
@@ -83,9 +88,6 @@ body {
 		}
 		&[open] {
 			list-style-type: disclosure-open;
-			> summary {
-				border-bottom: 1px solid currentColor;
-			}
 		}
 
 		/* FIX THIS SHIT!!!
