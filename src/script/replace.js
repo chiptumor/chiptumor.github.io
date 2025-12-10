@@ -49,9 +49,9 @@ const template = {
                 const string = json.marquee[0].commit.author.date;
                 const date = new Date(string);
                 return {
-                    value: () => string,
-                    relative: () => TimeAgo.format(date.getTime()),
-                    locale: () => date.toLocaleString()
+                    value: string,
+                    relative: TimeAgo.format(date.getTime()),
+                    locale: date.toLocaleString()
                 };
             })()
         },
@@ -60,9 +60,9 @@ const template = {
                 const string = json.status[0].commit.author.date;
                 const date = new Date(string);
                 return {
-                    value: () => string,
-                    relative: () => TimeAgo.format(date.getTime()),
-                    locale: () => date.toLocaleString()
+                    value: string,
+                    relative: TimeAgo.format(date.getTime()),
+                    locale: date.toLocaleString()
                 };
             })()
         },
@@ -76,9 +76,9 @@ const template = {
                     randomItem(json.avatar.generic.icon.zoologist)
             );
             return {
-                artist: () => avatar.artist,
-                source: () => avatar.source,
-                file: () => avatar.path
+                artist: avatar.artist,
+                source: avatar.source,
+                file: avatar.path
             };
             function randomItem(array) {
                 return array[Math.floor(Math.random() * array.length)];
