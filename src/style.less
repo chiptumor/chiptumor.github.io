@@ -20,7 +20,6 @@ main {
     grid-template-areas:
         "marquee   marquee   marquee  "
         "welcome   welcome   status   "
-        "welcome   welcome   ......   "
         "identity  zoologist zoologist"
         "social    social    social   "
         "projects  projects  projects "
@@ -45,14 +44,20 @@ main {
     #marquee {
         position: relative;
         details {
+            display: block;
+            list-style: none;
             summary {
                 list-style: none;
                 span {
                     text-transform: uppercase;
                 }
                 time {
-                    margin-left: 1em;
+                    margin-left: 0.5em;
                     color: var(--accent_9);
+                    &::before {
+                        content: "\2014";
+                        margin-right: 0.5em;
+                    }
                 }
             }
 
@@ -99,6 +104,13 @@ main {
                 }
             }
         }
+
+        &:has(details:not([open])) {
+            cursor: pointer;
+            &:hover {
+                border-color: var(--white);
+            }
+        }
     }
 
     #welcome {
@@ -115,18 +127,18 @@ main {
 
             border: 0.25em solid var(--accent_6);
 
-            a[href] > &:hover {
-                border-color: var(--white);
-            }
+        }
+        a[href] img.avatar:hover {
+            border-color: var(--white);
         }
 
         hgroup {
+            font-size: 2em;
             h1 {
                 display: flex;
-                margin: 0;
+                margin: 0 0 -0.25em;
 
-                font-size: 4em;
-                font-weight: bold;
+                font-weight: bolder;
 
                 span {
                     animation: greeting 2000ms cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite;
@@ -137,6 +149,64 @@ main {
                     }
                 }
             }
+
+            p {
+                font-weight: bold;
+            }
+        }
+    }
+
+    #status {
+        display: flex;
+        flex-direction: column;
+        align-self: start;
+        max-height: 100%;
+
+        padding: 0.25em;
+
+        h2, time > span {
+            max-width: fit-content;
+            padding: 0 0.25em;
+            text-transform: uppercase;
+            background-color: var(--accent_6);
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1em;
+            font-weight: normal;
+        }
+        time {
+            > span {
+                float: right;
+            }
+
+            &:not(:hover) > span.locale,
+            &:hover > span.relative {
+                display: none;
+            }
+        }
+
+        div.content {
+            padding: 0 0.75em;
+        }
+
+        &::before {
+            font-size: 0.4em;
+
+			content: "";
+			display: block;
+			position: absolute;
+
+			top: 0.5em;
+			left: -0.5em;
+			right: unset;
+			width: 0;
+			height: 0;
+			margin: 0 0 -1em -1em;
+			border-style: solid;
+			border-width: 0 0 1em 1em;
+			border-color: transparent transparent var(--accent_6) transparent;
         }
     }
 }
