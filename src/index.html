@@ -52,8 +52,10 @@
             const details = section.children[0];
             const button = section.children[1];
             section.addEventListener("click", event => {
-                event.preventDefault();
-                if (!details.open) details.open = true;
+                if (!details.open) {
+                    event.preventDefault();
+                    details.open = true;
+                }
             });
             button.addEventListener("click", event => {
                 if (details.open) {
