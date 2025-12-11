@@ -2,6 +2,8 @@ import { defineConfig } from "vite";
 import { glob } from "glob";
 import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
+import * as Parse5 from "parse5";
+import { DOMParser } from "@xmldom/xmldom";
 
 async function github({ repo, path }) {
     return await fetch(`https://raw.githubusercontent.com/${repo}/${path}`);
@@ -67,12 +69,23 @@ export default defineConfig({
         emptyOutDir: true,
         assetsInlineLimit: 0,
         rollupOptions: {
-            input: glob.sync("src/**/*.html")
+            input: glob.sync("src/**/*.x?html")
         }
     },
     plugins: [
         lucidePreprocess(),
         
+        {
+            name: "convert-xhtml-to-html",
+            enforce: "pre",
+            async load(id) {
+                if (!id.match(/\.xhtml$/)) return null;
+                const file = await FileSystem.readFile(id, "utf8");
+                const document = new DOMParser().parseFromString(file, "application/xml");
+                const html = Parse5.serialize(Parse5.parse(document.toString()));
+                return `export default ${JSON.stringify(html)};`;
+            }
+        },
         {
             name: "replace-templates",
             transformIndexHtml(html) {
