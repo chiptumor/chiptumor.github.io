@@ -60,19 +60,17 @@ const template = {
     }
 };
 
-import lucidePreprocess from "vite-plugin-lucide-preprocess";
-
-export default defineConfig({
+const viteConfig = {
     build: {
         emptyOutDir: true,
         assetsInlineLimit: 0,
         rollupOptions: {
-            input: glob.sync("src/**/*.html")
+            input: [
+                ...glob.sync("src/**/*.html")
+            ]
         }
     },
     plugins: [
-        lucidePreprocess(),
-        
         {
             name: "replace-templates",
             transformIndexHtml(html) {
@@ -96,4 +94,12 @@ export default defineConfig({
             }
         }
     ]
-})
+};
+
+import lucidePreprocess from "vite-plugin-lucide-preprocess";
+
+viteConfig.plugins.push(
+    lucidePreprocess()
+);
+
+export default defineConfig(viteConfig);
