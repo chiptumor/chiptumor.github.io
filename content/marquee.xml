@@ -4,35 +4,11 @@
     <body>
         <h2>This site is a work-in-progress.</h2>
         <p>
-            I'm currently getting things set up, so things will not look right. Namely:
-            <ul>
-                <li>The socials panel isn't styled at all</li>
-                <li>The socials panel doesn't have much content</li>
-                <li>The projects panel doesn't have any content</li>
-                <li>The to-do list template isn't replaced</li>
-            </ul>
+            I'm currently getting things set up, so some things will not look right.
         </p>
         <p>
-            Please keep this in mind as you scroll down.
-        </p>
-        <p>
-            There's also some things I need help with, if you may please!:
-            <ul>
-                <li>
-                    When <a href="#status">#status</a> overflows enough,
-                    <a href="#welcome">#welcome</a> is sized with it
-                    <ul>
-                        <li>
-                            #status's height should be less than or exactly #welcome's height; #status's
-                            max-height should match the height of #welcome
-                        </li>
-                        <li>
-                            The content within #status (#status div.content) should become scrollable when
-                            overflowing
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            I'd appreciate help&#x2014;check out <a href="#todo">the todo section</a> for
+            issues I might need help with!
         </p>
     </body>
 </marquee>
