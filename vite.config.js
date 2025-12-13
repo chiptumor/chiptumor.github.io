@@ -2,13 +2,19 @@ import { defineConfig } from "vite";
 import { glob } from "glob";
 import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
+import { Marked } from "marked";
 
 async function github({ repo, path }) {
     return await fetch(`https://raw.githubusercontent.com/${repo}/${path}`);
 }
 
-function parseDOM(string) {
+function parseXML(string) {
     return new JSDOM(string, { contentType: "text/xml" });
+}
+
+const marked = new Marked();
+function parseMD(string) {
+    return marked.parse(string, { gfm: true });
 }
 
 const template = {
@@ -31,7 +37,7 @@ const template = {
         marquee: await (async () => {
             const document =
                 await FileSystem.readFile("./content/marquee.xml", "utf8")
-                .then(file => parseDOM(file).window.document);
+                .then(file => parseXML(file).window.document);
             return {
                 visible: document.documentElement.getAttribute("visible"),
                 summary: document.getElementsByTagName("preview")[0].innerHTML,
@@ -41,7 +47,7 @@ const template = {
         status: await (async () => {
             const document =
                 await FileSystem.readFile("./content/status.xml", "utf8")
-                .then(file => parseDOM(file).window.document);
+                .then(file => parseXML(file).window.document);
             return {
                 feeling: document.getElementsByTagName("imFeeling")[0].innerHTML,
                 body: document.getElementsByTagName("body")[0].innerHTML
@@ -55,7 +61,10 @@ const template = {
             }
         },
         todo: await (async () => {
-
+            const markdown =
+                await FileSystem.readFile("./todo.md", "utf8")
+                .then(file => parseMD(file));
+            return markdown;
         })()
     }
 };

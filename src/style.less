@@ -56,7 +56,16 @@ main {
         section#@{value} { grid-area: @value }
     });
 
-    section { .panel(); }
+    section {
+        .panel();
+
+        &[hidden="until-found"] {
+            content-visibility: unset;
+            &:not(:target) {
+                display: none;
+            }
+        }
+    }
 
     #marquee {
         position: relative;

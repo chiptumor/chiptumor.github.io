@@ -191,7 +191,7 @@
                 </ul>
             </p>
         </section>
-        <section id="social" data-active="Discord">
+        <section id="social" data-active="Discord" hidden="until-found">
             <fieldset class="tabs">
                 <button data-tab="Discord">
                     <img src="./res/social/discord/icon.svg" alt="Discord" class="icon" />
@@ -204,7 +204,9 @@
             </fieldset>
             <div class="display">
                 <div data-tab="Discord">
-                    {{ content.social.discord.profile }}
+                    <div class="profile">
+                        {{ content.social.discord.profile }}
+                    </div>
                     <div class="content">
                         <p>
                             I'm most active on Discord. If you ever need something, <em>this</em> is the
@@ -222,7 +224,7 @@
                 </div>
             </div>
         </section>
-        <section id="projects">
+        <section id="projects" hidden="until-found">
             projex wuddafuk
         </section>
         <section id="todo">
