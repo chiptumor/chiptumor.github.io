@@ -57,11 +57,11 @@ const template = {
             commits: (() => {
                 const ul = document.createElement("ul");
                 ul.classList.add("commits");
-                for (const commit of json.commits) {
+                for (const { commit } of json.commits) {
                     ul.innerHTML += [
-                        `<li><p>${commit.commit.message}`,
-                            `<time datetime="${commit.commit.author.date}">`,
-                                `${TimeAgo.format(new Date(commit.commit.author.date), "twitter")}`,
+                        `<li><p>${commit.message}`,
+                            `<time datetime="${commit.author.date}">`,
+                                `${TimeAgo.format(new Date(commit.author.date), "twitter")}`,
                             `</time>`,
                         `</p></li>`
                     ].join("");
