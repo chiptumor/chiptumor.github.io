@@ -55,7 +55,18 @@ const template = {
                 return ul;
             })(),
             commits: (() => {
-                
+                const ul = document.createElement("ul");
+                ul.classList.add("commits");
+                for (const commit of json.commits) {
+                    ul.innerHTML += [
+                        `<li><p>${commit.commit.message}`,
+                            `<time datetime="${commit.author.date}">`,
+                                `${TimeAgo.format(new Date(commit.author.date), "twitter")}`,
+                            `</time>`,
+                        `</p></li>`
+                    ].join("");
+                }
+                return ul;
             })()
         },
         marquee: {
