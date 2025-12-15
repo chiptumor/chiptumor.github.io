@@ -1,0 +1,41 @@
+#title {
+    display: none;
+    flex-direction: column;
+    gap: 0.25em;
+
+    max-width: 12em;
+    padding: 0.25em 0.5em;
+
+    position: fixed;
+    z-index: 3;
+
+    line-break: auto;
+
+    border: 1px solid var(--accent_6);
+    background-image: linear-gradient(to bottom right, var(--accent_0), 70%, var(--accent_4));
+    background-size: cover;
+    background-attachment: fixed;
+
+    span.title {
+        display: block;
+        font-size: 1em;
+    }
+    span.desc {
+        display: block;
+        font-size: 0.75em;
+        color: var(--accent_9);
+    }
+    span.clip {
+        display: none;
+        padding: 0.125em 0.25em;
+        max-width: max-content;
+        background-color: var(--accent_6);
+    }
+    
+    &.copied {
+        display: block !important;
+        span.clip {
+            display: block;
+        }
+    }
+}
