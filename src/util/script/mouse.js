@@ -1,4 +1,3 @@
-try {
 const element = document.createElement("div");
     element.setAttribute("id", "tooltip");
 
@@ -45,6 +44,3 @@ window.addEventListener("click", event => {
 
     setTimeout(() => element.classList.remove("copied"), 1500);
 });
-} catch (error) {
-    window.alert(error.message);
-}
