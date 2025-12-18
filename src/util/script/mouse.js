@@ -7,12 +7,8 @@ const descEl = document.createElement("span");
     descEl.classList.add("desc");
 const clipboard = document.createElement("span");
     clipboard.classList.add("clip");
-
-const clipSuccess = document.createElement("span");
-    clipSuccess.classList.add("success");
-    clipSuccess.innerHTML = "Copied!";
-
-clipboard.append(clipSuccess);
+    clipboard.innerHTML = "Copied!";
+    
 element.append(titleEl, descEl, clipboard);
 document.body.prepend(element);
 
