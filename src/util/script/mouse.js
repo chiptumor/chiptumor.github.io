@@ -15,7 +15,7 @@ const clipSuccess = document.createElement("span");
 
 clipboard.append(clipSuccess);
 element.append(titleEl, descEl, clipboard);
-document.prepend(element);
+document.body.prepend(element);
 
 window.addEventListener("mousemove", event => {
     element.style.top = (event.clientY + 20) + "px";
