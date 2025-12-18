@@ -128,7 +128,7 @@ body {
 		color: var(--accent_2);
 	}
 
-	replace[hide], [data-replace_attr][hide],
+	:is(replace, [rep-attr])[hide],
 	replace > fail:first-of-type {
 		display: none;
 	}
