@@ -1,6 +1,6 @@
 - ~~rewrite everything from the heart and not while im on ADHD meds because i sound like a corporate entity member~~
   - i think this is done but who knows
-- fix hover popup thing
+- fix mobile styling
 - restrict status panel height to height of welcome panel
 - figure out how i wanna go about styling the social and projects panels
   - also add content but plan styling first
