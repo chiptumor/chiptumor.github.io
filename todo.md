@@ -1,7 +1,7 @@
 - rewrite some robotic-sounding stuff
 - adjust mobile styling where necessary
   > lemme know if things look weird on your end!!
-- rewrite `<details>` element styling
+- rewrite `details` element styling
   - fuuuck figure it out first
 - restrict status panel height to height of welcome panel
 - figure out how i wanna go about styling the social and projects panels
