@@ -3,7 +3,7 @@
   > lemme know if things look weird on your end!!
 - rewrite `details` element styling
   - fuuuck figure it out first
-- add giant 3d wordmark with little splash texts
+- animate giant 3d wordmark at tha top of the page
 - restrict status panel height to height of welcome panel
 - figure out how i wanna go about styling the social and projects panels
   - also add content but plan styling first
