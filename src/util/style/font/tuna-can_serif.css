@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "tuna-can";
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(https://raw.githubusercontent.com/chiptumor/font/main/tuna-can/serif/ttf/main.ttf) format("truetype");
+    unicode-range: U+0021-007E, U+00A1-00A9, U+00AB-00AC, U+00AE-00AF, U+00B0-00B1, U+00B4-00B7, U+00BB, U+00F7, U+20AC;
+}

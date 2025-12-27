@@ -34,6 +34,7 @@ main {
     grid-template-columns: 4fr 1fr 4fr;
     grid-gap: 10px;
     grid-template-areas:
+        "header    header    header   "
         "marquee   marquee   marquee  "
         "welcome   welcome   status   "
         "identity  zoologist zoologist"
@@ -45,6 +46,7 @@ main {
     @media (max-width: @layout-thin-max-width) {
         grid-template-columns: 1fr;
         grid-template-areas:
+            "header"
             "marquee"
             "welcome"
             "status"
@@ -75,6 +77,46 @@ main {
         &[hidden="until-found"] {
             content-visibility: unset;
             display: none;
+        }
+    }
+
+    header {
+        grid-area: header;
+
+        padding: 0 5% 5%;
+        position: relative;
+
+        > img.wordmark {
+            width: 100%;
+            filter: drop-shadow(var(--accent_2) 0 0.5em 1em);
+        }
+
+        > p.splash {
+            font-family: "tuna-can";
+            font-size: x-large;
+
+            color: gold;
+            filter: drop-shadow(chocolate 0 0.0625em) drop-shadow(saddlebrown 0 0 0.05em);
+
+            width: fit-content;
+            max-width: 50%;
+            text-align: center;
+
+            position: absolute;
+            bottom: 10%;
+            right: 2.5%;
+            z-index: 1;
+            
+            animation: splash 500ms cubic-bezier(0.445, 0.050, 0.550, 0.950) alternate infinite;
+            @keyframes splash {
+                0%   { transform: rotate(-11.25deg) scale(1); }
+                100% { transform: rotate(-11.25deg) scale(1.25); }
+            }
+
+            &::selection {
+                filter: none;
+                color: sienna;
+            }
         }
     }
 
@@ -190,11 +232,10 @@ main {
                 font-weight: bolder;
 
                 span {
-                    animation: greeting 2000ms cubic-bezier(0.445, 0.050, 0.550, 0.950) infinite;
+                    animation: greeting 2000ms cubic-bezier(0.445, 0.050, 0.550, 0.950) alternate infinite;
                     @keyframes greeting {
                         0%   { transform: translateY(0     ); }
-                        50%  { transform: translateY(0.16em); }
-                        100% { transform: translateY(0     ); }
+                        100%  { transform: translateY(0.16em); }
                     }
                 }
             }

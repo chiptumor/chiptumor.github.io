@@ -30,6 +30,9 @@ const template = {
                 return array[Math.floor(Math.random() * array.length)];
             })()
         },
+        header: {
+            splash: "yo OK they call me cole I'm Rob stores and drink coke"
+        },
         menubar: await (async () => {
             const element = await FileSystem.readFile("./lib/menubar.inc", "utf8");
             return element;
