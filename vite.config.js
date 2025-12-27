@@ -31,7 +31,11 @@ const template = {
             })()
         },
         header: {
-            splash: "yo OK they call me cole I'm Rob stores and drink coke"
+            splash: await (async () => {
+                const array = await FileSystem.readFile("./content/splash.txt", "utf8")
+                    .then(string => string.split("\n"));
+                return array[Math.floor(Math.random() * array.length)];
+            })()
         },
         menubar: await (async () => {
             const element = await FileSystem.readFile("./lib/menubar.inc", "utf8");
