@@ -7,12 +7,16 @@
 
 @layout-thin-max-width: 700px;
 @layout-narrow-max-width: 500px;
+@layout-narrow-min-width: 300px;
 
 body {
     background-color: var(--accent_2);
 
     @media (max-width: @layout-narrow-max-width) {
-        font-size: 2.5vw;
+        font-size: 3.2vw;
+    }
+    @media (max-width: @layout-narrow-min-width) {
+        font-size: 10px;
     }
 }
 
@@ -23,7 +27,7 @@ main {
     margin: auto;
 
     @media (max-width: @layout-narrow-max-width) {
-        padding: 100px 0.05vw;
+        padding: 100px 8vw;
     }
 
     display: grid;
