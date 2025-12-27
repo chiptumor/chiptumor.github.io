@@ -10,7 +10,7 @@
                 "isDefault": true
             },
             "dependsOn": [
-                "build --watch", "open", "preview"
+                "build", "open", "preview"
             ],
             "dependsOrder": "parallel",
             "runOptions": {
@@ -18,7 +18,7 @@
             }
         },
         {
-            "label": "build --watch",
+            "label": "build",
             "type": "shell",
             "command": "npx vite build --watch",
             "presentation": {
@@ -38,9 +38,13 @@
         {
             "label": "open",
             "type": "shell",
-            "command": "explorer http://localhost:6767/",
+            "command": [
+                "timeout 3 &",
+                "explorer http://localhost:6767/ &",
+                "exit 0"
+            ],
             "presentation": {
-                "reveal": "silent",
+                "reveal": "never",
                 "group": "preview",
                 "close": true
             }
