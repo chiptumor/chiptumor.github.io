@@ -22,6 +22,10 @@ main {
     padding: 100px 50px;
     margin: auto;
 
+    @media (max-width: @layout-narrow-max-width) {
+        padding: 100px 0.05vw;
+    }
+
     display: grid;
     grid-template-columns: 4fr 1fr 4fr;
     grid-gap: 10px;
