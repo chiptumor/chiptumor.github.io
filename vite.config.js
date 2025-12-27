@@ -19,7 +19,7 @@ function parseMD(string) {
 
 const template = {
     content: {
-        opengraph: {
+        profile: {
             avatar: await (async () => {
                 const { generic: { icon: { zoologist: array }}} =
                     await github({
@@ -27,7 +27,7 @@ const template = {
                         path: "main/res/profile/rest.json"
                     })
                     .then(response => response.json());
-                return array[Math.floor(Math.random() * array.length)].path;
+                return array[Math.floor(Math.random() * array.length)];
             })()
         },
         menubar: await (async () => {

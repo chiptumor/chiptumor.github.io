@@ -13,7 +13,7 @@
     <meta property="og:title" content="chiptumor.github.io" />
     <meta property="og:description" content="home of the #1 zoologist fanatic" />
     <meta property="og:url" content="https://chiptumor.github.io/" />
-    <meta property="og:image" content="{{ content.opengraph.avatar }}" />
+    <meta property="og:image" content="{{ content.profile.avatar.path }}" />
     <meta name="theme-color" content="#E9263D" />
 
     <!-- Stylesheet -->
@@ -71,8 +71,8 @@
             });
         })() </script>
         <section id="welcome">
-            <a target="_blank" href="content.avatar.source" data-title="content.avatar.artist" rep-attr="href data-title" hide>
-                <img class="avatar" src="content.avatar.file" alt="content.avatar.artist" rep-attr="src alt" hide />
+            <a target="_blank" href="{{ content.profile.avatar.source }}" data-title="{{ content.profile.avatar.artist }}">
+                <img class="avatar" src="{{ content.profile.avatar.path }}" alt="{{ content.profile.avatar.artist }}" />
             </a>
             <hgroup>
                 <h1>Haio!!</h1>
