@@ -69,7 +69,7 @@ const template = {
     }
 };
 
-const viteConfig = {
+const viteConfig = defineConfig({
     preview: {
         port: 6767
     },
@@ -106,7 +106,7 @@ const viteConfig = {
             }
         }
     ]
-};
+});
 
 import lucidePreprocess from "vite-plugin-lucide-preprocess";
 
