@@ -1,6 +1,8 @@
-- ~~rewrite everything from the heart and not while im on ADHD meds because i sound like a corporate entity member~~
-  - i think this is done but who knows
-- fix mobile styling
+- rewrite some robotic-sounding stuff
+- adjust mobile styling where necessary
+  > lemme know if things look weird on your end!!
+- rewrite `<details>` element styling
+  - fuuuck figure it out first
 - restrict status panel height to height of welcome panel
 - figure out how i wanna go about styling the social and projects panels
   - also add content but plan styling first
