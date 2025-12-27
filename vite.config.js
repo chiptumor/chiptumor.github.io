@@ -70,6 +70,9 @@ const template = {
 };
 
 const viteConfig = {
+    preview: {
+        port: 6767
+    },
     build: {
         emptyOutDir: true,
         assetsInlineLimit: 0,
