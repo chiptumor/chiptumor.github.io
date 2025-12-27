@@ -76,11 +76,15 @@ const viteConfig = defineConfig({
     build: {
         emptyOutDir: true,
         assetsInlineLimit: 0,
+        sourcemap: true,
         rollupOptions: {
             input: [
                 ...glob.sync("src/**/*.html")
             ]
         }
+    },
+    css: {
+        devSourcemap: true
     },
     plugins: [
         {
