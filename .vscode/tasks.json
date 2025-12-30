@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Vite: Preview",
+            "label": "Preview build",
             "detail": "Build on each save and open a preview window",
             "isBackground": true,
             "group": {
@@ -12,10 +12,7 @@
             "dependsOn": [
                 "build", "open", "preview"
             ],
-            "dependsOrder": "parallel",
-            "runOptions": {
-                "runOn": "folderOpen"
-            }
+            "dependsOrder": "parallel"
         },
         {
             "label": "build",
@@ -38,11 +35,7 @@
         {
             "label": "open",
             "type": "shell",
-            "command": [
-                "timeout 3 &",
-                "explorer http://localhost:6767/ &",
-                "exit 0"
-            ],
+            "command": "explorer http://localhost:6767/ & exit 0",
             "presentation": {
                 "reveal": "never",
                 "group": "preview",
