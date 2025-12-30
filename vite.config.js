@@ -73,6 +73,7 @@ const template = {
                         .then(response => response.json());
 
                     return {
+                        id: me.user.id,
                         username: me.user.username,
                         nickname: me.user.global_name,
                         avatar: `https://cdn.discordapp.com/avatars/${me.user.id}/${me.user.avatar}.png`,
