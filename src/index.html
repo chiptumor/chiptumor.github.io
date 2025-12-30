@@ -196,19 +196,17 @@
         </section>
         <section id="social" data-active="Discord" hidden="until-found">
             <fieldset class="tabs">
-                <button data-tab="Discord">
-                    <img src="./res/social/discord/icon.svg" alt="Discord" class="icon" />
-                    <img src="./res/social/discord/logo.svg" alt="Discord" class="logo" />
-                </button>
-                <button data-tab="Instagram">
-                    <img src="" alt="Instagram" class="icon" />
-                    <img src="" alt="Instagram" class="logo" />
-                </button>
+                <button data-tab="Discord">Discord</button>
+                <button data-tab="Instagram">Instagram</button>
             </fieldset>
             <div class="display">
                 <div data-tab="Discord">
                     <div class="profile">
-                        {{ content.social.discord.profile }}
+                        <div class="banner" style="background-color: {{ content.social.discord.profile.bannerColor }};"></div>
+                        <img src="{{ content.social.discord.profile.avatar }}" alt="Avatar" />
+                        <span class="nickname">{{ content.social.discord.profile.nickname }}</span>
+                        <span class="username">{{ content.social.discord.profile.username }}</span>
+                        <div class="bio">{{ content.social.discord.profile.bio }}</div>
                     </div>
                     <div class="content">
                         <p>

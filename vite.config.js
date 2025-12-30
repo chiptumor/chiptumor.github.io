@@ -1,8 +1,11 @@
 import { defineConfig } from "vite";
+import dotenv from "dotenv";
 import { glob } from "glob";
 import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
 import { Marked } from "marked";
+
+dotenv.config();
 
 async function github({ repo, path }) {
     return await fetch(`https://raw.githubusercontent.com/${repo}/${path}`);
@@ -72,9 +75,9 @@ const template = {
                     return {
                         username: me.user.username,
                         nickname: me.user.global_name,
-                        avatar: `https://cdn.discordapp.com/avatars/${me.id}/${me.avatar}.png`,
-                        bannerColor: me.banner_color,
-                        bio: marked.parse(me.bio, { breaks: true })
+                        avatar: `https://cdn.discordapp.com/avatars/${me.user.id}/${me.user.avatar}.png`,
+                        bannerColor: me.user.banner_color,
+                        bio: marked.parse(me.user.bio, { breaks: true })
                     }
                 })()
             }
