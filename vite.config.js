@@ -63,7 +63,19 @@ const template = {
         social: {
             discord: {
                 profile: await (async () => {
+                    const me =
+                        await fetch("https://discord.com/api/v10/users/1184619891215573042/profile", { headers: {
+                            Authorization: process.env.DISCORD_AUTHORIZATION
+                        }})
+                        .then(response => response.json());
 
+                    return {
+                        username: me.user.username,
+                        nickname: me.user.global_name,
+                        avatar: `https://cdn.discordapp.com/avatars/${me.id}/${me.avatar}.png`,
+                        bannerColor: me.banner_color,
+                        bio: marked.parse(me.bio, { breaks: true })
+                    }
                 })()
             }
         },
