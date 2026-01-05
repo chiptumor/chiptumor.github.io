@@ -1,6 +1,8 @@
 Kill Trump!                              // Donald J. Trump, 47th president of the United States
 
 make().some["noise!"]                    // JavaScript syntax
+<span style=color:red>C</span><span style=color:orange>o</span><span style=color:yellow>l</span><span style=color:green>o</span><span style=color:blue>r</span><span style=color:indigo>s</span><span style=color:purple>!</span>
+  // Minecraft's 'Colormatic!' splash text; reads "Colors!"
 
 Soft kitty, warm kitty!                  // The song sung to Big Bang Theory's Sheldon by his mother when he is sick
 Little ball of fur!                      // Ditto
