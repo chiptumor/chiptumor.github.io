@@ -160,8 +160,6 @@ the splash element uses a static color. I.e. the examples under [Inline
 HTML](#inline-html) and [String length](#string-length) would color the text
 red, but the drop shadow would remain brown.
 
-## `marquee.xml`
-
 ## `marquee.xml` and `status.xml`
 
 `marquee.xml` and `status.xml` are used as content for their respective panels
