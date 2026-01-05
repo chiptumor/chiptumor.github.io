@@ -12,5 +12,6 @@
   >
   > - [reveal social panel](#social)
   > - [reveal project panel](#project)
+  > - [hide both panels](#)
 
 [view repo before v2 merge](https://github.com/chiptumor/chiptumor.github.io/tree/1bb0ce55918c046b009e3a90ad2c8499a3b7461a)
