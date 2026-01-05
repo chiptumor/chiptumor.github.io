@@ -14,7 +14,7 @@ yo OK they call me cole!                 // Rap lyric sung by sgtslimjimtoes fea
 I'm Rob stores and drink coke!           // Ditto
 thank u for your itme!                   // Following quote from Remainings in same Hilton Hotels video
 
-I'm not takin' no refunds!               // Common sample used by FLDE
+I'm not takin' no refunds!               // Sample commonly used by FLDE, such as in _Struck by a Comet_
 
 You're 8% there!                         // Text displayed when Windows is updating
 Please keep your computer on!            // Ditto
