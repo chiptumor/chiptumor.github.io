@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 - rewrite some robotic-sounding stuff
 - adjust mobile styling where necessary
   > lemme know if things look weird on your end!!
@@ -11,7 +12,5 @@
   >
   > - [reveal social panel](#social)
   > - [reveal project panel](#project)
-  >
-  > (revealing doesnt work on webkit (safari) for whatever reason rofl fuck iOS)
 
 [view repo before v2 merge](https://github.com/chiptumor/chiptumor.github.io/tree/1bb0ce55918c046b009e3a90ad2c8499a3b7461a)
