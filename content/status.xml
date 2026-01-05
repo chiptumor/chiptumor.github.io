@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <status>
-    <imFeeling>jolly</imFeeling>
+    <imFeeling>hyperactive</imFeeling>
     <body>
-        <p>christmas break was alright i got some stuff so far</p>
-        <p>tell you what. i got a freaking CAR!!! aint that freaking awesome sauce!!!</p>
-        <p>this site is the only thing ive spent time coding throughout the break so far. singlehandedly saving my mental</p>
+        <p>i got all ready 4 school 2day only to find out theres NO school today. NONE!!!</p>
+        <p>i woke up at 6 and washed my hair and ate a big breakfast and took my adhd pills just to find out im staying HOME!!!</p>
+        <p>whatever i guess. meds got me codin a bunch of shit so i got some progress on tha site done</p>
+        <p><a href="https://github.com/chiptumor/chiptumor.github.io/blob/main/content/splash.txt">cool new splashes and splash syntax!!</a> thanks regex</p>
     </body>
 </status>
