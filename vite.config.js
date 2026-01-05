@@ -36,8 +36,13 @@ const template = {
         header: {
             splash: await (async () => {
                 const array = await FileSystem.readFile("./content/splash.txt", "utf8")
-                    .then(string => string.split("\n"));
-                return array[Math.floor(Math.random() * array.length)];
+                    .then(string => string
+                        .replace(/\s+\/\/.*/g, "")
+                        .replace(/\n(?!\S+)/g, "")
+                        .split("\n")
+                    );
+                const string = array[Math.floor(Math.random() * array.length)];
+                return string.match(/.*?(?= +\/\/ .*)/)[0];
             })()
         },
         menubar: await (async () => {

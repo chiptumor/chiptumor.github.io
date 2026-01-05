@@ -1,9 +1,18 @@
-I'm not takin' no refunds!
-Kill Trump!
-make().some["noise!"]
-Please subscribe for more vidos!
-Shirts Shirts Shirts!
-Soft kitty, warm kitty, little ball of fur!
-Thank you for your time!
-yo OK they call me cole I'm Rob stores and drink coke
-You're 8% there. Please keep your computer on.
+Kill Trump!                              // Donald J. Trump, 47th president of the United States
+
+make().some["noise!"]                    // JavaScript syntax
+
+Soft kitty, warm kitty!                  // The song sung to Big Bang Theory's Sheldon by his mother when he is sick
+Little ball of fur!                      // Ditto
+
+Shirts Shirts Shirts!                    // Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
+
+Please subscribe for more vidos!         // From Remainings's 'How to Fail at Murder Mystery 2' video; misspelling intentional
+yo OK they call me cole!                 // Rap lyric sung by sgtslimjimtoes featured in Remainings's 'Hilton Hotels: 1 Year Later' video
+I'm Rob stores and drink coke!           // Ditto
+thank u for your itme!                   // Following quote from Remainings in same Hilton Hotels video
+
+I'm not takin' no refunds!               // Common sample used by FLDE
+
+You're 8% there!                         // Text displayed when Windows is updating
+Please keep your computer on!            // Ditto
