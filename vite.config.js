@@ -41,8 +41,7 @@ const template = {
                         .replace(/\n(?!\S+)/g, "")
                         .split("\n")
                     );
-                const string = array[Math.floor(Math.random() * array.length)];
-                return string.match(/.*?(?= +\/\/ .*)/)[0];
+                return array[Math.floor(Math.random() * array.length)];
             })()
         },
         menubar: await (async () => {
