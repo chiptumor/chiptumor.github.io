@@ -16,6 +16,8 @@ const plugin = ({ template }) => ({
         return html.replace(regex, () => data.shift());
         // TODO: convert client templates to elements
     }
+    // thank you overcl9ck
+    // https://stackoverflow.com/a/48032528/31616199
 });
 
 export default plugin;
