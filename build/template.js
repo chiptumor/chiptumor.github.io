@@ -33,7 +33,7 @@ const template = {
         },
         header: {
             splash: await (async () => {
-                const array = await FileSystem.readFile("../content/splash.txt", "utf8")
+                const array = await FileSystem.readFile("./content/splash.txt", "utf8")
                     .then(string => string
                         .replace(/\s+\/\/.*/g, "") // remove comments
                         .replace(/\n(?!\S+)/g, "") // remove empty lines
@@ -43,12 +43,12 @@ const template = {
             })()
         },
         menubar: await (async () => {
-            const element = await FileSystem.readFile("./include/menubar.html", "utf8");
+            const element = await FileSystem.readFile("./build/include/menubar.html", "utf8");
             return element;
         })(),
         marquee: await (async () => {
             const document =
-                await FileSystem.readFile("../content/marquee.xml", "utf8")
+                await FileSystem.readFile("./content/marquee.xml", "utf8")
                 .then(file => parseXML(file).window.document);
             return {
                 visible: document.documentElement.getAttribute("visible"),
@@ -58,7 +58,7 @@ const template = {
         })(),
         status: await (async () => {
             const document =
-                await FileSystem.readFile("../content/status.xml", "utf8")
+                await FileSystem.readFile("./content/status.xml", "utf8")
                 .then(file => parseXML(file).window.document);
             return {
                 feeling: document.getElementsByTagName("imFeeling")[0].innerHTML,
@@ -87,7 +87,7 @@ const template = {
         },
         todo: await (async () => {
             const markdown =
-                await FileSystem.readFile("../todo.md", "utf8")
+                await FileSystem.readFile("./todo.md", "utf8")
                 .then(file => parseMD(file));
             return markdown;
         })()
