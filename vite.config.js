@@ -37,8 +37,8 @@ const template = {
             splash: await (async () => {
                 const array = await FileSystem.readFile("./content/splash.txt", "utf8")
                     .then(string => string
-                        .replace(/\s+\/\/.*/g, "")
-                        .replace(/\n(?!\S+)/g, "")
+                        .replace(/\s+\/\/.*/g, "") // remove comments
+                        .replace(/\n(?!\S+)/g, "") // remove empty lines
                         .split("\n")
                     );
                 return array[Math.floor(Math.random() * array.length)];
