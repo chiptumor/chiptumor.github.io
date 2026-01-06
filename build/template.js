@@ -43,7 +43,7 @@ const template = {
             })()
         },
         menubar: await (async () => {
-            const element = await FileSystem.readFile("../lib/menubar.inc", "utf8");
+            const element = await FileSystem.readFile("./include/menubar.html", "utf8");
             return element;
         })(),
         marquee: await (async () => {
