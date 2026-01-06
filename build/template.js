@@ -1,3 +1,8 @@
+/* It's important to note that, because of how Vite handles building the site,
+ * FileSystem functions parse paths as if the current directory is the root,
+ * relative to vite.config.js. "./" is treated as the root instead of "../".
+ */
+
 import dotenv from "dotenv";
 import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
