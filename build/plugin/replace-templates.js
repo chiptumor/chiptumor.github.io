@@ -1,17 +1,20 @@
 const plugin = ({ template }) => ({
     name: "replace-templates",
-    transformIndexHtml(html) {
+    async transformIndexHtml(html) {
         const regex = /\{\{\s*([\w.]+)\s*\}\}/g;
-        return html.replace(regex, (match, path) => {
-            const value = path.split(".")
-                .reduce((obj, key) =>
+        const promises = [];
+        html.replace(regex, (match, path) => promises.push(
+            path.split(".").reduce(
+                (obj, key) =>
                     Promise.resolve(obj)
                     .then(obj => obj?.[key]),
                 template
             )
-            .then(value => value ?? match);
-            // TODO: convert client templates to elements
-        });
+            .then(value => value ?? match)
+        ));
+        const data = await Promise.all(promises);
+        return html.replace(regex, () => data.shift());
+        // TODO: convert client templates to elements
     }
 });
 
