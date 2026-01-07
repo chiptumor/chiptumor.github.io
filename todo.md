@@ -1,10 +1,5 @@
 <!-- markdownlint-disable -->
-- ### convert some of these in2 issues
 - rewrite some robotic-sounding stuff
-- rewrite `details` element styling
-  - fuuuck figure it out first
-- adjust splash text styling to look better on thinner layouts
-- adjust status panel styling
 - figure out how i wanna go about styling the social and projects panels
   - also add content but plan styling first
     - figure out how to access instagram api to get my profile data
