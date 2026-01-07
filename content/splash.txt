@@ -1,6 +1,10 @@
 Kill Trump!                              // Donald J. Trump, 47th president of the United States
 
+&lt;turn it="up!"&gt;                    // HTML syntax
+drop { the: beat! }                      // CSS syntax
 make().some["noise!"]                    // JavaScript syntax
+{"get":"funky!"}                         // JSON syntax
+if movin then get:groovin("!") end       // Lua syntax
 
 Soft kitty, warm kitty!                  // The song sung to Big Bang Theory's Sheldon by his mother when he is sick
 Little ball of fur!                      // Ditto
