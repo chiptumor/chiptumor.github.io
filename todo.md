@@ -1,4 +1,5 @@
 <!-- markdownlint-disable -->
+- ### convert some of these in2 issues
 - rewrite some robotic-sounding stuff
 - adjust mobile styling where necessary
   > lemme know if things look weird on your end!!
