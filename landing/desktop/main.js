@@ -12,55 +12,55 @@ async function shortcut() {
     button.classList = ""; // unhilight shortcut
     document.body.style.cursor = "default"; // set cursor back
     await delay(250); document.body.style.cursor = "wait"; // wait, hold on, lets do some stuff
-	try {
-		const xml = await (async () => {
-			const comments = {};
-			comments.file = await fetch("comments.json"); // get comments.json
-			comments.array = await comments.file.json(); // use comments.json as a json
-			comment = comments.array[Math.floor(Math.random() * comments.array.length)]; // get random comment
-		
-			const terminalXml = await fetch("terminal.xml"); // get terminal.xml
-			const response = await terminalXml.text(); // get result as text
-			const withComment = response.replace("[comment]", comment); // replace [comment] with random comment
-			const parser = new DOMParser(); // parser for xml
-			const xml = parser.parseFromString(`<root>${withComment}</root>`, "text/xml"); // parse xml with surrounding root node
-			return xml.documentElement.childNodes; // return xml object
-		})();
-		document.body.style.cursor = "default"; // okay, cursor default again
+    try {
+        const xml = await (async () => {
+            const comments = {};
+            comments.file = await fetch("comments.json"); // get comments.json
+            comments.array = await comments.file.json(); // use comments.json as a json
+            comment = comments.array[Math.floor(Math.random() * comments.array.length)]; // get random comment
+        
+            const terminalXml = await fetch("terminal.xml"); // get terminal.xml
+            const response = await terminalXml.text(); // get result as text
+            const withComment = response.replace("[comment]", comment); // replace [comment] with random comment
+            const parser = new DOMParser(); // parser for xml
+            const xml = parser.parseFromString(`<root>${withComment}</root>`, "text/xml"); // parse xml with surrounding root node
+            return xml.documentElement.childNodes; // return xml object
+        })();
+        document.body.style.cursor = "default"; // okay, cursor default again
 
-		for (const node of xml) { // 'for each node:'
-			if (node.nodeType === Node.ELEMENT_NODE) { // if node is an element
-				switch (node.tagName) {
-					case "log":
-						terminal.textContent += node.textContent + "\n"; break; // put dat text in da terminal
-					case "wait":
-						await delay(parseFloat(node.textContent) * 1000); break; // wait alotted seconds
-				}
-			}
-		}
-		redirect();
-	} catch (e) {
-		terminal.innerText += "Uh oh! Error encountered:\n" +
-			"\n\tmessage: " + e.message +
-			"\n\tfileName: " + e.fileName +
-			"\n\tlineNumber: " + e.lineNumber +
-			"\n\tcolumnNumber: " + e.columnNumber +
-			"\n\nRefresh the page and, if it happens again, take a screenie and show me!\nOtherwise, *click to continue.*\n";
-		document.body.style.cursor = "default"; // okay, cursor default again
-		terminal.addEventListener("click", redirect);
-	}
+        for (const node of xml) { // 'for each node:'
+            if (node.nodeType === Node.ELEMENT_NODE) { // if node is an element
+                switch (node.tagName) {
+                    case "log":
+                        terminal.textContent += node.textContent + "\n"; break; // put dat text in da terminal
+                    case "wait":
+                        await delay(parseFloat(node.textContent) * 1000); break; // wait alotted seconds
+                }
+            }
+        }
+        redirect();
+    } catch (e) {
+        terminal.innerText += "Uh oh! Error encountered:\n" +
+            "\n\tmessage: " + e.message +
+            "\n\tfileName: " + e.fileName +
+            "\n\tlineNumber: " + e.lineNumber +
+            "\n\tcolumnNumber: " + e.columnNumber +
+            "\n\nRefresh the page and, if it happens again, take a screenie and show me!\nOtherwise, *click to continue.*\n";
+        document.body.style.cursor = "default"; // okay, cursor default again
+        terminal.addEventListener("click", redirect);
+    }
 };
 
 async function redirect() {
     overlay.classList = "visible"; await delay(1000); overlay.classList = ""; await delay(100);
     overlay.classList = "visible"; await delay(250); overlay.classList = ""; await delay(50);
     terminal.innerText += "Redirecting..."; await delay(250);
-	overlay.classList = "visible";
+    overlay.classList = "visible";
     window.location.href = "https://chiptumor.github.io/?s"; // redirect
 }
 
 button.addEventListener("dblclick", shortcut, {once:true}); // listen for 2 clicks...
 
 document.getElementById("credit").addEventListener("dblclick", function() {
-	location.href = "https://twitter.com/uyaubot";
+    location.href = "https://twitter.com/uyaubot";
 });
