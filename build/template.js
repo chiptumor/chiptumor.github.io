@@ -45,7 +45,10 @@ const template = {
                         .replace(/\s+\/\/.*/g, "") // remove comments
                         .replace(/\n(?!\S+)/g, "") // remove empty lines
                         .split("\n");
-                    return array[Math.floor(Math.random() * array.length)];
+                    const splash = array[Math.floor(Math.random() * array.length)];
+                    return splash
+                        .replace(/<((?!\/>).+?)>/g, "<span class=\"splash-$1\">")
+                        .replace(/<\/>/g, "</span>")
                 })
         },
         menubar:
