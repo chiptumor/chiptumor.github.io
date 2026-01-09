@@ -35,15 +35,12 @@
             <details>
                 <summary>
                     <span>{{ content.marquee.summary }}</span>
-                    <time datetime="content.marquee.time.value" rep-attr="datetime">
+                    <time rep-attr rep:datetime="content.marquee.time.value">
                         <replace hide with="content.marquee.time.relative"></replace>
                     </time>
                 </summary>
                 {{ content.marquee.details }}
-                <time
-                    datetime="content.marquee.time.value"
-                    rep-attr="datetime"
-                >
+                <time rep-attr rep:datetime="content.marquee.time.value">
                     <p>
                         <replace with="content.marquee.time.locale">
                             Loading...
@@ -122,10 +119,7 @@
             <div class="content">
                 {{ content.status.body }}
             </div>
-            <time
-                datetime="content.status.time.value"
-                rep-attr="datetime"
-            >
+            <time rep-attr rep:datetime="content.status.time.value">
                 <span class="relative">
                     <replace with="content.status.time.relative">
                         Loading...

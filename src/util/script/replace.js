@@ -9,7 +9,19 @@ export function replace(object) {
     });
 
     document.querySelectorAll("[rep-attr]").forEach(element => {
-        const regex = /\s+/g;
+        const regex = /(?<=^rep:).+/;
+        Array.from(element.attributes).forEach(attr => {
+            const name = attr.name.match(regex)[0];
+            if (name) {
+                const replace =
+                    attr.value.split(".")
+                    .reduce((obj, key) => obj?.[key], object);
+                element.setAttribute(name, replace);
+                element.removeAttribute(attr.name);
+                element.removeAttribute("hide");
+            }
+        });
+
         element.getAttribute("rep-attr").split(regex).forEach(attr => {
             const item =
                 element.getAttribute(attr)
