@@ -1,5 +1,6 @@
 export function replace(object) {
     document.querySelectorAll("replace[with]").forEach(element => {
+        
         const onfail = element.getElementsByTagName("fail")[0] ?? element;
         element.getAttribute("with").split(".")
             .reduce((obj, key) =>
@@ -12,7 +13,7 @@ export function replace(object) {
     document.querySelectorAll("[rep-attr]").forEach(element => {
         const regex = /(?<=^rep:).+/;
         Array.from(element.attributes).forEach(attr => {
-            const name = attr.name.match(regex)[0];
+            const name = attr.name.match(regex)?.[0];
             if (name) {
                 const replace =
                     attr.value.split(".")
@@ -22,6 +23,7 @@ export function replace(object) {
                 element.removeAttribute("hide");
             }
         });
+        element.removeAttribute("rep-attr");
     });
 }
 
