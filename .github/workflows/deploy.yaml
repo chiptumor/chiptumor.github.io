@@ -1,8 +1,13 @@
 name: Deploy to Pages
 
 on:
-  # push:
-  #   branches: ["main"]
+  push:
+    branches:
+      - "main"
+    paths:
+      - "content/marquee.xml"
+      - "content/status.xml"
+      - "todo.md"
   workflow_dispatch:
 
 permissions:

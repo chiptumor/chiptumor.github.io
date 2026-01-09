@@ -1,10 +1,11 @@
-name: Deploy landing pages
+name: "Deploy landing: Desktop"
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - "main"
     paths:
-      - "./landing/**"
+      - "landing/desktop/**"
   workflow_dispatch:
     inputs:
       neocities:
