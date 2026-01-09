@@ -1,35 +1,6 @@
 import { reduce, replace } from "../util/script/replace.js";
 import TimeAgo from "../util/module/timeago.js";
 
-const json = await ( 
-    Promise.all(
-        [
-            fetch(
-                "https://api.github.com/repos/chiptumor/chiptumor.github.io/issues?sort=updated&per_page=5"
-            ),
-            fetch(
-                "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?per_page=5"
-            ),
-            fetch(
-                "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/marquee.xml&per_page=1",
-                { cache: "no-cache" }
-            ),
-            fetch(
-                "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/status.xml&per_page=1",
-                { cache: "no-cache" }
-            ),
-            fetch(
-                "https://raw.githubusercontent.com/chiptumor/chiptumor/main/res/profile/rest.json"
-            )
-        ]
-        .map(item => item.then(response => response.json()))
-    )
-    .then(
-        ([ issues, commits, marquee, status, avatar ]) =>
-        ({ issues, commits, marquee, status, avatar })
-    )
-);
-
 const template = {
     content: {
         site: {
