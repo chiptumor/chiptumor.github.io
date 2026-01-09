@@ -100,27 +100,7 @@ const template = {
                     locale: date.toLocaleString()
                 };
             })()
-        },
-        avatar: (async () => {
-            const url = "https://raw.githubusercontent.com/chiptumor/chiptumor/main/res/profile/rest.json";
-            const rest = await fetch(url).then(response => response.json());
-            const today = new Date();
-            const avatar = (
-                // if october
-                today.getMonth() === 9 ?
-                    randomItem(rest.festive.halloween.icon.zoologist)
-                : // else
-                    randomItem(rest.generic.icon.zoologist)
-            );
-            return {
-                artist: avatar.artist,
-                source: avatar.source,
-                file: avatar.path
-            };
-            function randomItem(array) {
-                return array[Math.floor(Math.random() * array.length)];
-            }
-        })()
+        }
     }
 }
 
