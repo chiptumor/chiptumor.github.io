@@ -76,7 +76,7 @@ const template = {
         marquee: {
             time: (async () => {
                 const url = "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/marquee.xml&per_page=1";
-                const [{ commit: author: date: string }] =
+                const [{ commit: { author: { date: string }}}] =
                     await fetch(url, { cache: "no-cache" })
                     .then(response => response.json());
                 const date = new Date(string);
@@ -90,7 +90,7 @@ const template = {
         status: {
             time: (async () => {
                 const url = "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/status.xml&per_page=1";
-                const [{ commit: author: date: string }] =
+                const [{ commit: { author: { date: string }}}] =
                     await fetch(url, { cache: "no-cache" })
                     .then(response => response.json());
                 const date = new Date(string);
