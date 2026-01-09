@@ -22,15 +22,6 @@ export function replace(object) {
                 element.removeAttribute("hide");
             }
         });
-
-        element.getAttribute("rep-attr").split(regex).forEach(attr => {
-            const item =
-                element.getAttribute(attr)
-                .split(".").reduce((obj, key) => obj?.[key], object);
-            element.setAttribute(attr, item ?? "undefined");
-        });
-        element.removeAttribute("rep-attr");
-        element.removeAttribute("hide");
     });
 }
 
