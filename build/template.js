@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
 import { Marked } from "marked";
+import YAML from "yaml";
 
 dotenv.config();
 
@@ -39,13 +40,10 @@ const template = {
         },
         header: {
             splash:
-                FileSystem.readFile("./content/splash.txt", "utf8")
+                FileSystem.readFile("./content/splash.yaml", "utf8")
                 .then(string => {
-                    const array = string
-                        .replace(/\s+\/\/.*/g, "") // remove comments
-                        .replace(/\n(?!\S+)/g, "") // remove empty lines
-                        .split("\n");
-                    const splash = array[Math.floor(Math.random() * array.length)];
+                    const array = YAML.parse(string);
+                    const { splash } = array[Math.floor(Math.random() * array.length)];
                     return splash
                         .replace(/<((?!\/>).+?)>/g, "<span class=\"splash-$1\">")
                         .replace(/<\/>/g, "</span>")
