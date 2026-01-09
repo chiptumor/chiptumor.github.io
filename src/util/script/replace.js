@@ -1,11 +1,12 @@
 export function replace(object) {
     document.querySelectorAll("replace[with]").forEach(element => {
         const onfail = element.getElementsByTagName("fail")[0] ?? element;
-        const regex = /\s*([\w.]+)\s*/;
-        const item = element
-            .getAttribute("with").split(".")
-            .reduce((obj, key) => obj?.[key], object);
-        element.replaceWith(item ?? onfail);
+        element.getAttribute("with").split(".")
+            .reduce((obj, key) =>
+                Promise.resolve(obj)
+                .then(obj => obj?.[key]),
+            object)
+            .then(item => element.replaceWith(item ?? onfail));
     });
 
     document.querySelectorAll("[rep-attr]").forEach(element => {

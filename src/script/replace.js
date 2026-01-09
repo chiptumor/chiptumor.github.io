@@ -33,15 +33,17 @@ const json = await (
 const template = {
     content: {
         site: {
-            issues: (() => {
-                if (!json.issues.length) {
+            issues: (async () => {
+                const url = "https://api.github.com/repos/chiptumor/chiptumor.github.io/issues?sort=updated&per_page=5";
+                const issues = await fetch(url).then(response => response.json());
+                if (!issues.length) {
                     const element = document.createElement("p");
                     element.textContent = "No open issues currently. Hooray!";
                     return element;
                 }
                 const ul = document.createElement("ul");
                 ul.classList.add("issues");
-                for (const issue of json.issues) {
+                for (const issue of issues) {
                     ul.innerHTML += [
                         `<li><a href="${issue.html_url}">`,
                             `<p>${issue.title}`,
@@ -54,10 +56,12 @@ const template = {
                 }
                 return ul;
             })(),
-            commits: (() => {
+            commits: (async () => {
+                const url = "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?per_page=5";
+                const commits = await fetch(url).then(response => response.json());
                 const ul = document.createElement("ul");
                 ul.classList.add("commits");
-                for (const { commit } of json.commits) {
+                for (const { commit } of commits) {
                     ul.innerHTML += [
                         `<li>${commit.message}`,
                             `<time datetime="${commit.author.date}">`,
@@ -70,8 +74,11 @@ const template = {
             })()
         },
         marquee: {
-            time: (() => {
-                const string = json.marquee[0].commit.author.date;
+            time: (async () => {
+                const url = "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/marquee.xml&per_page=1";
+                const [{ commit: author: date: string }] =
+                    await fetch(url, { cache: "no-cache" })
+                    .then(response => response.json());
                 const date = new Date(string);
                 return {
                     value: string,
@@ -81,8 +88,11 @@ const template = {
             })()
         },
         status: {
-            time: (() => {
-                const string = json.status[0].commit.author.date;
+            time: (async () => {
+                const url = "https://api.github.com/repos/chiptumor/chiptumor.github.io/commits?path=content/status.xml&per_page=1";
+                const [{ commit: author: date: string }] =
+                    await fetch(url, { cache: "no-cache" })
+                    .then(response => response.json());
                 const date = new Date(string);
                 return {
                     value: string,
@@ -91,14 +101,16 @@ const template = {
                 };
             })()
         },
-        avatar: (() => {
+        avatar: (async () => {
+            const url = "https://raw.githubusercontent.com/chiptumor/chiptumor/main/res/profile/rest.json";
+            const rest = await fetch(url).then(response => response.json());
             const today = new Date();
             const avatar = (
                 // if october
                 today.getMonth() === 9 ?
-                    randomItem(json.avatar.festive.halloween.icon.zoologist)
+                    randomItem(rest.festive.halloween.icon.zoologist)
                 : // else
-                    randomItem(json.avatar.generic.icon.zoologist)
+                    randomItem(rest.generic.icon.zoologist)
             );
             return {
                 artist: avatar.artist,
