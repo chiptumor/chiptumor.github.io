@@ -1,4 +1,4 @@
-name: "Deploy landing: Desktop"
+name: Deploy landing pages (desktop)
 
 on:
   push:
