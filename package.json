@@ -14,7 +14,8 @@
     "marked": "^17.0.1",
     "octokit": "^5.0.5",
     "vite": "^7.2.7",
-    "vite-plugin-lucide-preprocess": "^1.4.6"
+    "vite-plugin-lucide-preprocess": "^1.4.6",
+    "yaml": "^2.8.2"
   },
   "devDependencies": {
     "dotenv": "^17.2.3",
