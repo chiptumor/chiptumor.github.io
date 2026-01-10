@@ -1,37 +1,49 @@
-- splash: Kill Trump!                              # Donald J. Trump, 47th president of the United States
+default:
+  - splashes:
+      - Kill Trump!                              # Donald J. Trump, 47th president of the United States
 
-- splash: '&lt;turn it="up!"&gt;'                  # HTML syntax
-- splash: 'drop { the: beat! }'                    # CSS syntax
-- splash: 'make().some["noise!"]'                  # JavaScript syntax
-- splash: '{"get":"funky!"}'                       # JSON syntax
-- splash: 'if movin then get:groovin("!") end'     # Lua syntax
+  - splashes:
+      - '&lt;turn it="up!"&gt;'                  # HTML syntax
+      - 'drop { the: beat! }'                    # CSS syntax
+      - 'make().some["noise!"]'                  # JavaScript syntax
+      - '{"get":"funky!"}'                       # JSON syntax
+      - 'if movin then get:groovin("!") end'     # Lua syntax
 
-- splash: Soft kitty, warm kitty!                  # Big Bang Theory; Sheldon's mom's song for when he's sick
-- splash: Little ball of fur!                      # Ditto
+  - splashes:
+      - Soft kitty, warm kitty!                  # Big Bang Theory; Sheldon's mom's song for when he's sick
+      - Little ball of fur!                      # Ditto
 
-- splash: Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
+  - splashes:
+      - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
 
-- splash: Chuffff!                                 # Line from Regretevator's Flesh Cousin
-- splash: Ah, Freeman, it's good to see you!       # Line from Half Life scientist
-- splash: About that beer I owed ya!               # Line from Barney in Half Life 2
+  - splashes:
+      - Chuffff!                                 # Line from Regretevator's Flesh Cousin
+      - Ah, Freeman, it's good to see you!       # Line from Half Life scientist
+      - About that beer I owed ya!               # Line from Barney in Half Life 2
 
-- splash: Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video; misspelling intentional
-- splash: yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in Remainings's 'Hilton Hotels: 1 Year Later' video
-- splash: I'm Rob stores and drink coke!           # Ditto
-- splash: thank u for your itme!                   # Following quote from Remainings in same Hilton Hotels video
+  - splashes:
+      - Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video; misspelling intentional
+      - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in Remainings's 'Hilton Hotels: 1 Year Later' video
+      - I'm Rob stores and drink coke!           # Ditto
+      - thank u for your itme!                   # Following quote from Remainings in same Hilton Hotels video
 
-- splash: I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
+  - splashes:
+      - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
 
-- splash: You're 8% there!                         # Text displayed when Windows is updating
-- splash: Please keep your computer on!            # Ditto
+  - splashes:
+      - You're 8% there!                         # Text displayed when Windows is updating
+      - Please keep your computer on!            # Ditto
 
-- splash: I'm heath barring!                       # Inside joke of my friend group
+  - splashes:
+      - I'm heath barring!                       # Inside joke of my friend group
 
-- splash: Hey guy's!                               # Popular Twitter/ultr4nima punchline
-- splash: White people's unfunny Balatro!          # Ditto
-- splash: '"Hey men" and they are pigs!'           # Ditto
+  - splashes:
+      - Hey guy's!                               # Popular Twitter/ultr4nima punchline
+      - White people's unfunny Balatro!          # Ditto
+      - '"Hey men" and they are pigs!'           # Ditto
 
-- splash: 67 isn't funny!                          #
-- splash: Be careful with my TV doe!               # Video of guy immediately dropping TV
-- splash: The head is soaring!                     # Context TBA
-- splash: RDM, RDM, RDM, RDM, RDM!                 # Video of kid obnoxiously yelling RDM repeatedly
+  - splashes:
+      - 67 isn't funny!                          #
+      - Be careful with my TV doe!               # Video of guy immediately dropping TV
+      - The head is soaring!                     # Context TBA
+      - RDM, RDM, RDM, RDM, RDM!                 # Video of kid obnoxiously yelling RDM repeatedly

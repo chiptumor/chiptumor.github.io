@@ -42,11 +42,15 @@ const template = {
             splash:
                 FileSystem.readFile("./content/splash.yaml", "utf8")
                 .then(string => {
-                    const array = YAML.parse(string);
-                    const { splash } = array[Math.floor(Math.random() * array.length)];
+                    const file = YAML.parse(string);
+                    const group = randIndex(file.default);
+                    const splash = randIndex(group.splashes);
                     return splash
                         .replace(/<((?!\/>).+?)>/g, "<span class=\"splash-$1\">")
-                        .replace(/<\/>/g, "</span>")
+                        .replace(/<\/>/g, "</span>");
+                    function randIndex(array) {
+                        return array[Math.floor(Math.random() * array.length)];
+                    }
                 })
         },
         menubar:
