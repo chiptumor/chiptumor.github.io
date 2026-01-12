@@ -45,8 +45,7 @@ const template = {
                 FileSystem.readFile("./content/splash.yaml", "utf8")
                 .then(string => {
                     const file = YAML.parse(string);
-                    const group = randIndex(file.default);
-                    return reduce(group);
+                    return reduce(file.default);
                     
                     function reduce(array) {
                         const item = randIndex(array);
