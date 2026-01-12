@@ -1,4 +1,8 @@
 default:
+  - group: Meta
+    splashes:
+      - And there's no one I'd rather be!        #
+
   - group: Politics
     splashes:
       - Kill Trump!                              # Donald J. Trump, 47th president of the United States
