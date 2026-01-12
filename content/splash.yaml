@@ -3,13 +3,20 @@ default:
     splashes:
       - Kill Trump!                              # Donald J. Trump, 47th president of the United States
 
-  - group: Code syntax
+  - group: Development
     splashes:
-      - '&lt;turn it="up!"&gt;'                  # HTML syntax
-      - 'drop { the: beat! }'                    # CSS syntax
-      - 'make().some["noise!"]'                  # JavaScript syntax
-      - '{"get":"funky!"}'                       # JSON syntax
-      - 'if movin then get:groovin("!") end'     # Lua syntax
+      - group: Code syntax
+        splashes:
+          - '&lt;turn it="up!"&gt;'                  # HTML syntax
+          - 'drop { the: beat! }'                    # CSS syntax
+          - 'make().some["noise!"]'                  # JavaScript syntax
+          - '{"get":"funky!"}'                       # JSON syntax
+          - 'if movin then get:groovin("!") end'     # Lua syntax
+
+      - group: Software
+        splashes:
+          - You're 8% there!                         # Text displayed when Windows is updating
+          - Please keep your computer on!            # Ditto
 
   - group: Arbitrary media
     splashes:
@@ -18,36 +25,35 @@ default:
 
   - group: Games
   - splashes:
-      - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
-      - Chuffff!                                 # Line from Regretevator's Flesh Cousin
-      - Ah, Freeman, it's good to see you!       # Line from Half Life scientist
-      - About that beer I owed ya!               # Line from Barney in Half Life 2
+      - group: Roblox
+        splashes:
+          - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
+          - Chuffff!                                 # Line from Regretevator's Flesh Cousin
+      
+      - group: Half Life
+        splashes:
+          - Ah, Freeman, it's good to see you!       # Line from Half Life scientist
+          - About that beer I owed ya!               # Line from Barney in Half Life 2
 
   - group: Content creators
     splashes:
-      - Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video; misspelling intentional
-      - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in Remainings's 'Hilton Hotels: 1 Year Later' video
-      - I'm Rob stores and drink coke!           # Ditto
-      - thank u for your itme!                   # Following quote from Remainings in same Hilton Hotels video
+      - group: Remainings
+        splashes:
+          - Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video; misspelling intentional
+          - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in Remainings's 'Hilton Hotels: 1 Year Later' video
+          - I'm Rob stores and drink coke!           # Ditto
+          - thank u for your itme!                   # Following quote from Remainings in same Hilton Hotels video
 
   - group: Music
     splashes:
-      - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
-
-  - group: Software
-    splashes:
-      - You're 8% there!                         # Text displayed when Windows is updating
-      - Please keep your computer on!            # Ditto
+      - group: FLDE
+        splashes:
+          - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
 
   - group: Inside jokes
     splashes:
       - I'm heath barring!                       # Inside joke of my friend group
 
-  - group: Twitter/ultr4nima punchlines
-    splashes:
-      - Hey guy's!                               # Popular Twitter/ultr4nima punchline
-      - White people's unfunny Balatro!          # Ditto
-      - '"Hey men" and they are pigs!'           # Ditto
 
   - group: Memes
     splashes:
@@ -55,3 +61,8 @@ default:
       - Be careful with my TV doe!               # Video of guy immediately dropping TV
       - The head is soaring!                     # Context TBA
       - RDM, RDM, RDM, RDM, RDM!                 # Video of kid obnoxiously yelling RDM repeatedly
+      - group: Twitter/ultr4nima
+        splashes:
+          - Hey guy's!                               # Popular Twitter/ultr4nima punchline
+          - White people's unfunny Balatro!          # Ditto
+          - '"Hey men" and they are pigs!'           # Ditto
