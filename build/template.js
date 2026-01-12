@@ -4,8 +4,9 @@
  */
 
 import dotenv from "dotenv";
-import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
+
+import { JSDOM } from "jsdom";
 import * as Commonmark from "commonmark";
 import YAML from "yaml";
 
