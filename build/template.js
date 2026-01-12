@@ -6,7 +6,7 @@
 import dotenv from "dotenv";
 import { JSDOM } from "jsdom";
 import * as FileSystem from "node:fs/promises";
-import { Marked } from "marked";
+import Commonmark from "commonmark";
 import YAML from "yaml";
 
 dotenv.config();
@@ -19,9 +19,10 @@ function parseXML(string) {
     return new JSDOM(string, { contentType: "text/xml" });
 }
 
-const marked = new Marked();
+const _mdReader = new Commonmark.Parser();
+const _mdWriter = new Commonmark.HtmlRenderer();
 function parseMD(string) {
-    return marked.parse(string, { gfm: true });
+    return _mdWriter.render(_mdReader.parse(string));
 }
 
 const template = {
@@ -87,7 +88,7 @@ const template = {
                         nickname: me.user.global_name,
                         avatar: `https://cdn.discordapp.com/avatars/${me.user.id}/${me.user.avatar}.png`,
                         bannerColor: me.user.banner_color,
-                        bio: marked.parse(me.user.bio, { breaks: true })
+                        bio: parseMD(me.user.bio.replace(/\n/, "  \n"))
                     }))
             }
         },
