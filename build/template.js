@@ -13,7 +13,7 @@ import YAML from "yaml";
 dotenv.config();
 
 async function github({ repo, path }) {
-    return await fetch(`https://raw.githubusercontent.com/${repo}/${path}`)
+    return await fetch(`https://raw.githubusercontent.com/${repo}/${path}`);
 }
 
 function parseXML(string) {
