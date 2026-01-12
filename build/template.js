@@ -46,10 +46,15 @@ const template = {
                 .then(string => {
                     const file = YAML.parse(string);
                     const group = randIndex(file.default);
-                    const splash = randIndex(group.splashes);
-                    return splash
-                        .replace(/<((?!\/>).+?)>/g, "<span class=\"splash-$1\">")
-                        .replace(/<\/>/g, "</span>");
+                    return reduce(group);
+                    
+                    function reduce(array) {
+                        const item = randIndex(array);
+                        if (item.group) return reduce(item.splashes);
+                        else return item
+                            .replace(/<((?!\/>).+?)>/g, "<span class=\"splash-$1\">")
+                            .replace(/<\/>/g, "</span>");
+                    }
                     function randIndex(array) {
                         return array[Math.floor(Math.random() * array.length)];
                     }
