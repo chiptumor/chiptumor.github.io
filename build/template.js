@@ -33,7 +33,36 @@ function parseXML(string) {
 const _mdReader = new Commonmark.Parser();
 const _mdWriter = new Commonmark.HtmlRenderer();
 function parseMD(string) {
-    return _mdWriter.render(_mdReader.parse(string));
+    const parsed = _mdReader.parse(string);
+    const walker = parsed.walker();
+
+    // GFM alerts
+    let event;
+    while (event = walker.next()) {
+        const bq = {
+            in: false,
+            type: "",
+            title: ""
+        };
+        if (event.node.type === "block_quote") {
+            if (event.entering) {
+                bq.in = true;
+            } else {
+                bq.in = false;
+                event.node.setAttribute
+            }
+        } else if (bq.in && event.node.type === "text") {
+            const regex = /^\[!([\w\- ]+)\](?:(?= )(.*))?\n/;
+            event.node.literal.replace(regex, (match, type, heading) => {
+                bq.type = type;
+                const title = heading.trim();
+                if (title) bq.title = title;
+                return "";
+            });
+        }
+    }
+
+    return _mdWriter.render(parsed);
 }
 
 const template = {
