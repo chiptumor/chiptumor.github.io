@@ -6,6 +6,7 @@
 import dotenv from "dotenv";
 import * as FileSystem from "node:fs/promises";
 
+import * as Entities from "html-entities";
 import { JSDOM } from "jsdom";
 import * as Commonmark from "commonmark";
 import YAML from "yaml";
@@ -16,8 +17,17 @@ async function github({ repo, path }) {
     return await fetch(`https://raw.githubusercontent.com/${repo}/${path}`);
 }
 
+function replaceEntities(string) {
+    const xmlEntities = [ "amp", "apos", "gt", "lt", "quot" ];
+    const regex = /&(.+?);/g;
+    return string.replace(regex, (match, entity) => {
+        if (xmlEntities.includes(entity)) return match;
+        else return Entities.decodeEntity(match);
+    });
+}
+
 function parseXML(string) {
-    return new JSDOM(string, { contentType: "text/xml" });
+    return new JSDOM(replaceEntities(string), { contentType: "text/xml" });
 }
 
 const _mdReader = new Commonmark.Parser();
