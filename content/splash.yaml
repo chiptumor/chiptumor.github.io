@@ -6,12 +6,14 @@ default:
   - group: Politics
     splashes:
       - Kill Trump!                              # Donald J. Trump, 47th president of the United States
+      - Dethrone Baszuki!                        # CEO of Roblox
 
   - group: Development
     splashes:
       - group: Code syntax
         splashes:
-          - '&lt;turn it="up!"&gt;'                  # HTML syntax
+          - '&lt;turn it="up!"&gt;'                  # HTML syntax; renders as '<turn it="up!">'
+          - '_Oh yeah,_ **party!**'                  # Markdown syntax
           - 'drop { the: beat! }'                    # CSS syntax
           - 'make().some["noise!"]'                  # JavaScript syntax
           - '{"get":"funky!"}'                       # JSON syntax
@@ -47,12 +49,30 @@ default:
           - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in Remainings's 'Hilton Hotels: 1 Year Later' video
           - I'm Rob stores and drink coke!           # Ditto
           - thank u for your itme!                   # Following quote from Remainings in same Hilton Hotels video
+          - Why do you look see boring?              # Hate comment
 
   - group: Music
     splashes:
-      - group: FLDE
+      - group: Artists
         splashes:
-          - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
+          - group: FLDE
+            splashes:
+              - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
+      - group: Songs
+        splashes:
+          - group: most stories are the stories that are never told by roboctopus
+            splashes:
+              - Climb the mountain!                      #
+              - Never tell!                              #
+              - Throw your last dollar down!             #
+              - Down into a wishing well!                #
+              - Explore the depths!                      #
+              - Make no maps!                            #
+              - Blow out a candle!                       #
+              - You'll reach the darkest path!           #
+              - Don't light 'em up!                      #
+              - They'll never know!                      #
+              - Most stories aren't told!                #
 
   - group: Inside jokes
     splashes:
