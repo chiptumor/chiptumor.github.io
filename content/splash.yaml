@@ -31,7 +31,7 @@ default:
       - Little ball of fur!                      # Ditto
 
   - group: Games
-  - splashes:
+    splashes:
       - group: Roblox
         splashes:
           - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
