@@ -6,21 +6,24 @@ default:
   - group: Politics
     splashes:
       - Kill Trump!                              # Donald J. Trump, 47th president of the United States
+      - Dethrone Baszuki!                        # CEO of Roblox
 
   - group: Development
     splashes:
       - group: Code syntax
         splashes:
-          - '&lt;turn it="up!"&gt;'                  # HTML syntax
-          - 'drop { the: beat! }'                    # CSS syntax
-          - 'make().some["noise!"]'                  # JavaScript syntax
-          - '{"get":"funky!"}'                       # JSON syntax
-          - 'if movin then get:groovin("!") end'     # Lua syntax
+          - '&lt;turn it="up!"&gt;'                  # HTML; renders as '<turn it="up!">'
+          - '_Oh yeah,_ **party!**'                  # Markdown
+          - 'drop { the: beat! }'                    # CSS
+          - 'make().some["noise!"]'                  # JavaScript
+          - '{"get":"funky!"}'                       # JSON
+          - 'if movin then get:groovin("!") end'     # Lua
 
       - group: Software
         splashes:
           - You're 8% there!                         # Text displayed when Windows is updating
           - Please keep your computer on!            # Ditto
+          - Commit & Push!                           # Commands used to sync Git data with remote origin
 
   - group: Arbitrary media
     splashes:
@@ -33,10 +36,12 @@ default:
         splashes:
           - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
           - Chuffff!                                 # Line from Regretevator's Flesh Cousin
+          - It is evil and it is scary!              # Die of Death special round intro
       
       - group: Half Life
         splashes:
           - Ah, Freeman, it's good to see you!       # Line from Half Life scientist
+          - Hey, watch it, will ya!?                 # Line from Barney in Half Life
           - About that beer I owed ya!               # Line from Barney in Half Life 2
 
   - group: Content creators
@@ -44,26 +49,53 @@ default:
       - group: Remainings
         splashes:
           - Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video; misspelling intentional
-          - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in Remainings's 'Hilton Hotels: 1 Year Later' video
+          - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in a few videos
           - I'm Rob stores and drink coke!           # Ditto
-          - thank u for your itme!                   # Following quote from Remainings in same Hilton Hotels video
+          - thank u for your itme!                   # Hilton Hotels video; misspelling intentional
+          - Why do you look see boring?              # Hate comment
 
   - group: Music
     splashes:
-      - group: FLDE
+      - group: Artists
         splashes:
-          - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
+          - group: FLDE
+            splashes:
+              - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
+
+      - group: Songs
+        splashes:
+          - group: most stories are the stories that are never told by roboctopus
+            splashes:
+              - Climb the mountain!                      #
+              - Never tell!                              #
+              - Throw your last dollar down!             #
+              - Down into a wishing well!                #
+              - Explore the depths!                      #
+              - Make no maps!                            #
+              - Blow out a candle!                       #
+              - You'll reach the darkest path!           #
+              - Don't light 'em up!                      #
+              - They'll never know!                      #
+              - Most stories aren't told!                #
 
   - group: Inside jokes
     splashes:
-      - I'm heath barring!                       # Inside joke of my friend group
+      - group: Monej's Museum
+        splashes:
+          - I'm heath barring!                       #
+          - Number!                                  #
+          - I'll be taking your orders, cuh!         #
+
+      - group: Catty Fan Club
+        splashes:
+          - Forsaken fans can't play their they're!  #
 
 
   - group: Memes
     splashes:
       - 67 isn't funny!                          #
       - Be careful with my TV doe!               # Video of guy immediately dropping TV
-      - The head is soaring!                     # Context TBA
+      - The head is soaring!                     # Video of 
       - RDM, RDM, RDM, RDM, RDM!                 # Video of kid obnoxiously yelling RDM repeatedly
       - group: Twitter/ultr4nima
         splashes:
