@@ -17,11 +17,10 @@ const template = {
                 for (const issue of issues) {
                     ul.innerHTML += [
                         `<li><a href="${issue.html_url}">`,
-                            `<p>${issue.title}`,
-                                `<time datetime="${issue.updated_at}">`,
-                                    `${TimeAgo.format(new Date(issue.updated_at), "twitter")}`,
-                                `</time>`,
-                            `</p>`,
+                            issue.title,
+                            `<time datetime="${issue.updated_at}">`,
+                                `${TimeAgo.format(new Date(issue.updated_at), "twitter")}`,
+                            `</time>`,
                         `</a></li>`
                     ].join("");
                 }
@@ -36,7 +35,7 @@ const template = {
                     ul.innerHTML += [
                         `<li>${commit.message}`,
                             `<time datetime="${commit.author.date}">`,
-                                `${TimeAgo.format(new Date(commit.author.date), "twitter")}`,
+                                TimeAgo.format(new Date(commit.author.date), "twitter"),
                             `</time>`,
                         `</li>`
                     ].join("");
