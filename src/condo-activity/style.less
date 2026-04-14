@@ -2,10 +2,11 @@
 @import "../util/style/initial.less";
 
 main {
-    min-width: 24em;
-    max-width: 64em;
+    min-width: calc(24em + 50px);
+    max-width: calc(64em + 50px);
     padding: 100px 50px;
     margin: auto;
+    box-sizing: border-box;
 
     @media (max-width: 500px) {
         padding: 100px 8vw;
