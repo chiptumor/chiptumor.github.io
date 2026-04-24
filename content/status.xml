@@ -1,72 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <status>
-    <imFeeling>burnt out</imFeeling>
-    <body>
-        <p>
-            i want to get back into the swing of coding but theres so many
-            things i want to practice and so many things i want to get up and
-            running and so many things i want to learn all at once and so many
-            things i have to do and its making my back ache and i dont know
-            where to begin
-        </p>
-        <ul>
-            <li>
-                <p>
-                    ive spent the past few months working on an npm project with
-                    an undefined name (informally called "booru abuse") and all
-                    the typescript bullshit has been pissing me off to an
-                    unfathomable extent
-                </p>
-                <p>
-                    for example, recently the concept of "composition over
-                    inheritance" has taught me my code is fundamentally flawed
-                    and to un-flaw it i have to refactor a buttfuckton of
-                    classes and i just dont want to do that after everything
-                </p>
-                <p>
-                    (<a href="https://github.com/boorujs/booru.js">source code
-                        here</a>
-                    and
-                    <a href="https://boorujs.github.io/">demo here</a>)
-                </p>
-            </li>
-            <li>
-                <p>
-                    i also want to learn
-                    <a href="https://go.dev/">go</a>
-                    and get in touch with devs of libpol so that i can be part
-                    of its development because i treasure libpol more than my
-                    life
-                </p>
-            </li>
-            <li>
-                <p>
-                    i <em>also</em> want to completely revise this site (for the
-                    20th time LAWL) and implement more indie web things like fun
-                    little widgets and stuff like that
-                </p>
-            </li>
-            <li>
-                <p>
-                    this all <strong>PLUS</strong> my academics and grades
-                    (which are far down the shitter &deg;&#x30EE;&deg;) are
-                    stressing me out to hell and back and my motivation is not
-                    at all boosted by the idea of iran obliterating us because
-                    some retard in charge of us all decided it would be a good
-                    idea in regards to nothing but his ego to launch a few bombs
-                    at their territory and declare victory in the "war" with no
-                    material benefit for the united states population
-                </p>
-            </li>
-        </ul>
-        <p>
-            eventually, probably first and foremost, i'll revise this site along
-            with my neocities and ill build up my reputation as the #1 zoologist
-            lover again when i get a self-maintained booru set up for content of
-            just her
-        </p>
-        <p>
-            long ass status necessary no apology intended. chiptumor OUT!
-        </p>
-    </body>
+  <imFeeling>unwell</imFeeling>
+  <body>
+    <p>
+      i did something i feel horrible for and i've been writhing in guilt as
+      much as im sure <i>he's</i> writhing in grief
+    </p>
+    <p>
+      i dont intend on vagueposting too much but the point is that i feel
+      horrifically guilty and shameful. i did something i regret with all my
+      being and i hurt someone i cared immensely about, and all i can ponder
+      from the minute i wake up is how <i>that someone</i> may never see me the
+      same again nor forgive me
+    </p>
+    <p>
+      part of my solution to this all was to stop taking the meds (alike to
+      adderall) that fucked with my hormones and its worked very well against
+      doing what i feel guilty for. whoopee! it has occured to me since,
+      however, that my will to indulge in coding projects entirely depended on
+      those meds, and i have not touched github.dev for a thing since i stopped
+      taking them
+    </p>
+    <p>
+      i still want to revise this site eventually, i just have to draw up
+      everything and force myself to engage in writing code and markup
+      regardless of my medicinal status
+    </p>
+    <p>
+      sorry i havent updated in a while (im sure anyone cares LOL), i promise
+      this site will look bigger and better and cooler when i finally commit to
+      rewriting it again
+    </p>
+  </body>
 </status>
