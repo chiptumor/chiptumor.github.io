@@ -98,12 +98,12 @@ const template = {
                     }})
                     .then(response => response.json())
                     .then(me => ({
-                        id: me.user.id,
-                        username: me.user.username,
-                        nickname: me.user.global_name,
-                        avatar: `https://cdn.discordapp.com/avatars/${me.user.id}/${me.user.avatar}.png`,
-                        bannerColor: me.user.banner_color,
-                        bio: parseMD(me.user.bio.replace(/\n/, "  \n"))
+                        id: me?.user.id,
+                        username: me?.user.username,
+                        nickname: me?.user.global_name,
+                        avatar: `https://cdn.discordapp.com/avatars/${me?.user.id}/${me?.user.avatar}.png`,
+                        bannerColor: me?.user.banner_color,
+                        bio: parseMD(me?.user.bio.replace(/\n/, "  \n") ?? "") || undefined
                     }))
             }
         },
