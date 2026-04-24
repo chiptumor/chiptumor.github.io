@@ -107,7 +107,7 @@ const template = {
                             bannerColor: me.user.banner_color,
                             bio: parseMD(me.user.bio.replace(/\n/, "  \n") ?? "") || undefined
                         }
-                     ))
+                     )
             }
         },
         todo:
