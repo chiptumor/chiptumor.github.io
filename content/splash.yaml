@@ -62,10 +62,13 @@ default:
           - group: FLDE
             splashes:
               - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
+              - That is correct! That's spell "WELCOME!" # TODO
 
       - group: Songs
         splashes:
-          - group: most stories are the stories that are never told by roboctopus
+          - group: >
+              most stories are the stories that are
+              never told by roboctopus
             splashes:
               - Climb the mountain!                      #
               - Never tell!                              #
