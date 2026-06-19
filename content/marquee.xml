@@ -2,12 +2,16 @@
 <marquee visible="true">
     <preview>Work in progress</preview>
     <body>
-        <h2>This site is a work-in-progress.</h2>
+        <h2>This site may have outdated autobiographical info.</h2>
         <p>
-            I'm currently getting things set up, so some things will not look right.
+            I have not updated this site in a while and probably will not for
+            a bit longer. Info such as my name and presentation may not be
+            currently accurate.
         </p>
         <p>
-            I'd appreciate help&#x2014;check out <a href="#todo">the todo section</a>!
+            I will eventually come back to this site and revise it, including
+            updating relevant info, but currently I am neglecting it in favor of
+            nothing in particular.
         </p>
     </body>
 </marquee>
