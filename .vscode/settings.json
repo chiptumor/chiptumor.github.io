@@ -1,7 +1,0 @@
-{
-    "svg.preview.background": "editor",
-    "files.associations": {
-        "**/content/marquee.xml": "html",
-        "**/content/status.xml": "html"
-    }
-}

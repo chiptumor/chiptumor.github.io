@@ -1,109 +1,104 @@
-default:
-  - group: Meta
-    splashes:
-      - And there's no one I'd rather be!        #
+- group: Meta
+  splashes:
+    - And there's no one I'd rather be!        #
+- group: Politics
+  splashes:
+    - Dethrone Baszuki!                        # CEO of Roblox
 
-  - group: Politics
-    splashes:
-      - Kill Trump!                              # Donald J. Trump, 47th president of the United States
-      - Dethrone Baszuki!                        # CEO of Roblox
+- group: Development
+  splashes:
+    - group: Code syntax
+      splashes:
+        - '&lt;turn it="up!"&gt;'                  # HTML; renders as `<turn it="up!">`
+        - '_Oh yeah,_ **party!**'                  # Markdown
+        - 'drop { the: beat! }'                    # CSS
+        - 'make().some["noise!"]'                  # JavaScript
+        - '{"get":"funky!"}'                       # JSON
+        - 'if movin then get:Groovin("!") end'     # Lua
 
-  - group: Development
-    splashes:
-      - group: Code syntax
-        splashes:
-          - '&lt;turn it="up!"&gt;'                  # HTML; renders as '<turn it="up!">'
-          - '_Oh yeah,_ **party!**'                  # Markdown
-          - 'drop { the: beat! }'                    # CSS
-          - 'make().some["noise!"]'                  # JavaScript
-          - '{"get":"funky!"}'                       # JSON
-          - 'if movin then get:groovin("!") end'     # Lua
+    - group: Software
+      splashes:
+        - You're 8% there!                         # Text displayed when Windows is updating
+        - Please keep your computer on!            # Ditto
+        - Commit & Push!                           # Commands used to sync Git data with remote origin
 
-      - group: Software
-        splashes:
-          - You're 8% there!                         # Text displayed when Windows is updating
-          - Please keep your computer on!            # Ditto
-          - Commit & Push!                           # Commands used to sync Git data with remote origin
+- group: Arbitrary media
+  splashes:
+    - Soft kitty, warm kitty!                  # Big Bang Theory; Sheldon's mom's song for when he's sick
+    - Little ball of fur!                      # Ditto
 
-  - group: Arbitrary media
-    splashes:
-      - Soft kitty, warm kitty!                  # Big Bang Theory; Sheldon's mom's song for when he's sick
-      - Little ball of fur!                      # Ditto
+- group: Games
+  splashes:
+    - group: Roblox
+      splashes:
+        - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
+        - It's free!                               # 2011 Roblox commercial
+        - Chuffff!                                 # Line from Regretevator's Flesh Cousin
+        - It is evil and it is scary!              # Die of Death special round intro
+    
+    - group: Pocket God
+      splashes:
+        - You know you love Pocket God!            # Phrase emitted when triple-tapping the Sand Island Statue
+        - Nooby loves presents!                    # Nooby line from the Christmas special animation
+    
+    - group: Half Life
+      splashes:
+        - Ah, Freeman, it's good to see you!       # Line from Half Life scientist
+        - Hey, watch it, will ya!?                 # Line from Barney in Half Life
+        - About that beer I owed ya!               # Line from Barney in Half Life 2
 
-  - group: Games
-    splashes:
-      - group: Roblox
-        splashes:
-          - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
-          - Chuffff!                                 # Line from Regretevator's Flesh Cousin
-          - It is evil and it is scary!              # Die of Death special round intro
-      
-      - group: Half Life
-        splashes:
-          - Ah, Freeman, it's good to see you!       # Line from Half Life scientist
-          - Hey, watch it, will ya!?                 # Line from Barney in Half Life
-          - About that beer I owed ya!               # Line from Barney in Half Life 2
+- group: Content creators
+  splashes:
+    - Then Lets!                               # toastedcherries's "Old ROBLOX was better" video
+    - group: Remainings
+      splashes:
+        - Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video
+        - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in a few videos
+        - I'm Rob stores and drink coke!           # Ditto
+        - thank u for your itme!                   # Hilton Hotels video
+        - Why do you look see boring?              # Hate comment
 
-  - group: Content creators
-    splashes:
-      - Then Lets!                               # toastedcherries's "Old ROBLOX was better" video
-      - group: Remainings
-        splashes:
-          - Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video; misspelling intentional
-          - yo OK they call me cole!                 # Rap lyric sung by sgtslimjimtoes featured in a few videos
-          - I'm Rob stores and drink coke!           # Ditto
-          - thank u for your itme!                   # Hilton Hotels video; misspelling intentional
-          - Why do you look see boring?              # Hate comment
+- group: Music
+  splashes:
+    - group: Artists
+      splashes:
+        - group: FLDE
+          splashes:
+            - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
+            - That is correct! That's spell "WELCOME!" # TODO
+            - Can it dance a Pkcell!?                  # TODO
+            - That's what I wanna know!                # TODO
 
-  - group: Music
-    splashes:
-      - group: Artists
-        splashes:
-          - group: FLDE
-            splashes:
-              - I'm not takin' no refunds!               # Sample commonly used by FLDE, such as in _Struck by a Comet_
-              - That is correct! That's spell "WELCOME!" # TODO
-
-      - group: Songs
-        splashes:
-          - group: >
-              most stories are the stories that are
-              never told by roboctopus
-            splashes:
-              - Climb the mountain!                      #
-              - Never tell!                              #
-              - Throw your last dollar down!             #
-              - Down into a wishing well!                #
-              - Explore the depths!                      #
-              - Make no maps!                            #
-              - Blow out a candle!                       #
-              - You'll reach the darkest path!           #
-              - Don't light 'em up!                      #
-              - They'll never know!                      #
-              - Most stories aren't told!                #
-
-  - group: Inside jokes
-    splashes:
-      - group: Monej's Museum
-        splashes:
-          - I'm heath barring!                       #
-          - Number!                                  #
-          - I'll be taking your orders, cuh!         #
-
-      - group: Catty Fan Club
-        splashes:
-          - Forsaken fans can't play their they're!  #
+    - group: Songs
+      splashes:
+        - I ENTRUST MYSELF TO DANGO!               # MOVE 20 STEPS by Otomata Labs and Alembic
+        - group: >
+            most stories are the stories that are
+            never told by roboctopus
+          splashes:
+            - Climb the mountain!                      #
+            - Never tell!                              #
+            - Throw your last dollar down!             #
+            - Down into a wishing well!                #
+            - Explore the depths!                      #
+            - Make no maps!                            #
+            - Blow out a candle!                       #
+            - You'll reach the darkest path!           #
+            - Don't light 'em up!                      #
+            - They'll never know!                      #
+            - Most stories aren't told!                #
 
 
-  - group: Memes
-    splashes:
-      - 67 isn't funny!                          #
-      - Be careful with my TV doe!               # Video of guy immediately dropping TV
-      - The head is soaring!                     # Video of guy playing and narrating PvZ
-      - RDM, RDM, RDM, RDM, RDM!                 # Video of kid obnoxiously yelling RDM repeatedly
-      - Bike, bike, bike, bike! Next!            # Video of guy struggling with Captcha
-      - group: Twitter/ultr4nima
-        splashes:
-          - Hey guy's!                               # Popular Twitter/ultr4nima punchline
-          - White people's unfunny Balatro!          # Ditto
-          - '"Hey men" and they are pigs!'           # Ditto
+- group: Memes
+  splashes:
+    - 67 isn't funny!                          #
+    - RDM, RDM, RDM, RDM, RDM!                 # TODO
+    - Bike, bike, bike, bike! Next!            # TODO
+    - Mario fans will adore this clasic tune!  # TODO
+    - Um, actually, it's not a votekick!       # TODO
+    - It's actually a democratic proceeding!   # TODO
+    - group: Twitter/ultr4nima
+      splashes:
+        - Hey guy's!                               # TODO
+        - White people's unfunny Balatro!          # TODO
+        - '"Hey men" and they are pigs!'           # TODO

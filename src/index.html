@@ -1,288 +1,199 @@
+<!-- https://github.com/chiptumor/chiptumor.github.io -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script nomodule src="./util/script/nomodule.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Meta -->
-    <title>chiptumor's city !</title>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- OpenGraph -->
-    <meta property="og:title" content="chiptumor.github.io" />
-    <meta property="og:description" content="home of the #1 zoologist fanatic" />
-    <meta property="og:url" content="https://chiptumor.github.io/" />
-    <meta property="og:image" content="{{ content.profile.avatar.path }}" />
-    <meta name="theme-color" content="#E9263D" />
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="./style.less" />
-
-    <!-- Scripts -->
-    <script type="module" src="./util/module/lucide.js"></script>
-    <script type="module" src="./util/script/mouse.js"></script>
-    <script type="module" src="./script/replace.js"></script>
+  <title>chiptumor $ █</title>
 </head>
 <body>
-    {{ content.menubar }}
-    <main>
-        <header>
-            <img class="wordmark" alt="CHIPTUMOR" src="https://chiptumor.github.io/brand/fun/minecraft/animated.webp" />
-            <p class="splash">{{ content.header.splash }}</p>
-        </header>
-        <section id="marquee" data-visible="{{ content.marquee.visible }}">
-            <details>
-                <summary>
-                    <span>{{ content.marquee.summary }}</span>
-                    <time rep-attr rep:datetime="content.marquee.time.value">
-                        <replace hide with="content.marquee.time.relative"></replace>
-                    </time>
-                </summary>
-                {{ content.marquee.details }}
-                <time rep-attr rep:datetime="content.marquee.time.value">
-                    <p>
-                        <replace with="content.marquee.time.locale">
-                            Loading...
-                            <fail>
-                                Couldn't get marquee update time.
-                            </fail>
-                        </replace>
-                    </p>
-                </time>
-            </details>
-            <button class="open-close">
-                <svg data-lucide="chevron-down"></svg>
-                <svg data-lucide="chevron-up"></svg>
-            </button>
-        </section>
-        <!-- Make marquee banner functional -->
-        <script> (() => {
-            const section = document.currentScript.previousElementSibling;
-            const details = section.querySelector("details");
-            const button = section.querySelector("button.open-close");
-            section.addEventListener("click", event => {
-                if (!details.open) {
-                    event.preventDefault();
-                    details.open = true;
-                }
-            });
-            button.addEventListener("click", event => {
-                if (details.open) {
-                    details.open = false;
-                    event.stopPropagation();
-                }
-            });
-        })() </script>
-        <section id="welcome">
-            <a target="_blank"
-                href="{{ content.profile.avatar.source }}"
-                data-title="{{ content.profile.avatar.artist }}"
-            >
-                <img class="avatar"
-                    src="{{ content.profile.avatar.path }}"
-                    alt="{{ content.profile.avatar.artist }}"
-                />
+  <div id="top-fixed">
+    <menu>
+      <li><a href="/">
+        <img src="/res/wordmark-menu.png" alt="CHIPTUMOR" />
+      </a></li>
+      <li><a href="/blog">
+        Blog
+      </a></li>
+      <li>Useful<ul>
+        {{@ for page of usefulPages }}
+          <li>
+            <a href="{{ page.href }}">
+              {{ page.title }}
             </a>
-            <hgroup>
-                <h1>Haio!!</h1>
-                <!-- Make 'Haio!!' wavy -->
-                <script> (() => {
-                    const diff = -200;
-                    
-                    const element = document.currentScript.previousElementSibling;
-                    const content = element.textContent;
-                    element.innerHTML = "";
-                    const length = content.length - 1;
-                    for (const i in content) {
-                        const delay = (length - i) * diff;
-                        const span = document.createElement("span");
-                        span.style.animationDelay = `${delay}ms`;
-                        span.textContent = content[i];
-                        element.append(span);
-                    }
-                })() </script>
-                <p>Welcome to my city!</p>
-            </hgroup>
-            <p>
-                I'm <em>the</em> number one Zoologist fanatic.
-            </p>
-            <p>
-                I don't do much besides fiddle with code, chiptune (doesn't that sound
-                familiar?), and pixel art. I'm passionate about everything I do, though!
-            </p>
-        </section>
-        <section id="status">
-            <h2>
-                I'm feeling <b>{{ content.status.feeling }}</b>.
-            </h2>
-            <div class="content">
-                {{ content.status.body }}
-            </div>
-            <time rep-attr rep:datetime="content.status.time.value">
-                <span class="relative">
-                    <replace with="content.status.time.relative">
-                        Loading...
-                        <fail>
-                            Undefined
-                        </fail>
-                    </replace>
-                </span>
-                <span class="locale">
-                    <replace with="content.status.time.locale">
-                        Loading...
-                        <fail>
-                            Couldn't get status update time.
-                        </fail>
-                    </replace>
-                </span>
-            </time>
-        </section>
-        <section id="identity">
-            <p>
-                I usually go by <b>Chip</b> in spaces where only my username is apparent.
-                However, if you'd like, you could call me <b>Hazel!</b>
-            </p>
-            <p>You may have also known me as:</p>
-            <ul>
-                <li><details>
-                    <summary>Belle</summary>
-                    <p>
-                        I was stuck in an identity limbo for a while, and I wasn't sure what I wanted to
-                        be called by, so for that period I went by my preferred middle name,
-                        <i>Belle.</i> There was even a point I preferred it as my first name.
-                    </p>
-                    <p>
-                        Eventually, while playing
-                        <a href="https://roblox.com/games/11645956561">
-                            a game</a>
-                        with a friend, we came across a character he said had a name that sounds suit
-                        for me. I pondered it for a while and ended up sticking to it!
-                    </p>
-                    <p style="font-size: 1.5em;">
-                        Thank you,
-                        <a href="https://fussyfelidae.bsky.social/">
-                            Nick.</a>
-                        I owe you the world.
-                    </p>
-                    <p>
-                        (With that being said, Belle is my preferred middle name again.)
-                    </p>
-                </details></li>
-                <li>Jennie</li>
-                <li>Jackie</li>
-                <li>Christy</li>
-            </ul>
-            <p>
-                I am <b>panromantic.</b>
-            </p>
-        </section>
-        <section id="zoologist">
-            <p>
-                There is no one on this planet I love more than
-                <a href="https://terraria.wiki.gg/wiki/Zoologist">
-                    the Zoologist.
-                </a>
-            </p>
-            <p>
-                Eventually, I'll put up a Wall of Wife for art of her made for me. I'm still
-                trying to organize all of that... It'll be open eventually.
-            </p>
-            <p>
-                Some honorable mentions:
-                <ul class="honorable-mentions">
-                    <li><a href="https://twitter.com/uyaubot/status/1948913026763227441">
-                        <img
-                            alt="Twitter/uyaubot"
-                            src="./res/zoologist/uyaubot.jpg"
-                        />
-                    </a></li>
-                    <li><a href="https://instagram.com/p/DQjdrkaDuFK/">
-                        <img
-                            alt="Instagram/kissyboos"
-                            src="./res/zoologist/kissyboos.png"
-                        />
-                    </a></li>
-                </ul>
-            </p>
-        </section>
-        <section id="social">
-            <ul>
-                <li>
-                    I'm most active on Discord! If you need anything, <a data-copy="chiptumor">add
-                    me!</a>
-                </li>
-                <li>
-                    I <i>love</i> making chiptune.
-                    <a href="https://youtube.com/@chiptumor"><b>Please</b> check out my work!</a>
-                </li>
-                <li>
-                    I occasionally post pics of my wife and repost cool furry butts on Instagram.
-                    <a target="_blank" href="https://instagram.com/chiptumor">Follow me!</a>
-                </li>
-            </ul>
-            <p>
-                More fleshed-out social panel coming soon.
-            </p>
-        </section>
-        <section id="_social" data-active="Discord" style="display: none;">
-            <fieldset class="tabs">
-                <button data-tab="Discord">Discord</button>
-                <button data-tab="Instagram">Instagram</button>
-            </fieldset>
-            <div class="display">
-                <div data-tab="Discord">
-                    <div class="profile">
-                        <div class="banner" style="
-                            background-color: {{ content.social.discord.profile.bannerColor }};
-                        "></div>
-                        <img src="{{ content.social.discord.profile.avatar }}" alt="Avatar" />
-                        <span class="nickname">{{ content.social.discord.profile.nickname }}</span>
-                        <span class="username">{{ content.social.discord.profile.username }}</span>
-                        <div class="bio">{{ content.social.discord.profile.bio }}</div>
-                    </div>
-                    <div class="content">
-                        <p>
-                            I'm most active on Discord. If you ever need something, <em>this</em> is the
-                            place to find me! Feel free to add me if you can't message me otherwise.
-                        </p>
-                        <p>
-                            I'm less likely to respond to a simple 'hey.' Tell me what's up! I.e.:
-                        </p>
-                        <blockquote>
-                            hey, u seem like a fun friend 2 have :] tell me abt chiptune trackers :0 what r
-                            those like?
-                        </blockquote>
-                        <p>
-                            (Also see <a href="https://nohello.net/en">nohello.net</a>)
-                        </p>
-                        <a data-copy="{{ content.social.discord.profile.username }}" class="discord-profile-button">Copy username</a>
-                        <a href="https://discord.com/users/{{ content.social.discord.profile.id }}" data-title="Less reliable!" class="discord-profile-button">Open user link</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="project" class="hidden-until-found">
-            projex wuddafuk
-        </section>
-        <section id="todo">
-            <h2>To-do</h2>
-            {{ content.todo }}
-            <h3>Latest issues</h3>
-            <replace with="content.site.issues">
-                <p>Loading issues...</p>
-                <fail>
-                    <p>Couldn't load issues.</p>
-                </fail>
-            </replace>
-            <h3>Latest commits</h3>
-            <replace with="content.site.commits">
-                <p>Loading commits...</p>
-                <fail>
-                    <p>Couldn't load commits.</p>
-                </fail>
-            </replace>
-        </section>
-    </main>
+          </li>
+        {{@ /for }}
+      </ul></li>
+    </menu>
+
+    <div id="music">
+      <audio></audio>
+
+      <div class="meta">
+        <span class="title">TITLE</span>
+        <span class="inline-separator">&mdash;</span>
+        <span class="artist">ARTIST</span>
+      </div>
+
+      <blockquote>
+        SONG COMMENTS
+      </blockquote>
+
+      <div class="controls">
+        <div class="buttons">
+          <button class="play-pause"></button>
+          <div class="group">
+            <button class="prev"></button>
+            <button class="next"></button>
+          </div>
+        </div>
+
+        <div class="duration">
+          <span class="left">
+            <span class="elapsed">ELAPSED</span>
+            <span class="inline-separator">/</span>
+            <span class="remaining">REMAINING</span>
+          </span>
+          <span class="right">TOTAL</span>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <hgroup>
+      <img src="/res/wordmark-header.png" alt="CHIPTUMOR" />
+      <p>SPLASH</p>
+    </hgroup>
+
+    <section id="banner">
+      <details>
+        <summary>
+          <span class="summary">{{ banner.summary }}</span>
+          <span class="inline-separator">&mdash;</span>
+          <time datetime="{{ banner.dateValue }}">RELATIVE DATE</time>
+        </summary>
+
+        <article>
+          {{ banner.body }}
+        </article>
+
+        <time datetime="{{ banner.dateValue }}">
+          {{ banner.absoluteDate }}
+        </time>
+      </details>
+    </section>
+
+    <section id="welcome">
+      <hgroup>
+        <h2>
+          {{@ for i in greeting
+            }}<span style="--index: {{ i }}">{{ greeting[i] }}</span>{{@
+          /for }}
+        </h2>
+
+        <p>Welcome to my city!</p>
+      </hgroup>
+
+      <p>
+        More info to come.
+      </p>
+    </section>
+
+    <section id="status">
+      <h2>I'm feeling <b>{{ status.feeling }}.</b></h2>
+
+      <article>
+        {{ status.body }}
+      </article>
+
+      <time datetime="{{ status.datetime }}">
+        <span class="relative">
+          RELATIVE DATE
+        </span>
+        <span class="absolute">
+          {{ status.absoluteDate }}
+        </span>
+      </time>
+    </section>
+
+    <section id="bio">
+      <h2>About Me</h2>
+
+      <p>
+        More info to come.
+      </p>
+    </section>
+
+    <section id="latest-blog">
+      <h2>Latest Blog</h2>
+
+      <a href="{{ latestBlog.url }}">
+        <article>
+          {{ latestBlog.preview }}
+        </article>
+
+        <div class="read-more-overlay">
+          <img src="/res/glyph/external-link-white.svg" />
+          Read full blog...
+        </div>
+      </a>
+    </section>
+
+    <section id="webrings">
+      <h2>Webrings</h2>
+
+      <ul>
+        {{@ for webring of webrings }}
+          <li class="{{ webring.class }}">{{ webring.content }}</li>
+        {{@ /for }}
+      </ul>
+    </section>
+
+    <section id="blinkies">
+      <h2>Blinkies</h2>
+
+      <ul>
+        {{@ for blinkie of blinkies }}
+          <li>
+            {{@ if blinkie.href }}
+              <a href="{{ blinkie.href }}">
+                <img src="{{ blinkie.img }}" />
+              </a>
+            {{@ else }}
+              <img src="{{ blinkie.img }}" />
+            {{@ /else }}{{@ /if }}
+          </li>
+        {{@ /for }}
+      </ul>
+    </section>
+
+    <section id="useful-pages">
+      <h2>Useful Pages</h2>
+
+      <ul>
+        {{@ for page of usefulPages }}
+          <li>
+            <a href="{{ page.href }}">
+              {{ page.title }}
+            </a>
+          </li>
+        {{@ /for }}
+      </ul>
+    </section>
+
+    <section id="socials">
+      Socials coming soon.
+    </section>
+
+    <section id="todo">
+      {{ todo }}
+    </section>
+  </main>
 </body>
 </html>
