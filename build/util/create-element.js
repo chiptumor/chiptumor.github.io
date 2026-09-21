@@ -1,4 +1,4 @@
-const entities: Record<string, string> = {
+const entities = {
   "&": "amp",
   "<": "lt",
   ">": "gt",
@@ -8,11 +8,13 @@ const entities: Record<string, string> = {
 
 const entityRegex = new RegExp(Object.keys(entities).join("|"), "g");
 
-export function createElement(
-  tagName: string,
-  attributes: Record<any, any>,
-  children?: null | string[]
-): string {
+/**
+ * @param {string} tagName
+ * @param {Record<any, any>} attributes
+ * @param {null | string[]} [children]
+ * @returns {string}
+ */
+export function createElement(tagName, attributes, children) {
   let element = "<" + tagName;
 
   const attributeEntries = Object.entries(attributes);

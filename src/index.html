@@ -17,7 +17,7 @@
         Blog
       </a></li>
       <li>Useful<ul>
-        {{@ for page of usefulPages }}
+        {{@ for (page of usefulPages) }}
           <li>
             <a href="{{ page.href }}">
               {{ page.title }}
@@ -92,7 +92,7 @@
     <section id="welcome">
       <hgroup>
         <h2>
-          {{@ for i in greeting
+          {{@ (for i in greeting)
             }}<span style="--index: {{ i }}">{{ greeting[i] }}</span>{{@
           /for }}
         </h2>
@@ -149,7 +149,7 @@
       <h2>Webrings</h2>
 
       <ul>
-        {{@ for webring of webrings }}
+        {{@ for (webring of webrings) }}
           <li class="{{ webring.class }}">{{ webring.content }}</li>
         {{@ /for }}
       </ul>
@@ -159,7 +159,7 @@
       <h2>Blinkies</h2>
 
       <ul>
-        {{@ for blinkie of blinkies }}
+        {{@ for (blinkie of blinkies) }}
           <li>
             {{@ if blinkie.href }}
               <a href="{{ blinkie.href }}">
@@ -177,7 +177,7 @@
       <h2>Useful Pages</h2>
 
       <ul>
-        {{@ for page of usefulPages }}
+        {{@ for (page of usefulPages) }}
           <li>
             <a href="{{ page.href }}">
               {{ page.title }}
