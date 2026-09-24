@@ -1,0 +1,26 @@
+:root {
+  background-color: black;
+}
+
+body {
+  display: flex;
+
+  flex-direction: column;
+  align-items: start;
+  gap: 1em;
+}
+
+#display {
+  color: white;
+  font-size: 3em;
+}
+
+#controls button {
+  font-size: 1.5em;
+}
+
+#make {
+  font-size: 1.5em;
+}
+
+
