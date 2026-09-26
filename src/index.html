@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>chiptumor $ █</title>
+
+  <link rel="stylesheet" href="/style/webring.css" />
 </head>
 <body>
   <div id="top-fixed">
@@ -18,11 +20,9 @@
       </a></li>
       <li>Useful<ul>
         {{@ for (page of usefulPages) }}
-          <li>
-            <a href="{{ page.href }}">
-              {{ page.title }}
-            </a>
-          </li>
+          <li><a href="{{ page.href }}">
+            {{ page.title }}
+          </a></li>
         {{@ /for }}
       </ul></li>
     </menu>
@@ -90,7 +90,7 @@
     <section id="welcome">
       <hgroup>
         <h2>
-          {{@ (for i in greeting)
+          {{@ for (i in greeting)
             }}<span style="--index: {{ i }}">{{ greeting[i] }}</span>{{@
           /for }}
         </h2>
@@ -159,13 +159,13 @@
       <ul>
         {{@ for (blinkie of blinkies) }}
           <li>
-            {{@ if blinkie.href }}
+            {{@ if (blinkie.href) }}
               <a href="{{ blinkie.href }}">
                 <img src="{{ blinkie.img }}" />
               </a>
-            {{@ else }}
+            {{@ else /}}
               <img src="{{ blinkie.img }}" />
-            {{@ /else }}{{@ /if }}
+            {{@ /if }}
           </li>
         {{@ /for }}
       </ul>

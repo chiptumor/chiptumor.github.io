@@ -1,7 +1,7 @@
 import * as FileSystem from "node:fs/promises";
 import * as Path from "node:path";
 
-import * as TBrush from "../lib/tbrush/index.ts.mjs";
+import * as Tbrush from "../lib/tbrush/index.ts.mjs";
 
 import * as Marked from "marked";
 import * as Xmldom from "@xmldom/xmldom";
@@ -13,27 +13,31 @@ const BRANCH = "v0.3.0";
 
 const workDir = Path.join(import.meta.dirname, "..");
 
+const fromRoot = (...path) => Path.join(workDir, ...path);
+const readDir = (...path) =>
+  FileSystem.readdir(fromRoot(...path), { recursive: true });
+const readFile = (...path) =>
+  FileSystem.readFile(fromRoot(...path), { encoding: "utf-8" });
+
 const domParser = new Xmldom.DOMParser();
+
+FileSystem.mkdir(fromRoot("dist"), {
+  recursive: true
+});
 
 /**
  * Intended for banner and status, which share a similar process.
  * @param {string} dir
  */
 async function getDomAndDate(dir) {
-  const files = await FileSystem.readdir(
-    Path.join(workDir, dir),
-    { recursive: true }
-  );
+  const files = await readDir(dir);
   const filePath = files
     .filter(i => i.endsWith(".xml"))
     .reduce((max, name) => name > max ? name : max);
     
   const path = Path.join(dir, filePath);
   
-  const file = await FileSystem.readFile(
-    Path.join(workDir, path),
-    { encoding: "utf-8" }
-  );
+  const file = await readFile(path);
   const dom = domParser.parseFromString(file, "text/xml");
   
   /** @type {string} */
@@ -51,7 +55,9 @@ const template = (async () => ({
   greeting: "Haio!!",
   
   banner: await (async () => {
-    const { dom, dateValue } = await getDomAndDate("content/banner/");
+    const path = "content/banner/";
+
+    const { dom, dateValue } = await getDomAndDate(path);
 
     const fromTagName = (tagName) =>
       dom.getElementsByTagName(tagName)[0].childNodes.toString();
@@ -63,7 +69,9 @@ const template = (async () => ({
     };
   })(),
   status: await (async () => {
-    const { dom, dateValue } = await getDomAndDate("content/status/");
+    const path = "content/status/";
+
+    const { dom, dateValue } = await getDomAndDate(path);
     const doc = dom.documentElement;
     
     return {
@@ -78,15 +86,24 @@ const template = (async () => ({
     preview: "<p>No blogs yet. Here's a link to PoopButtSuck for now.</p>"
   },
   webrings: [ { class: "string", content: "string" } ],
-  blinkies: [ { href: "string or undefined", img: "string" } ],
+  blinkies: await (async () => {
+    const path = "content/blinkie/list.yaml";
+
+    const file = await readFile(path);
+    const yaml = Yaml.parse(file);
+
+    const final = Object.entries(yaml).map(([ key, value ]) => ({
+      href: key,
+      img: value
+    }));
+
+    return final;
+  })(),
   usefulPages: [ { title: "string", href: "string" } ],
   todo: await (async () => {
     const filePath = "TODO.md";
 
-    const file = await FileSystem.readFile(
-      Path.join(workDir, filePath),
-      { encoding: "utf-8" }
-    );
+    const file = await readFile(filePath);
     const parsed = Marked.parse(file, {
       async: true,
       gfm: true
@@ -96,5 +113,12 @@ const template = (async () => ({
   })()
 }))();
 
-template.then(console.dir);
+template.then(async template => {
+  const html = await readFile("src/index.html");
+
+  const tbrush = Tbrush.compose(html);
+  const final = tbrush.apply(template);
+
+  console.log(final);
+});
 
