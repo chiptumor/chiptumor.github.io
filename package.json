@@ -2,6 +2,7 @@
   "type": "module",
   "dependencies": {
     "@xmldom/xmldom": "^0.9.12",
+    "marked": "^18.0.14",
     "yaml": "^2.9.1"
   }
 }
