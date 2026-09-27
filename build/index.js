@@ -68,18 +68,18 @@ const template = (async () => ({
   status: await (async () => {
     const path = "content/status/";
 
-    const { dom, dateValue } = await getDomAndDate(path);
+    const { dom, datetime } = await getDomAndDate(path);
     const doc = dom.documentElement;
     
     return {
       feeling: doc.getAttribute("feeling"),
       body: doc.childNodes.toString(),
-      datetime: dateValue
+      datetime: datetime
     };
   })(),
   
   latestBlog: {
-    url: "/fun/poopbuttsuck",
+    url: "/fun/poopbuttsuck/",
     preview: "<p>No blogs yet. Here's a link to PoopButtSuck for now.</p>"
   },
   webrings: [ { class: "webring-class", content: "This is webring content." } ],
