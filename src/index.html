@@ -84,9 +84,7 @@
     </hgroup>
 
     <section id="banner">
-      <script type="application/json" class="datetime">
-        "{{ banner.datetime }}"
-      </script>
+      <script type="text/plain" class="datetime">{{ banner.datetime }}</script>
 
       <details>
         <summary>
@@ -120,9 +118,7 @@
     </section>
 
     <section id="status">
-      <script type="application/json" class="datetime">
-        "{{ status.datetime }}"
-      </script>
+      <script type="text/plain" class="datetime">{{ status.datetime }}</script>
 
       <h2>I'm feeling <b>{{ status.feeling }}.</b></h2>
 

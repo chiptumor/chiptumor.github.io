@@ -12,11 +12,15 @@ import * as Dir from "./util/dir.js";
 
 const domParser = new Xmldom.DOMParser();
 
-await FileSystem.rm(Dir.distDir, {
+await FileSystem.rm(Dir.dist(), {
   recursive: true,
   force: true
 })
-  .then(() => FileSystem.mkdir(Dir.distDir));
+  .then(() => FileSystem.mkdir(Dir.dist()));
+
+await FileSystem.cp(Dir.root("static"), Dir.dist(), {
+  recursive: true
+});
 
 /**
  * Intended for banner and status, which share a similar process.
@@ -93,7 +97,7 @@ const template = (async () => ({
     }
 
     return yaml.map(([ image, href ]) => ({
-      image: Path.join("./res/blinkie", image),
+      image: Path.join("/res/blinkie", image),
       href: href
     }));
   })(),
