@@ -1,0 +1,13 @@
+filename.ext:
+  title: string
+  url: string
+  artist:
+    name: string
+    url: string
+  type: cover | remix # if discluded, no "original" key
+  original:
+    title: string
+    url: string
+    artist:
+      name: string
+      url: string

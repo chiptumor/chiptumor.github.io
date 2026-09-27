@@ -7,55 +7,41 @@ import * as Marked from "marked";
 import * as Xmldom from "@xmldom/xmldom";
 import * as Yaml from "yaml";
 
-const DOMAIN = "chiptumor.github.io";
-const REPO = "chiptumor/chiptumor.github.io";
-const BRANCH = "v0.3.0";
-
-const workDir = Path.join(import.meta.dirname, "..");
-const fromRoot = (...path) => Path.join(workDir, ...path);
-const distDir = fromRoot("dist");
-
-const readDir = (...path) =>
-  FileSystem.readdir(fromRoot(...path), { recursive: true });
-const readFile = (...path) =>
-  FileSystem.readFile(fromRoot(...path), { encoding: "utf-8" });
-const writeFile = (path, content) =>
-  FileSystem.writeFile(Path.join(distDir, path), content, {
-    encoding: "utf-8"
-  });
+import CONFIG from "./config.js";
+import * as Dir from "./util/dir.js";
 
 const domParser = new Xmldom.DOMParser();
 
-await FileSystem.rm(distDir, {
+await FileSystem.rm(Dir.distDir, {
   recursive: true,
   force: true
 })
-  .then(() => FileSystem.mkdir(distDir));
+  .then(() => FileSystem.mkdir(Dir.distDir));
 
 /**
  * Intended for banner and status, which share a similar process.
  * @param {string} dir
  */
 async function getDomAndDate(dir) {
-  const files = await readDir(dir);
+  const files = await Dir.readDir(dir);
   const filePath = files
     .filter(i => i.endsWith(".xml"))
     .reduce((max, name) => name > max ? name : max);
     
   const path = Path.join(dir, filePath);
   
-  const file = await readFile(path);
+  const file = await Dir.readFile(path);
   const dom = domParser.parseFromString(file, "text/xml");
+
+  const url = `https://api.github.com/repos/${CONFIG.repo}/commits`
+    + `?sha=${CONFIG.branch}&path=${ path.replaceAll("\\", "/") }&per_page=1`;
   
   /** @type {string} */
-  const dateValue = await fetch(
-    `https://api.github.com/repos/${REPO}/commits`
-    + `?sha=${BRANCH}&path=${ path.replaceAll("\\", "/") }&per_page=1`
-  )
+  const datetime = await fetch(url)
     .then(r => r.json())
     .then(j => j[0].commit.author.date);
   
-  return { dom, dateValue };
+  return { dom, datetime };
 }
 
 const template = (async () => ({
@@ -64,7 +50,7 @@ const template = (async () => ({
   banner: await (async () => {
     const path = "content/banner/";
 
-    const { dom, dateValue } = await getDomAndDate(path);
+    const { dom, datetime } = await getDomAndDate(path);
 
     const fromTagName = (tagName) =>
       dom.getElementsByTagName(tagName)[0].childNodes.toString();
@@ -72,7 +58,7 @@ const template = (async () => ({
     return {
       summary: fromTagName("summary"),
       body: fromTagName("body"),
-      dateValue: dateValue
+      datetime: datetime
     };
   })(),
   status: await (async () => {
@@ -84,33 +70,38 @@ const template = (async () => ({
     return {
       feeling: doc.getAttribute("feeling"),
       body: doc.childNodes.toString(),
-      dateValue: dateValue
+      datetime: dateValue
     };
   })(),
   
   latestBlog: {
-    url: `https://${DOMAIN}/fun/poopbuttsuck`,
+    url: "/fun/poopbuttsuck",
     preview: "<p>No blogs yet. Here's a link to PoopButtSuck for now.</p>"
   },
   webrings: [ { class: "webring-class", content: "This is webring content." } ],
   blinkies: await (async () => {
     const path = "content/blinkie/list.yaml";
 
-    const file = await readFile(path);
-    const yaml = Yaml.parse(file);
+    const file = await Dir.readFile(path);
+    const yaml = Object.entries(Yaml.parse(file));
 
-    const final = Object.entries(yaml).map(([ key, value ]) => ({
-      img: value,
-      href: key
+    for (const [ image ] of yaml) {
+      Dir.copyFile(
+        Path.join("content/blinkie/image", image),
+        Path.join("res/blinkie", image)
+      );
+    }
+
+    return yaml.map(([ image, href ]) => ({
+      image: Path.join("./res/blinkie", image),
+      href: href
     }));
-
-    return final;
   })(),
   usefulPages: [ { title: "This is a title.", href: "https://butt/" } ],
   todo: await (async () => {
     const filePath = "TODO.md";
 
-    const file = await readFile(filePath);
+    const file = await Dir.readFile(filePath);
     const parsed = Marked.parse(file, {
       async: true,
       gfm: true
@@ -121,11 +112,11 @@ const template = (async () => ({
 }))();
 
 template.then(async template => {
-  const html = await readFile("src/index.html");
+  const html = await Dir.readFile("src/index.html");
 
   const tbrush = Tbrush.compose(html);
   const final = tbrush.apply(template);
 
-  writeFile("index.html", final);
+  Dir.writeFile("index.html", final);
 });
 

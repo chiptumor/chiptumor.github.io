@@ -42,10 +42,22 @@
 
       <div class="controls">
         <div class="buttons">
-          <button class="play-pause"></button>
+          <button class="play-pause white-black-image">
+            <img src="/res/glyph/play-white.svg" class="play white" />
+            <img src="/res/glyph/play-white.svg" class="play white" />
+
+            <img src="/res/glyph/pause-black.svg" class="pause black" />
+            <img src="/res/glyph/pause-black.svg" class="pause black" />
+          </button>
           <div class="group">
-            <button class="prev"></button>
-            <button class="next"></button>
+            <button class="prev white-black-image">
+              <img src="/res/glyph/prev-white.svg" class="white" />
+              <img src="/res/glyph/prev-black.svg" class="black" />
+            </button>
+            <button class="next white-black-image">
+              <img src="/res/glyph/next-white.svg" class="white" />
+              <img src="/res/glyph/next-black.svg" class="black" />
+            </button>
           </div>
         </div>
 
@@ -72,18 +84,22 @@
     </hgroup>
 
     <section id="banner">
+      <script type="application/json" class="datetime">
+        "{{ banner.datetime }}"
+      </script>
+
       <details>
         <summary>
           <span class="summary">{{ banner.summary }}</span>
           <span class="inline-separator">&mdash;</span>
-          <time datetime="{{ banner.dateValue }}">RELATIVE DATE</time>
+          <time datetime="{{ banner.datetime }}">RELATIVE DATE</time>
         </summary>
 
         <article>
           {{ banner.body }}
         </article>
 
-        <time datetime="{{ banner.dateValue }}">ABSOLUTE DATE</time>
+        <time datetime="{{ banner.datetime }}">ABSOLUTE DATE</time>
       </details>
     </section>
 
@@ -104,6 +120,10 @@
     </section>
 
     <section id="status">
+      <script type="application/json" class="datetime">
+        "{{ status.datetime }}"
+      </script>
+
       <h2>I'm feeling <b>{{ status.feeling }}.</b></h2>
 
       <article>
@@ -115,7 +135,7 @@
           RELATIVE DATE
         </span>
         <span class="absolute">
-          {{ status.absoluteDate }}
+          ABSOLUTE DATE
         </span>
       </time>
     </section>
@@ -161,10 +181,10 @@
           <li>
             {{@ if (blinkie.href) }}
               <a href="{{ blinkie.href }}">
-                <img src="{{ blinkie.img }}" />
+                <img src="{{ blinkie.image }}" />
               </a>
             {{@ else /}}
-              <img src="{{ blinkie.img }}" />
+              <img src="{{ blinkie.image }}" />
             {{@ /if }}
           </li>
         {{@ /for }}
