@@ -12,18 +12,25 @@ const REPO = "chiptumor/chiptumor.github.io";
 const BRANCH = "v0.3.0";
 
 const workDir = Path.join(import.meta.dirname, "..");
-
 const fromRoot = (...path) => Path.join(workDir, ...path);
+const distDir = fromRoot("dist");
+
 const readDir = (...path) =>
   FileSystem.readdir(fromRoot(...path), { recursive: true });
 const readFile = (...path) =>
   FileSystem.readFile(fromRoot(...path), { encoding: "utf-8" });
+const writeFile = (path, content) =>
+  FileSystem.writeFile(Path.join(distDir, path), content, {
+    encoding: "utf-8"
+  });
 
 const domParser = new Xmldom.DOMParser();
 
-FileSystem.mkdir(fromRoot("dist"), {
-  recursive: true
-});
+await FileSystem.rm(distDir, {
+  recursive: true,
+  force: true
+})
+  .then(() => FileSystem.mkdir(distDir));
 
 /**
  * Intended for banner and status, which share a similar process.
@@ -85,7 +92,7 @@ const template = (async () => ({
     url: `https://${DOMAIN}/fun/poopbuttsuck`,
     preview: "<p>No blogs yet. Here's a link to PoopButtSuck for now.</p>"
   },
-  webrings: [ { class: "string", content: "string" } ],
+  webrings: [ { class: "webring-class", content: "This is webring content." } ],
   blinkies: await (async () => {
     const path = "content/blinkie/list.yaml";
 
@@ -99,7 +106,7 @@ const template = (async () => ({
 
     return final;
   })(),
-  usefulPages: [ { title: "string", href: "string" } ],
+  usefulPages: [ { title: "This is a title.", href: "https://butt/" } ],
   todo: await (async () => {
     const filePath = "TODO.md";
 
@@ -119,6 +126,6 @@ template.then(async template => {
   const tbrush = Tbrush.compose(html);
   const final = tbrush.apply(template);
 
-  console.log(final);
+  writeFile("index.html", final);
 });
 
