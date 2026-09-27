@@ -100,8 +100,8 @@ const template = (async () => ({
     const yaml = Yaml.parse(file);
 
     const final = Object.entries(yaml).map(([ key, value ]) => ({
-      href: key,
-      img: value
+      img: value,
+      href: key
     }));
 
     return final;
