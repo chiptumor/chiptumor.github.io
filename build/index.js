@@ -11,5 +11,5 @@ await FileSystem.cp(Dir.root("static"), Dir.dist(), {
   recursive: true
 });
 
-import "./page/index.js";
+import "./file/index.js";
 
