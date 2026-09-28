@@ -1,5 +1,5 @@
 <svg width="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1 1v14zM6 8l9 5v-10z"
+  <path d="M1 11l7 -7 7 7"
     stroke-width="2" stroke-linejoin="miter"
-    stroke="white" fill="white" />
+    stroke="{{ color }}" />
 </svg>

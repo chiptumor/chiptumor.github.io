@@ -14,7 +14,6 @@ function getRelativeDate(date) {
   
   for (let i = items.length - 1; i >= 0; i--) {
     const [ label, unit ] = items[i];
-    console.debug(label, unit);
 
     if (ago < unit) continue;
     

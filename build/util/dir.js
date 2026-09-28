@@ -9,13 +9,17 @@ export const readDir = (...path) =>
   FileSystem.readdir(root(...path), { recursive: true });
 export const readFile = (...path) =>
   FileSystem.readFile(root(...path), { encoding: "utf-8" });
-export const writeFile = (path, content) =>
-  FileSystem.writeFile(dist(path), content, {
-    encoding: "utf-8"
-  });
+export const writeFile = (path, content) => {
+  const destination = dist(path);
+
+  FileSystem.mkdir(Path.dirname(destination), { recursive: true })
+    .then(() => FileSystem.writeFile(destination, content, {
+      encoding: "utf-8"
+    }));
+};
 export const copyFile = (fromPath, toPath) => {
   const destination = dist(toPath);
   
   FileSystem.mkdir(Path.dirname(destination), { recursive: true })
     .then(() => FileSystem.copyFile(root(fromPath), destination));
-}
+};
