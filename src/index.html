@@ -87,8 +87,6 @@
     </hgroup>
 
     <section id="banner">
-      <script type="text/plain" class="datetime">{{ banner.datetime }}</script>
-
       <details>
         <summary>
           <span class="summary">{{ banner.summary }}</span>
@@ -114,13 +112,17 @@
         <img src="/res/glyph/chevron-up-white.svg" class="up white" />
         <img src="/res/glyph/chevron-up-black.svg" class="up black" />
       </button>
+
+      <script type="text/plain" class="datetime">{{ banner.datetime }}</script>
     </section>
 
     <section id="welcome">
       <hgroup>
         <h2>
           {{@ for (i in greeting)
-            }}<span style="--index: {{ i }}">{{ greeting[i] }}</span>{{@
+            }}<span style="--offset: {{ -greeting.length + 1 + parseInt(i) }}">{{
+              greeting[i]
+            }}</span>{{@
           /for }}
         </h2>
 
@@ -133,8 +135,6 @@
     </section>
 
     <section id="status">
-      <script type="text/plain" class="datetime">{{ status.datetime }}</script>
-
       <h2>I'm feeling <b>{{ status.feeling }}.</b></h2>
 
       <article>
@@ -149,6 +149,8 @@
           ABSOLUTE DATE
         </span>
       </time>
+      
+      <script type="text/plain" class="datetime">{{ status.datetime }}</script>
     </section>
 
     <section id="bio">
@@ -159,69 +161,75 @@
       </p>
     </section>
 
-    <section id="latest-blog">
-      <h2>Latest Blog</h2>
+    <div class="flex-grid">
+      <section id="latest-blog">
+        <h2>Latest Blog</h2>
 
-      <a href="{{ latestBlog.url }}">
-        <article>
-          {{ latestBlog.preview }}
-        </article>
+        <a href="{{ latestBlog.url }}">
+          <article>
+            {{ latestBlog.preview }}
+          </article>
 
-        <div class="read-more-overlay">
-          <img src="/res/glyph/external-link-white.svg" class="white" />
-          <img src="/res/glyph/external-link-black.svg" class="black" />
-          Read full blog...
-        </div>
-      </a>
-    </section>
+          <div class="read-more-overlay">
+            <img src="/res/glyph/external-link-white.svg" class="white" />
+            <img src="/res/glyph/external-link-black.svg" class="black" />
+            Read full blog...
+          </div>
+        </a>
+      </section>
 
-    <section id="webrings">
-      <h2>Webrings</h2>
+      <section id="webrings">
+        <h2>Webrings</h2>
 
-      <ul>
-        {{@ for (webring of webrings) }}
-          <li class="{{ webring.class }}">{{ webring.content }}</li>
-        {{@ /for }}
-      </ul>
-    </section>
+        <ul>
+          {{@ for (webring of webrings) }}
+            <li class="{{ webring.class }}">{{ webring.content }}</li>
+          {{@ /for }}
+        </ul>
+      </section>
 
-    <section id="blinkies">
-      <h2>Blinkies</h2>
+      <section id="blinkies">
+        <h2>Blinkies</h2>
 
-      <ul>
-        {{@ for (blinkie of blinkies) }}
-          <li>
-            {{@ if (blinkie.href) }}
-              <a href="{{ blinkie.href }}">
+        <ul>
+          {{@ for (blinkie of blinkies) }}
+            <li>
+              {{@ if (blinkie.href) }}
+                <a href="{{ blinkie.href }}">
+                  <img src="{{ blinkie.image }}" />
+                </a>
+              {{@ else /}}
                 <img src="{{ blinkie.image }}" />
+              {{@ /if }}
+            </li>
+          {{@ /for }}
+        </ul>
+      </section>
+
+      <section id="useful-pages">
+        <h2>Useful Pages</h2>
+
+        <ul>
+          {{@ for (page of usefulPages) }}
+            <li>
+              <a href="{{ page.href }}">
+                {{ page.title }}
               </a>
-            {{@ else /}}
-              <img src="{{ blinkie.image }}" />
-            {{@ /if }}
-          </li>
-        {{@ /for }}
-      </ul>
-    </section>
-
-    <section id="useful-pages">
-      <h2>Useful Pages</h2>
-
-      <ul>
-        {{@ for (page of usefulPages) }}
-          <li>
-            <a href="{{ page.href }}">
-              {{ page.title }}
-            </a>
-          </li>
-        {{@ /for }}
-      </ul>
-    </section>
+            </li>
+          {{@ /for }}
+        </ul>
+      </section>
+    </div>
 
     <section id="socials">
-      Socials coming soon.
+      <h2>Socials</h2>
+
+      <p>Socials coming soon.</p>
     </section>
 
     <section id="todo">
+      <h2>To-do</h2>
+
       {{ todo }}
     </section>
   </main>
