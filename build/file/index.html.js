@@ -36,78 +36,81 @@ async function getDomAndDate(dir) {
   return { dom, datetime };
 }
 
-const template = (async () => ({
-  greeting: "Haio!!",
+const template = {};
+
+template.greeting = "Haio!!";
   
-  banner: await (async () => {
-    const path = "content/banner/";
+template.banner = await (async () => {
+  const path = "content/banner/";
 
-    const { dom, datetime } = await getDomAndDate(path);
+  const { dom, datetime } = await getDomAndDate(path);
 
-    const fromTagName = (tagName) =>
-      dom.getElementsByTagName(tagName)[0].childNodes.toString();
+  const fromTagName = (tagName) =>
+    dom.getElementsByTagName(tagName)[0].childNodes.toString();
 
-    return {
-      summary: fromTagName("summary"),
-      body: fromTagName("body"),
-      datetime: datetime
-    };
-  })(),
-  status: await (async () => {
-    const path = "content/status/";
+  return {
+    summary: fromTagName("summary"),
+    body: fromTagName("body"),
+    datetime: datetime
+  };
+})();
 
-    const { dom, datetime } = await getDomAndDate(path);
-    const doc = dom.documentElement;
+template.status = await (async () => {
+  const path = "content/status/";
+
+  const { dom, datetime } = await getDomAndDate(path);
+  const doc = dom.documentElement;
+  
+  return {
+    feeling: doc.getAttribute("feeling"),
+    body: doc.childNodes.toString(),
+    datetime: datetime
+  };
+})();
+
+template.latestBlog = {
+  url: "/fun/poopbuttsuck/",
+  preview: "<p>No blogs yet. Here's a link to PoopButtSuck for now.</p>"
+};
+
+template.webrings = [ { class: "webring-class", content: "This is webring content." } ];
+
+template.blinkies = await (async () => {
+  const path = "content/blinkie/list.yaml";
+
+  const file = await Dir.readFile(path);
+  const yaml = Object.entries(Yaml.parse(file));
+
+  for (const [ image ] of yaml) {
+    Dir.copyFile(
+      Path.join("content/blinkie/image", image),
+      Path.join("res/blinkie", image)
+    );
+  }
+
+  return yaml.map(([ image, href ]) => ({
+    image: Path.join("/res/blinkie", image),
+    href: href
+  }));
+})();
+
+template.usefulPages = [ { title: "This is a title.", href: "https://butt/" } ];
+
+template.todo = await (async () => {
+  const filePath = "TODO.md";
+
+  const file = await Dir.readFile(filePath);
+  const parsed = Marked.parse(file, {
+    async: true,
+    gfm: true
+  });
     
-    return {
-      feeling: doc.getAttribute("feeling"),
-      body: doc.childNodes.toString(),
-      datetime: datetime
-    };
-  })(),
-  
-  latestBlog: {
-    url: "/fun/poopbuttsuck/",
-    preview: "<p>No blogs yet. Here's a link to PoopButtSuck for now.</p>"
-  },
-  webrings: [ { class: "webring-class", content: "This is webring content." } ],
-  blinkies: await (async () => {
-    const path = "content/blinkie/list.yaml";
+  return parsed;
+})();
 
-    const file = await Dir.readFile(path);
-    const yaml = Object.entries(Yaml.parse(file));
+const html = await Dir.readFile("src/index.html");
 
-    for (const [ image ] of yaml) {
-      Dir.copyFile(
-        Path.join("content/blinkie/image", image),
-        Path.join("res/blinkie", image)
-      );
-    }
+const tbrush = Tbrush.compose(html);
+const final = tbrush.apply(template);
 
-    return yaml.map(([ image, href ]) => ({
-      image: Path.join("/res/blinkie", image),
-      href: href
-    }));
-  })(),
-  usefulPages: [ { title: "This is a title.", href: "https://butt/" } ],
-  todo: await (async () => {
-    const filePath = "TODO.md";
-
-    const file = await Dir.readFile(filePath);
-    const parsed = Marked.parse(file, {
-      async: true,
-      gfm: true
-    });
-      
-    return parsed;
-  })()
-}))();
-
-template.then(async template => {
-  const html = await Dir.readFile("src/index.html");
-
-  const tbrush = Tbrush.compose(html);
-  const final = tbrush.apply(template);
-
-  Dir.writeFile("index.html", final);
-});
+Dir.writeFile("index.html", final);
