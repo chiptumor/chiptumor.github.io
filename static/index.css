@@ -10,6 +10,16 @@
   scroll-padding: 2.25em;
 }
 
+.white-black-button-image {
+  &:not(:hover), &:active {
+    img.black { display: none; }
+  }
+  &:hover {
+    img.white { display: none; }
+  }
+}
+    
+
 #top-fixed {
   display: none; /* for now */
 }
