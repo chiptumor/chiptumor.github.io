@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="./index.css" />
   <link rel="stylesheet" href="./webring.css" />
 
+  <script type="application/json" id="build-data">
+    {{ buildData }}
+  </script>
+
   <script src="./main.js"></script>
 </head>
 <body>
@@ -101,7 +105,7 @@
         </article>
 
         <time class="absolute" datetime="{{ banner.datetime }}">
-          ABSOLUTE DATE
+          <p>ABSOLUTE DATE</p>
         </time>
       </details>
 
@@ -112,11 +116,22 @@
         <img src="/res/glyph/chevron-up-white.svg" class="up white" />
         <img src="/res/glyph/chevron-up-black.svg" class="up black" />
       </button>
-
-      <script type="text/plain" class="datetime">{{ banner.datetime }}</script>
     </section>
 
     <section id="welcome">
+      {{@ if (avatar.source) }}
+        <a href="{{ avatar.source }}"
+           {{@ if (avatar.artist) }}
+             data-title="{{ avatar.artist }}"
+           {{@ /if }}>
+          <img src="/res/avatar.png" class="avatar" />
+        </a>
+      {{@ else /}}
+        <img src="/res/avatar.png" class="avatar"
+             {{@ if (avatar.artist) }}
+               data-title="{{ avatar.artist }}"
+             {{@ /if }} />
+      {{@ /if }}
       <hgroup>
         <h2>
           {{@ for (i in greeting)
@@ -141,16 +156,16 @@
         {{ status.body }}
       </article>
 
-      <time datetime="{{ status.datetime }}">
-        <span class="relative">
-          RELATIVE DATE
-        </span>
-        <span class="absolute">
-          ABSOLUTE DATE
-        </span>
-      </time>
-      
-      <script type="text/plain" class="datetime">{{ status.datetime }}</script>
+      <footer>
+        <time datetime="{{ status.datetime }}">
+          <span class="relative">
+            RELATIVE DATE
+          </span>
+          <span class="absolute">
+            ABSOLUTE DATE
+          </span>
+        </time>
+      </footer>
     </section>
 
     <section id="bio">
@@ -225,6 +240,12 @@
       <h2>Socials</h2>
 
       <p>Socials coming soon.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <p>I like making stuff.</p>
     </section>
 
     <section id="todo">

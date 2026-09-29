@@ -7,9 +7,11 @@ export const dist = (...path) => root("dist", ...path);
 
 export const readDir = (...path) =>
   FileSystem.readdir(root(...path), { recursive: true });
+export const copyDir = (fromPath, toPath) =>
+  FileSystem.cp(root(fromPath), dist(toPath), { recursive: true });
 export const readFile = (...path) =>
   FileSystem.readFile(root(...path), { encoding: "utf-8" });
-export const writeFile = (path, content) => {
+export const writeFile = async (path, content) => {
   const destination = dist(path);
 
   FileSystem.mkdir(Path.dirname(destination), { recursive: true })
@@ -17,7 +19,7 @@ export const writeFile = (path, content) => {
       encoding: "utf-8"
     }));
 };
-export const copyFile = (fromPath, toPath) => {
+export const copyFile = async (fromPath, toPath) => {
   const destination = dist(toPath);
   
   FileSystem.mkdir(Path.dirname(destination), { recursive: true })

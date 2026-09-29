@@ -39,6 +39,29 @@ async function getDomAndDate(dir) {
 const template = {};
 
 template.greeting = "Haio!!";
+
+template.avatar = await (async () => {
+  const path = "content/avatar/list.yaml";
+  const file = await Dir.readFile(path);
+  const yaml = Yaml.parse(file);
+  
+  const today = new Date();
+  const list = Object.entries(
+    today.getMonth() === 9
+      ? yaml.festive.halloween
+      : yaml.default
+  );
+  
+  const [ fileName, details ]
+    = list[Math.floor(Math.random() * list.length)];
+  
+  await Dir.copyFile(
+    Path.join("content/avatar/image", fileName),
+    "res/avatar.png"
+  );
+  
+  return details;
+})();
   
 template.banner = await (async () => {
   const path = "content/banner/";
@@ -107,6 +130,13 @@ template.todo = await (async () => {
     
   return parsed;
 })();
+
+const buildData = {
+  bannerDate: template.banner.datetime,
+  statusDate: template.status.datetime
+};
+
+template.buildData = JSON.stringify(buildData);
 
 const html = await Dir.readFile("src/index.html");
 

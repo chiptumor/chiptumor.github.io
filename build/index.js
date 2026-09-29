@@ -11,7 +11,5 @@ await FileSystem.cp(Dir.root("static"), Dir.dist(), {
   recursive: true
 });
 
-// file/
-
 import("./file/index.html.js");
 import("./file/res/glyph.js");

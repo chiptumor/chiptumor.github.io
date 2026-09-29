@@ -1,3 +1,7 @@
+const buildData = JSON.parse(
+  document.getElementById("build-data").textContent
+);
+
 function getRelativeDate(date) {
   const ago = Date.now() - date;
 
@@ -26,18 +30,35 @@ function getRelativeDate(date) {
 
 window.addEventListener("load", () => {
   const banner = document.getElementById("banner");
-  const bannerDatetime = banner.querySelector(".datetime").textContent;
+  const { bannerDate } = buildData;
 
   banner.querySelector("time.relative").textContent
-    = getRelativeDate(Date.parse(bannerDatetime));
-  banner.querySelector("time.absolute").textContent
-    = new Date(bannerDatetime).toLocaleString();
+    = getRelativeDate(Date.parse(bannerDate));
+  banner.querySelector("time.absolute p").textContent
+    = new Date(bannerDate).toLocaleString();
     
   const status = document.getElementById("status");
-  const statusDatetime = status.querySelector(".datetime").textContent;
+  const { statusDate } = buildData;
 
   status.querySelector("time .relative").textContent
-    = getRelativeDate(Date.parse(statusDatetime));
+    = getRelativeDate(Date.parse(statusDate));
   status.querySelector("time .absolute").textContent
-    = new Date(statusDatetime).toLocaleString();
+    = new Date(statusDate).toLocaleString();
+
+  const details = banner.querySelector("details");
+  const detailsButton = banner.querySelector(".expand-collapse");
+
+  banner.addEventListener("click", event => {
+    if (!details.open) {
+      event.preventDefault();
+      details.open = true;
+    }
+  });
+
+  detailsButton.addEventListener("click", event => {
+    if (details.open) {
+      details.open = false;
+      event.stopPropagation();
+    }
+  })
 });
