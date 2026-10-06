@@ -110,10 +110,15 @@ main > hgroup:first-child {
       font-size: 1.5em;
       font-family: monospace;
       text-align: center;
+      text-transform: uppercase; /* maybe? */
 
       background-color: #2f041f;
       border-top: 4px solid #47062a;
       border-bottom: 4px solid #47062a;
+
+      span {
+        animation: splash-appear 0s calc(1s + (var(--delay) * 100ms));
+      }
 
       &::after {
         content: "█";
@@ -123,6 +128,11 @@ main > hgroup:first-child {
       }
     }
   }
+}
+
+@keyframes splash-appear {
+  from { display: none }
+  to { display: initial }
 }
 
 @keyframes splash-cursor {

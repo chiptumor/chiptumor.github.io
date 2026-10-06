@@ -64,5 +64,28 @@ window.addEventListener("load", () => {
       details.open = false;
       event.stopPropagation();
     }
-  })
+  });
+  
+  // add splash text
+
+  const { splashes } = buildData;
+  
+  const splash = getSplash(splashes);
+
+  function getSplash(array) {
+    const item = array[Math.floor(Math.random() * array.length)];
+    if (typeof item === "string")
+      return item;
+    else
+      return getSplash(item);
+  }
+  
+  const spans = Array.from(splash).map((char, i) => {
+    const span = document.createElement("span");
+    span.style.setProperty("--delay", i);
+    return span;
+  });
+
+  document.querySelector("main > hgroup p");
+    .append(...spans);
 });

@@ -123,17 +123,38 @@ template.todo = await (async () => {
   const filePath = "TODO.md";
 
   const file = await Dir.readFile(Dir.root(filePath));
-  const parsed = Marked.parse(file, {
+  const markdown = Marked.parse(file, {
     async: true,
     gfm: true
   });
     
-  return parsed;
+  return markdown;
 })();
 
 const buildData = {
   bannerDate: template.banner.datetime,
-  statusDate: template.status.datetime
+  statusDate: template.status.datetime,
+  splashes: await (async () => {
+    const filePath = "content/splash.yaml";
+    
+    const file = await Dir.readFile(Dir.root(filePath));
+    const yaml = Object.entries(Yaml.parse(file));
+    
+    const final = compile(yaml);
+    return final;
+    
+    function compile(yaml) {
+      const array = [];
+      
+      for (const item of yaml)
+        if (typeof item === "string" || Array.isArray(item))
+          array.push(item);
+        else if (item.splashes)
+          array.push(compile(item.splashes));
+
+      return array;
+    }
+  })()
 };
 
 template.buildData = JSON.stringify(buildData);
