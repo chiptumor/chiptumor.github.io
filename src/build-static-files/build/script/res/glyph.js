@@ -1,8 +1,8 @@
 import * as Path from "node:path";
 
-import * as Tbrush from "../../../lib/tbrush/index.ts.mjs";
+import * as Tbrush from "../../../../../lib/tbrush/index.ts.mjs";
 
-import * as Dir from "../../util/dir.js";
+import * as Dir from "../../../util/dir.js";
 
 const DIR = "res/glyph";
 const COLORS = [
@@ -10,7 +10,7 @@ const COLORS = [
   "black"
 ];
 
-const src = Path.join("src", DIR);
+const src = Dir.file(DIR);
 const files = await Dir.readDir(src);
 
 for (const file of files) {

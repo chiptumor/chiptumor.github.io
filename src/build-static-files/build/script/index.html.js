@@ -1,12 +1,12 @@
 import * as Path from "node:path";
 
 import * as Marked from "marked";
-import * as Tbrush from "../../lib/tbrush/index.ts.mjs";
+import * as Tbrush from "../../../../lib/tbrush/index.ts.mjs";
 import * as Xmldom from "@xmldom/xmldom";
 import * as Yaml from "yaml";
 
-import CONFIG from "../config.js";
-import * as Dir from "../util/dir.js";
+import CONFIG from "../../config.js";
+import * as Dir from "../../util/dir.js";
 
 const domParser = new Xmldom.DOMParser();
 
@@ -15,7 +15,7 @@ const domParser = new Xmldom.DOMParser();
  * @param {string} dir
  */
 async function getDomAndDate(dir) {
-  const files = await Dir.readDir(dir);
+  const files = await Dir.readDir(Dir.root(dir));
   const filePath = files
     .filter(i => i.endsWith(".xml"))
     .reduce((max, name) => name > max ? name : max);
@@ -42,7 +42,7 @@ template.greeting = "Haio!!";
 
 template.avatar = await (async () => {
   const path = "content/avatar/list.yaml";
-  const file = await Dir.readFile(path);
+  const file = await Dir.readFile(Dir.root(path));
   const yaml = Yaml.parse(file);
   
   const today = new Date();
@@ -56,13 +56,13 @@ template.avatar = await (async () => {
     = list[Math.floor(Math.random() * list.length)];
   
   await Dir.copyFile(
-    Path.join("content/avatar/image", fileName),
+    Dir.root("content/avatar/image", fileName),
     "res/avatar.png"
   );
   
   return details;
 })();
-  
+
 template.banner = await (async () => {
   const path = "content/banner/";
 
@@ -101,7 +101,7 @@ template.webrings = [ { class: "webring-class", content: "This is webring conten
 template.blinkies = await (async () => {
   const path = "content/blinkie/list.yaml";
 
-  const file = await Dir.readFile(path);
+  const file = await Dir.readFile(Dir.root(path));
   const yaml = Object.entries(Yaml.parse(file));
 
   for (const [ image ] of yaml) {
@@ -122,7 +122,7 @@ template.usefulPages = [ { title: "This is a title.", href: "https://butt/" } ];
 template.todo = await (async () => {
   const filePath = "TODO.md";
 
-  const file = await Dir.readFile(filePath);
+  const file = await Dir.readFile(Dir.root(filePath));
   const parsed = Marked.parse(file, {
     async: true,
     gfm: true
@@ -138,7 +138,7 @@ const buildData = {
 
 template.buildData = JSON.stringify(buildData);
 
-const html = await Dir.readFile("src/index.html");
+const html = await Dir.readFile(Dir.file("index.html"));
 
 const tbrush = Tbrush.compose(html);
 const final = tbrush.apply(template);
