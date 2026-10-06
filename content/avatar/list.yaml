@@ -3,6 +3,17 @@
 #   : artist: <social platform>/<username>
 #     source: <source article url>
 
+# format of <file>:
+#   <platform>-<username>-<source>.<ext>
+# if the source can't be provided, <platform> should be the artist's relevant
+# platform, <artist> should be the artist username, and <id> should be the
+# following:
+#   <reason>_<index>
+# such as:
+#   - deleted_0.png
+#   - deleted_1.png
+#   - unknown_0.png
+
 default:
   bluesky-welwraith-unknown_0.png:
     artist: Bluesky/welwraith

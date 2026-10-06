@@ -29,6 +29,8 @@ function getRelativeDate(date) {
 }
 
 window.addEventListener("load", () => {
+  // display dynamic content dates
+
   const banner = document.getElementById("banner");
   const { bannerDate } = buildData;
 
@@ -44,6 +46,8 @@ window.addEventListener("load", () => {
     = getRelativeDate(Date.parse(statusDate));
   status.querySelector("time .absolute").textContent
     = new Date(statusDate).toLocaleString();
+
+  // make banner properly interactable
 
   const details = banner.querySelector("details");
   const detailsButton = banner.querySelector(".expand-collapse");

@@ -180,16 +180,16 @@
       <section id="latest-blog">
         <h2>Latest Blog</h2>
 
-        <a href="{{ latestBlog.url }}">
-          <article>
-            {{ latestBlog.preview }}
-          </article>
+        <article>
+          {{ latestBlog.preview }}
+        </article>
 
-          <div class="read-more-overlay white-black-button-image">
+        <a href="{{ latestBlog.url }}">
+          <button class="read-more white-black-button-image">
             <img src="/res/glyph/external-link-white.svg" class="white" />
             <img src="/res/glyph/external-link-black.svg" class="black" />
             Read full blog...
-          </div>
+          </button>
         </a>
       </section>
 
@@ -225,13 +225,18 @@
         <h2>Useful Pages</h2>
 
         <ul>
-          {{@ for (page of usefulPages) }}
-            <li>
-              <a href="{{ page.href }}">
-                {{ page.title }}
+          <li>
+            <h3>
+              <a href="/fun/poopbuttsuck/">
+                PoopButtSuck
               </a>
-            </li>
-          {{@ /for }}
+            </h3>
+
+            <p>
+              A funny 4-letter-word phrase generator I conceptualized at work
+              one day.
+            </p>
+          </li>
         </ul>
       </section>
     </div>
