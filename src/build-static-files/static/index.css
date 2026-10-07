@@ -26,6 +26,9 @@ ul, ol, menu {
 }
 
 body {
+  --accent: #e9263d;
+  --accent-text: white;
+
   color: white;
   background-color: #180211;
   font-size: clamp(10px, 3.2vw, 1rem);
@@ -44,8 +47,6 @@ main {
 }
 
 section {
-  --accent: #e9263d;
-  --accent-text: white;
   --bg-gradient-1: #47062a;
   --bg-gradient-2: #5e0830;
 
@@ -110,14 +111,16 @@ main > hgroup:first-child {
       font-size: 1.5em;
       font-family: monospace;
       text-align: center;
-      text-transform: uppercase; /* maybe? */
+      text-transform: none; /* maybe uppercase? */
 
       background-color: #2f041f;
       border-top: 4px solid #47062a;
       border-bottom: 4px solid #47062a;
 
       span {
-        animation: splash-appear 0s calc(1s + (var(--delay) * 100ms));
+        font-size: 0;
+        animation: splash-appear forwards 0s
+          calc(1s + (var(--delay) * 25ms));
       }
 
       &::after {
@@ -131,8 +134,7 @@ main > hgroup:first-child {
 }
 
 @keyframes splash-appear {
-  from { display: none }
-  to { display: initial }
+  to { font-size: unset }
 }
 
 @keyframes splash-cursor {
@@ -209,22 +211,13 @@ main > hgroup:first-child {
 }
 
 #welcome {
-  .avatar {
-    width: 4em;
-    height: 4em;
-    margin-top: var(--vertical-demargin);
-    margin-right: var(--horizontal-demargin);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 0;
+  position: relative;
 
-    object-position: center;
-    object-fit: cover;
-
-    float: right;
-
-    border: 3px solid var(--accent);
-  }
-
-  a[href] .avatar:hover {
-    --accent: white;
+  .content-container {
+    padding: 8px 32px;
   }
 
   hgroup {
@@ -245,6 +238,29 @@ main > hgroup:first-child {
       }
     }
   }
+
+  .portrait-container {
+    position: relative;
+    padding-right: 8px;
+  }
+
+  .portrait {
+    position: absolute;
+
+    height: 110%;
+    width: auto;
+    
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 8px;
+    
+    filter: drop-shadow(var(--accent) -3px 0);
+  }
+
+  a[href] .portrait:hover {
+    --accent: white;
+  }
 }
 
 @keyframes greeting {
@@ -252,17 +268,47 @@ main > hgroup:first-child {
   100% { transform: translateY(0.16em) }
 }
 
-#status {
-  > footer {
-    &:not(:hover) .absolute,
-    &:hover .relative {
-      display: none;
+@media (max-width: 700px) {
+  #welcome {
+    grid-auto-flow: row;
+    grid-template-columns: none;
+
+    .portrait-container {
+      height: 128px;
+      
     }
   }
+}
 
+.status-container {
+  --tail-size: 6px;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
+  gap: calc(10px + (var(--tail-size) / 2));
+  
+  > .avatar {
+    width: 4em;
+    height: 4em;
+    margin-top: var(--vertical-demargin);
+    margin-right: var(--horizontal-demargin);
+
+    object-position: center;
+    object-fit: cover;
+
+    float: left;
+
+    border: 3px solid var(--accent);
+
+    .a[href] &:hover {
+      --accent: white;
+    }
+  }
+}
+
+#status {
   &::before {
-    --size: 6px;
-
     content: "";
     display: block;
     position: absolute;
@@ -273,15 +319,37 @@ main > hgroup:first-child {
     border-style: solid;
     border-color: transparent;
 
-    top: -1.5px;
-    left: -1.5px;
+    top: -3px;
+    left: calc(-3px + 1pt);
 
-    --margin: calc(-1.5px - var(--size));
-    margin: var(--margin) var(--margin) 0 0;
-    --border-width: calc(1.5px + var(--size));
-    border-width: var(--border-width) var(--border-width) 0 0;
+    --margin: calc(-1.5px - var(--tail-size));
+    margin: 0 0 var(--margin) var(--margin);
+    --border-width: calc(1.5px + var(--tail-size));
+    border-width: 0 0 var(--border-width) var(--border-width);
 
-    border-right-color: inherit;
+    border-bottom-color: var(--accent);
+  }
+
+  > h2 {
+    margin-top: var(--vertical-demargin);
+    margin-left: var(--horizontal-demargin);
+    position: relative;
+
+    max-width: fit-content;
+    padding: 0 0.25em;
+
+    font-size: 1em;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    background-color: var(--accent);
+  }
+
+  > footer {
+    &:not(:hover) .absolute,
+    &:hover .relative {
+      display: none;
+    }
   }
 }
 
@@ -363,4 +431,8 @@ main > .flex-grid {
 
 #useful-pages {
   --grid-area: 2 / 2 / 3 / 4;
+
+  a, a:visited {
+    color: white;
+  }
 }

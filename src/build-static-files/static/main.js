@@ -79,13 +79,19 @@ window.addEventListener("load", () => {
     else
       return getSplash(item);
   }
+
+  const splashElement = document.querySelector("main > hgroup p");
+
+  splashElement.textContent = "";
+  splashElement.ariaLabel = splash;
   
   const spans = Array.from(splash).map((char, i) => {
     const span = document.createElement("span");
+    span.textContent = char;
+    span.ariaHidden = "true";
     span.style.setProperty("--delay", i);
     return span;
   });
 
-  document.querySelector("main > hgroup p");
-    .append(...spans);
+  splashElement.append(...spans);
 });

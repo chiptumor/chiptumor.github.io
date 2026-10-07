@@ -1,9 +1,6 @@
 - group: Meta
   splashes:
     - And there's no one I'd rather be!        #
-- group: Politics
-  splashes:
-    - Dethrone Baszuki!                        # CEO of Roblox
 
 - group: Development
   splashes:
@@ -22,11 +19,6 @@
         - Please keep your computer on!            # Ditto
         - Commit & Push!                           # Commands used to sync Git data with remote origin
 
-- group: Arbitrary media
-  splashes:
-    - Soft kitty, warm kitty!                  # Big Bang Theory; Sheldon's mom's song for when he's sick
-    - Little ball of fur!                      # Ditto
-
 - group: Games
   splashes:
     - group: Roblox
@@ -35,6 +27,7 @@
         - It's free!                               # 2011 Roblox commercial
         - Chuffff!                                 # Line from Regretevator's Flesh Cousin
         - It is evil and it is scary!              # Die of Death special round intro
+        - Dethrone Baszuki!                        # CEO of Roblox
     
     - group: Pocket God
       splashes:
@@ -94,7 +87,7 @@
     - 67 isn't funny!                          #
     - RDM, RDM, RDM, RDM, RDM!                 # TODO
     - Bike, bike, bike, bike! Next!            # TODO
-    - Mario fans will adore this clasic tune!  # TODO
+    - Mario fans will adore this classic tune! # TODO
     - Um, actually, it's not a votekick!       # TODO
     - It's actually a democratic proceeding!   # TODO
     - group: Twitter/ultr4nima

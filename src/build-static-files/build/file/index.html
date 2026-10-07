@@ -25,13 +25,6 @@
       <li><a href="/blog">
         Blog
       </a></li>
-      <li>Useful<ul>
-        {{@ for (page of usefulPages) }}
-          <li><a href="{{ page.href }}">
-            {{ page.title }}
-          </a></li>
-        {{@ /for }}
-      </ul></li>
     </menu>
 
     <div id="music">
@@ -87,7 +80,7 @@
   <main>
     <hgroup>
       <img src="/res/wordmark-header.png" alt="CHIPTUMOR" />
-      <p>SPLASH</p>
+      <p></p>
     </hgroup>
 
     <section id="banner">
@@ -96,7 +89,7 @@
           <span class="summary">{{ banner.summary }}</span>
           <span class="inline-separator">&mdash;</span>
           <time class="relative" datetime="{{ banner.datetime }}">
-            RELATIVE DATE
+            &bullet; &bullet; &bullet;
           </time>
         </summary>
 
@@ -105,7 +98,7 @@
         </article>
 
         <time class="absolute" datetime="{{ banner.datetime }}">
-          <p>ABSOLUTE DATE</p>
+          <p>&bullet; &bullet; &bullet;</p>
         </time>
       </details>
 
@@ -119,8 +112,44 @@
     </section>
 
     <section id="welcome">
+      <div class="content-container">
+        <hgroup>
+          <h2>
+            {{@ for (i in greeting)
+              }}<span style="--offset: {{ -greeting.length + 1 + parseInt(i) }}">{{
+                greeting[i]
+              }}</span>{{@
+            /for }}
+          </h2>
+  
+          <p>Welcome to my city!</p>
+        </hgroup>
+  
+        <p>
+          More info to come.
+        </p>
+      </div>
+
+      <div class="portrait-container">
+        {{@ if (portrait.source) }}
+          <a href="{{ portrait.source }}" target="_blank"
+             {{@ if (portrait.artist) }}
+               data-title="{{ portrait.artist }}"
+             {{@ /if }}>
+            <img src="/res/portrait.png" class="portrait" />
+          </a>
+        {{@ else /}}
+          <img src="/res/portrait.png" class="portrait"
+               {{@ if (portrait.artist) }}
+                 data-title="{{ portrait.artist }}"
+               {{@ /if }} />
+        {{@ /if }}
+      </div>
+    </section>
+
+    <div class="status-container">
       {{@ if (avatar.source) }}
-        <a href="{{ avatar.source }}"
+        <a href="{{ avatar.source }}" target="_blank"
            {{@ if (avatar.artist) }}
              data-title="{{ avatar.artist }}"
            {{@ /if }}>
@@ -132,41 +161,26 @@
                data-title="{{ avatar.artist }}"
              {{@ /if }} />
       {{@ /if }}
-      <hgroup>
-        <h2>
-          {{@ for (i in greeting)
-            }}<span style="--offset: {{ -greeting.length + 1 + parseInt(i) }}">{{
-              greeting[i]
-            }}</span>{{@
-          /for }}
-        </h2>
 
-        <p>Welcome to my city!</p>
-      </hgroup>
-
-      <p>
-        More info to come.
-      </p>
-    </section>
-
-    <section id="status">
-      <h2>I'm feeling <b>{{ status.feeling }}.</b></h2>
-
-      <article>
-        {{ status.body }}
-      </article>
-
-      <footer>
-        <time datetime="{{ status.datetime }}">
-          <span class="relative">
-            RELATIVE DATE
-          </span>
-          <span class="absolute">
-            ABSOLUTE DATE
-          </span>
-        </time>
-      </footer>
-    </section>
+      <section id="status">
+        <h2>I'm feeling <b>{{ status.feeling }}.</b></h2>
+  
+        <article>
+          {{ status.body }}
+        </article>
+  
+        <footer>
+          <time datetime="{{ status.datetime }}">
+            <span class="relative">
+              &bullet; &bullet; &bullet;
+            </span>
+            <span class="absolute">
+              &bullet; &bullet; &bullet;
+            </span>
+          </time>
+        </footer>
+      </section>
+    </div>
 
     <section id="bio">
       <h2>About Me</h2>

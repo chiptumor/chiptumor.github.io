@@ -40,6 +40,23 @@ const template = {};
 
 template.greeting = "Haio!!";
 
+template.portrait = await (async () => {
+  const path = "content/portrait/list.yaml";
+  const file = await Dir.readFile(Dir.root(path));
+  const yaml = Yaml.parse(file);
+  const list = Object.entries(yaml);
+
+  const [ fileName, details ]
+    = list[Math.floor(Math.random() * list.length)];
+
+  await Dir.copyFile(
+    Dir.root("content/portrait/image", fileName),
+    "res/portrait.png"
+  );
+
+  return details;
+})();
+
 template.avatar = await (async () => {
   const path = "content/avatar/list.yaml";
   const file = await Dir.readFile(Dir.root(path));
@@ -93,10 +110,15 @@ template.status = await (async () => {
 
 template.latestBlog = {
   url: "/fun/poopbuttsuck/",
-  preview: "<p>No blogs yet. Here's a link to PoopButtSuck for now.</p>"
+  preview:
+    "<p>No blogs yet. \"Read full blog...\" will take you to PoopButtSuck for"
+    + " the time being.</p>"
 };
 
-template.webrings = [ { class: "webring-class", content: "This is webring content." } ];
+template.webrings = [{
+  class: "webring-class",
+  content: "This will be webring content."
+}];
 
 template.blinkies = await (async () => {
   const path = "content/blinkie/list.yaml";
@@ -117,8 +139,6 @@ template.blinkies = await (async () => {
   }));
 })();
 
-template.usefulPages = [ { title: "This is a title.", href: "https://butt/" } ];
-
 template.todo = await (async () => {
   const filePath = "TODO.md";
 
@@ -138,7 +158,7 @@ const buildData = {
     const filePath = "content/splash.yaml";
     
     const file = await Dir.readFile(Dir.root(filePath));
-    const yaml = Object.entries(Yaml.parse(file));
+    const yaml = Yaml.parse(file);
     
     const final = compile(yaml);
     return final;
@@ -147,7 +167,7 @@ const buildData = {
       const array = [];
       
       for (const item of yaml)
-        if (typeof item === "string" || Array.isArray(item))
+        if (typeof item === "string")
           array.push(item);
         else if (item.splashes)
           array.push(compile(item.splashes));
