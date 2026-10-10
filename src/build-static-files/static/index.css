@@ -35,6 +35,14 @@ body {
   font-family: system-ui;
 }
 
+a {
+  color: inherit;
+
+  &:visited {
+    color: #f7a1ab;
+  }
+}
+
 main {
   min-width: 24em;
   max-width: 64em;
