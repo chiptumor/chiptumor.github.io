@@ -2,27 +2,29 @@ const buildData = JSON.parse(
   document.getElementById("build-data").textContent
 );
 
+const rtf = new Intl.RelativeTimeFormat();
+
 function getRelativeDate(date) {
-  const ago = Date.now() - date;
+  const elapsed = Date.now() - date;
 
-  const frame = {};
-  frame.second = 1000;
-  frame.minute = frame.second * 60;
-  frame.hour = frame.minute * 60;
-  frame.day = frame.hour * 24;
-  frame.week = frame.day * 7;
-  frame.month = frame.week * 4;
-  frame.year = frame.month * 12;
+  const msPer = {};
+  msPer.second = 1000;
+  msPer.minute = msPer.second * 60;
+  msPer.hour = msPer.minute * 60;
+  msPer.day = msPer.hour * 24;
+  msPer.week = msPer.day * 7;
+  msPer.month = msPer.day * 30;
+  msPer.year = msPer.day * 365;
 
-  const items = Object.entries(frame);
+  const units = Object.entries(msPer);
   
-  for (let i = items.length - 1; i >= 0; i--) {
-    const [ label, unit ] = items[i];
+  for (let i = units.length - 1; i >= 0; i--) {
+    const [ name, ms ] = units[i];
 
-    if (ago < unit) continue;
+    if (elapsed < ms) continue;
     
-    const span = Math.floor(ago / unit);
-    return `${span} ${label}${ span > 1 ? "s" : "" } ago`;
+    const count = Math.floor(elapsed / ms);
+    return rtf.format(-count, name);
   }
 
   return "Just now";
