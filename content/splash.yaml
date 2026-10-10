@@ -6,7 +6,7 @@
   splashes:
     - group: Code syntax
       splashes:
-        - '&lt;turn it="up!"&gt;'                  # HTML; renders as `<turn it="up!">`
+        - '<turn it="up!">'                        # HTML
         - '_Oh yeah,_ **party!**'                  # Markdown
         - 'drop { the: beat! }'                    # CSS
         - 'make().some["noise!"]'                  # JavaScript
