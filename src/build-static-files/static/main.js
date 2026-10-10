@@ -2,9 +2,7 @@ const buildData = JSON.parse(
   document.getElementById("build-data").textContent
 );
 
-const rtf = new Intl.RelativeTimeFormat("best fit", {
-  numeric: "auto"
-});
+const rtf = new Intl.RelativeTimeFormat();
 
 function getRelativeDate(date) {
   const elapsed = Date.now() - date;
