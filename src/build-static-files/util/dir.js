@@ -5,7 +5,7 @@ export const workDir = Path.join(import.meta.dirname, "../../..");
 export const root = (...path) => Path.join(workDir, ...path);
 export const file = (...path) =>
   root("src/build-static-files/build/file", ...path);
-export const dist = (...path) => root("src/static", ...path);
+export const dist = (...path) => root("src/server/static", ...path);
 
 export const readDir = (...path) =>
   FileSystem.readdir(Path.join(...path), { recursive: true });

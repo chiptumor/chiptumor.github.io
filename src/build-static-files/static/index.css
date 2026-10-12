@@ -1,6 +1,25 @@
 :root {
   scroll-behavior: smooth;
   scroll-padding: 2.25em;
+
+  /* Z-INDEX */
+  --z-index-top-fixed: 1;
+}
+
+blockquote {
+  margin-inline: 1em;
+  padding-inline: 1em;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 0.25em;
+    border-radius: 0.125em;
+    position: absolute;
+    inset: 0;
+    background-color: var(--accent);
+  }
 }
 
 ul, ol, menu {
@@ -8,7 +27,7 @@ ul, ol, menu {
 }
 
 .inline-separator {
-  padding: 0 0.5em;
+  padding: 0 0.25em;
 }
 
 .white-black-button-image {
@@ -21,13 +40,15 @@ ul, ol, menu {
   }
 }
 
-#top-fixed {
-  display: none; /* for now */
-}
-
 body {
   --accent: #e9263d;
   --accent-text: white;
+  --secondary-text: #f7a1ab;
+  --bg-gradient-1: #47062a;
+  --bg-gradient-2: #5e0830;
+
+  padding: 0;
+  margin: 0;
 
   color: white;
   background-color: #180211;
@@ -39,8 +60,200 @@ a {
   color: inherit;
 
   &:visited {
-    color: #f7a1ab;
+    color: var(--secondary-text);
   }
+}
+
+#top-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: var(--z-index-top-fixed);
+}
+
+#menu-bar {
+  display: none;
+}
+
+#music-player {
+  display: grid;
+  padding: 1em clamp((100vw - 64em) / 2, 50px, 8vw);
+  position: relative;
+
+  background-color: #2f041f;
+
+  .meta {
+    font-size: 1.5em;
+
+    .inline-separator, .artist {
+      color: var(--secondary-text);
+    }
+
+    a {
+      color: inherit !important;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  blockquote {
+    margin-bottom: 1.5em;
+  }
+
+  .controls {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 3px;
+    width: fit-content;
+
+    .group {
+      display: grid;
+      grid-auto-flow: column;
+      gap: 0;
+    }
+
+    button {
+      all: unset;
+
+      width: 22px;
+      height: 22px;
+      padding: 3px;
+      
+      --gradient-color: #FFF3;
+
+      border: 3px solid var(--accent);
+      background-color: var(--accent);
+      background-image: linear-gradient(to bottom,
+        var(--gradient-color),
+        transparent 10%,
+        var(--gradient-color)
+      );
+
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover:not(:active) {
+        --accent: var(--secondary-text);
+        background-image: linear-gradient(to bottom,
+          var(--secondary-text),
+          white
+        );
+      }
+    }
+
+    .play-pause {
+      &.paused .pause,
+      &:not(.paused) .play {
+        display: none;
+      }
+    }
+  }
+
+  .duration {
+    padding-top: 0.5em;
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+
+    color: var(--secondary-text);
+    
+    .left {
+      margin-right: auto;
+    }
+    .right {
+      margin-left: auto;
+    }
+  }
+
+  .progress {
+    --progress: 0.5; /* TEMP */
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+
+    background-image: linear-gradient(to bottom right,
+      var(--bg-gradient-1), 70%,
+      var(--bg-gradient-2)
+    );
+    background-size: cover;
+    background-attachment: fixed;
+
+    div {
+      background-color: var(--accent);
+      height: 100%;
+      width: calc(var(--progress) * 100%);
+    }
+  }
+
+  .expand-collapse {
+    all: unset;
+
+    position: absolute;
+    top: 1em;
+    right: calc(4px + clamp((100vw - 64em) / 2, 50px, 8vw));
+    
+    cursor: pointer;
+
+    &, img {
+      width: 1.5em;
+      height: 1.5em;
+    }
+
+    &:hover:not(:active) {
+      background-color: white;
+    }
+  }
+
+  &.open .expand-collapse .down {
+    display: none;
+  }
+
+  &:not(.open) {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+
+    blockquote,
+    .controls,
+    .expand-collapse .up {
+      display: none;
+    }
+
+    .meta {
+      font-size: 1em;
+      padding-right: 2em;
+    }
+
+    .duration {
+      width: fit-content;
+      padding-top: 0;
+      
+      .right::before {
+        content: "\2014";
+        padding: 0 0.5em;
+      }
+    }
+
+    .expand-collapse {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+body:has(#music-player.open) main {
+  padding-top: 16em;
 }
 
 main {
@@ -55,9 +268,6 @@ main {
 }
 
 section {
-  --bg-gradient-1: #47062a;
-  --bg-gradient-2: #5e0830;
-
   --vertical-demargin: -4px;
   --horizontal-demargin: -28px;
 
@@ -115,7 +325,7 @@ main > hgroup:first-child {
       margin: 0 calc((100vw - 100%) / -2);
       padding: 4px calc((100vw - 100%) / 2);
 
-      color: #f7a1ab;
+      color: var(--secondary-text);
       font-size: 1.5em;
       font-family: monospace;
       text-align: center;
@@ -168,7 +378,7 @@ main > hgroup:first-child {
     }
 
     > time {
-      color: #f7a1ab;
+      color: var(--secondary-text);
       text-indent: 2em;
     }
 
@@ -283,7 +493,12 @@ main > hgroup:first-child {
 
     .portrait-container {
       height: 128px;
-      
+    }
+    
+    .portrait {
+      left: unset;
+      transform: none;
+      right: 0;
     }
   }
 }
