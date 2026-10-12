@@ -174,6 +174,17 @@ const buildData = {
 
       return array;
     }
+  })(),
+  playlist: await (async () => {
+    const filePath = "content/playlist/list.yaml";
+
+    const file = await Dir.readFile(Dir.root(filePath));
+    const yaml = Yaml.parse(file);
+
+    for (const key in yaml)
+      yaml[key].comments = Marked.parse(yaml[key].comments);
+    
+    return yaml;
   })()
 };
 

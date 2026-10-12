@@ -10,7 +10,7 @@ export const dist = (...path) => root("src/server/static", ...path);
 export const readDir = (...path) =>
   FileSystem.readdir(Path.join(...path), { recursive: true });
 export const copyDir = (fromPath, toPath) =>
-  FileSystem.cp(Path.join(fromPath), dist(toPath), { recursive: true });
+  FileSystem.cp(fromPath, dist(toPath), { recursive: true });
 export const readFile = (...path) =>
   FileSystem.readFile(Path.join(...path), { encoding: "utf-8" });
 export const writeFile = async (path, content) => {

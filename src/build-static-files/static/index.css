@@ -3,7 +3,8 @@
   scroll-padding: 2.25em;
 
   /* Z-INDEX */
-  --z-index-top-fixed: 1;
+  --z-index-banner-button: 1;
+  --z-index-top-fixed: 2;
 }
 
 blockquote {
@@ -19,6 +20,15 @@ blockquote {
     position: absolute;
     inset: 0;
     background-color: var(--accent);
+  }
+
+  > :first-child {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  > :last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -175,8 +185,6 @@ a {
   }
 
   .progress {
-    --progress: 0.5; /* TEMP */
-
     position: absolute;
     left: 0;
     right: 0;
@@ -193,7 +201,7 @@ a {
     div {
       background-color: var(--accent);
       height: 100%;
-      width: calc(var(--progress) * 100%);
+      width: calc(var(--progress, 0) * 100%);
     }
   }
 
@@ -224,6 +232,8 @@ a {
     grid-auto-flow: column;
     grid-auto-columns: max-content;
 
+    cursor: pointer;
+
     blockquote,
     .controls,
     .expand-collapse .up {
@@ -248,6 +258,24 @@ a {
     .expand-collapse {
       top: 50%;
       transform: translateY(-50%);
+    }
+
+    &:hover {
+      background-image: linear-gradient(to bottom right,
+        var(--bg-gradient-1), 70%,
+        var(--bg-gradient-2)
+      );
+      background-size: cover;
+      background-attachment: fixed;
+
+      .progress {
+        background-image: none;
+        background-color: var(--accent);
+
+        div {
+          background-color: white;
+        }
+      }
     }
   }
 }
@@ -390,6 +418,7 @@ main > hgroup:first-child {
       right: 4px;
       
       cursor: pointer;
+      z-index: var(--z-index-banner-button);
 
       &, img {
         width: 1.5em;
