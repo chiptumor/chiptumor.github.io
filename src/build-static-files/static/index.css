@@ -75,7 +75,7 @@ a {
 }
 
 #top-fixed {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -280,14 +280,10 @@ a {
   }
 }
 
-body:has(#music-player.open) main {
-  padding-top: 16em;
-}
-
 main {
   min-width: 24em;
   max-width: 64em;
-  padding: 100px min(50px, 8vw);
+  padding: 50px min(50px, 8vw);
   margin: auto;
 
   display: grid;
