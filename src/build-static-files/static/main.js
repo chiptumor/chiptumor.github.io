@@ -98,6 +98,7 @@ window.addEventListener("load", () => {
   splashElement.append(...spans);
 
   // playlist functionality
+  // this is the rest of the script. the whole rest of it
 
   const playerElement = document.getElementById("music-player");
 
