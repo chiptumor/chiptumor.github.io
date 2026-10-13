@@ -84,7 +84,11 @@ a {
 }
 
 #menu-bar {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+
+  display: none; /* TODO */
 }
 
 #music-player {

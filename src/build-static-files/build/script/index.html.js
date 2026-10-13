@@ -38,6 +38,8 @@ async function getDomAndDate(dir) {
 
 const template = {};
 
+template.menuBar = await Dir.readFile(Dir.file("menu-bar.html"));
+
 template.greeting = "Haio!!";
 
 template.portrait = await (async () => {
