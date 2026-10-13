@@ -297,7 +297,10 @@ window.addEventListener("load", () => {
     updateTime();
   });
   audio.addEventListener("timeupdate", updateTime);
-  audio.addEventListener("ended", navNext);
+  audio.addEventListener("ended", () => {
+    navNext();
+    audio.play().catch(console.error);
+  });
   audio.addEventListener("play", () =>
     element.controls.playPause.classList.remove("paused")
   );
