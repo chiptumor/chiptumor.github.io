@@ -65,11 +65,14 @@ template.avatar = await (async () => {
   const yaml = Yaml.parse(file);
   
   const today = new Date();
-  const list = Object.entries(
-    today.getMonth() === 9
-      ? yaml.festive.halloween
-      : yaml.default
-  );
+  const selection = (() => { switch (true) {
+    case today.getMonth() === 9:
+      return yaml.halloween;
+    default:
+      return yaml.default;
+  }})();
+
+  const list = Object.entries(selection);
   
   const [ fileName, details ]
     = list[Math.floor(Math.random() * list.length)];

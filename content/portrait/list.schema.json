@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": {
+    "description": "Key must be the name of a file (including extension) under `./image/`.\n\nFilename schema can be found in `./filename-schema.md`.",
+    "type": "object",
+    "required": [ "artist", "source" ],
+    "properties": {
+      "artist": {
+        "description": "The artist's social platform and username, separated by a slash (no spaces).\n\nIf artist cannot be specified, this should be null.",
+        "oneOf": [
+          {
+            "type": "string",
+            "pattern": "^(?<platform>.+?)/(?<username>.+?)$"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "source": {
+        "description": "The source article URL of the image.\n\nIf the source cannot be specified, the artist's social platform URL should be used instead. If the artist cannot be specified either, this should be null.",
+        "oneOf": [
+          {
+            "type": "string",
+            "format": "uri"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    }
+  }
+}

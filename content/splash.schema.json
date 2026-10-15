@@ -13,9 +13,11 @@
           },
           {
             "type": "object",
+            "required": [ "group", "splashes" ],
             "properties": {
               "group": {
-                "type": "string"
+                "type": "string",
+                "description": "The \"group\" key is currently purely for documentation; it does not affect the build data."
               },
               "splashes": {
                 "$ref": "#/$defs/SplashArray"

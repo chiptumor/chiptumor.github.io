@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": {
+    "description": "Key must be the name of a file (including extension) under `./audio/`.\n\nFilename schema can be found in `./filename-schema.md`.",
+    "type": "object",
+    "required": [ "title", "artist" ],
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "artist": {
+        "type": "object",
+        "required": [ "name" ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "type": {
+        "type": "string"
+      },
+      "comments": {
+        "type": "string"
+      }
+    },
+    "if": {
+      "required": [ "type" ]
+    },
+    "then": {
+      "required": [ "original" ],
+      "properties": {
+        "original": {
+          "type": "object",
+          "required": [ "artist" ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "artist": {
+              "type": "object",
+              "required": [ "name" ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
