@@ -314,7 +314,7 @@ window.addEventListener("load", () => {
       "Audio element fired the \"error\" event, which can't be good."
       + "\n\nThe error can be found below; if you may please, contact me and"
       + "share it. I'd be grateful."
-    )
+    );
     console.info(error);
   });
 
