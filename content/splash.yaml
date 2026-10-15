@@ -1,17 +1,21 @@
+# yaml-language-server: $schema=./splash.schema.json
+
 - group: Meta
   splashes:
     - And there's no one I'd rather be!        #
+    - '#LOL!'                                    #
+    - Poopin' and-a peein'!                    #
 
 - group: Development
   splashes:
     - group: Code syntax
       splashes:
-        - '<turn it="up!">'                        # HTML
-        - '_Oh yeah,_ **party!**'                  # Markdown
-        - 'drop { the: beat! }'                    # CSS
-        - 'make().some["noise!"]'                  # JavaScript
-        - '{"get":"funky!"}'                       # JSON
-        - 'if movin then get:Groovin("!") end'     # Lua
+        - '<turn it="up!">'                          # HTML
+        - '_Oh yeah,_ **party!**'                    # Markdown
+        - 'drop { the: beat! }'                      # CSS
+        - 'make().some["noise!"]'                    # JavaScript
+        - '{"get":"funky!"}'                         # JSON
+        - 'if movin then get:Groovin("!") end'       # Lua
 
     - group: Software
       splashes:
@@ -81,6 +85,13 @@
             - They'll never know!                      #
             - Most stories aren't told!                #
 
+- group: Misc. media
+  splashes:
+    - We gotta dump the quaaludes!             # PilotRedSun; TODO
+    - group: BFDI
+      splashes:
+        - I like this show!                        # TODO
+        - Oh noio!                                 # Common Bubble exclamation
 
 - group: Memes
   splashes:
@@ -90,8 +101,11 @@
     - Mario fans will adore this classic tune! # TODO
     - Um, actually, it's not a votekick!       # TODO
     - It's actually a democratic proceeding!   # TODO
+    - Dat's just too much dawg-gone peppa!     # TODO
+    - bitch a hunned dolas!                    # TODO
+    - Smoke weed every day!                    # TODO
     - group: Twitter/ultr4nima
       splashes:
         - Hey guy's!                               # TODO
         - White people's unfunny Balatro!          # TODO
-        - '"Hey men" and they are pigs!'           # TODO
+        - '"Hey men" and they are pigs!'             # TODO
