@@ -7,29 +7,36 @@
     "required": [ "title", "artist" ],
     "properties": {
       "title": {
+        "description": "The title of the performance.",
         "type": "string"
       },
       "url": {
+        "description": "The article URL of the performance.\n\nPreferably YouTube (youtu.be).",
         "type": "string",
         "format": "uri"
       },
       "artist": {
+        "description": "Object detailing info about the artist behind this performance of the song.\n\nIf this is not the artist of the original performance, see documentation on the \"type\" and \"original\" keys.",
         "type": "object",
         "required": [ "name" ],
         "properties": {
           "name": {
+            "description": "The alias of the artist.\n\nIf it cannot be specified, simply write the reason, e.g. \"Unknown\" (note the capital casing).",
             "type": "string"
           },
           "url": {
+            "description": "An associable platform of the artist.\n\nShould match the platform of the provided song URL.",
             "type": "string",
             "format": "uri"
           }
         }
       },
       "type": {
+        "description": "If the performance is an original, or by the original artist, \"type\" should be unspecified. (If the performance is by the original artist, but not the *original* performance, that should be detailed in the song title.)\n\nIf the performance is a reperformance not by the original artist, \"type\" should be a string documenting the type of re-performance with few keywords, e.g. \"cover\" or \"remix\" (note the lowercase casing).",
         "type": "string"
       },
       "comments": {
+        "description": "Personal comments on the song, parsed as Markdown.\n\nThis is parsed with soft line breaks, so it is recommended to use the pipe symbol (\"|\") for block notation so that newlines in the source text are preserved.",
         "type": "string"
       }
     },
@@ -40,24 +47,30 @@
       "required": [ "original" ],
       "properties": {
         "original": {
+          "description": "Object detailing info about the original performance of the song.\n\nRequired if the \"type\" key is set.",
           "type": "object",
           "required": [ "artist" ],
           "properties": {
             "title": {
+              "description": "Title of the original song.",
               "type": "string"
             },
             "url": {
+              "description": "The article URL of the original song.",
               "type": "string",
               "format": "uri"
             },
             "artist": {
+              "description": "Object detailing info about the artist of the original song.",
               "type": "object",
               "required": [ "name" ],
               "properties": {
                 "name": {
+                  "description": "The alias of the original artist.\n\nIf it cannot be specified, simply write the reason, e.g. \"Unknown\" (note the capital casing).",
                   "type": "string"
                 },
                 "url": {
+                  "description": "An associable platform of the artist.\n\nShould match the platform of the provided song URL.",
                   "type": "string",
                   "format": "uri"
                 }

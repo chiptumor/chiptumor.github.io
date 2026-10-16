@@ -1,22 +1,4 @@
 # yaml-language-server: $schema=./list.schema.json
-
-# ? <file> in "./audio/<file>"
-# : title: <song title>
-#   url: <url to song source>
-#   artist:
-#     name: <name of composer>
-#     url?: <url to composer>
-#   <<?:
-#     type: <cover, remix, etc.>
-#     original:
-#       title?: <original song title>
-#       url?: <url to original song>
-#       artist:
-#         name: <name of original artist>
-#         url?: <url to original artist>
-#   comments: <comments on song, to be parsed as markdown>
-
-
 flde-salazzle-schlimazel.mp3:
   title: Salazzle Schlimazel
   url: https://youtu.be/LMFQX2NnLLc
@@ -31,4 +13,5 @@ flde-salazzle-schlimazel.mp3:
     fired but me. For some reason.
 
     I'm very fond of the chording of this song combined with the snazzy drums.
-    I wish so badly this music were appreciated more.
+    I wish so badly the threshold for a conventional song were even just a bit
+    lower, I'd be playing this all the time.
