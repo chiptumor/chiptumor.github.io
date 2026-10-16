@@ -175,7 +175,10 @@ const buildData = {
         if (typeof item === "string")
           array.push(item);
         else if (item.splashes)
-          array.push(compile(item.splashes));
+          if (item.weighted)
+            array.push(compile(item.splashes));
+          else
+            array.push(...compile(item.splashes));
 
       return array;
     }

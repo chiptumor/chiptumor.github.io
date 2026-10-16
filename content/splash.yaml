@@ -4,6 +4,7 @@
   splashes:
     - And there's no one I'd rather be!        #
     - '#LOL!'                                    #
+    - Oh-em-gee!                               #
     - Poopin' and-a peein'!                    #
 
 - group: Development
@@ -72,6 +73,7 @@
         - group: >
             most stories are the stories that are
             never told by roboctopus
+          weighted: true
           splashes:
             - Climb the mountain!                      #
             - Never tell!                              #

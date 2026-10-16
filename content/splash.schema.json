@@ -16,8 +16,13 @@
             "required": [ "group", "splashes" ],
             "properties": {
               "group": {
-                "type": "string",
-                "description": "The \"group\" key is currently purely for documentation; it does not affect the build data."
+                "description": "The \"group\" key is currently purely for documentation; it does not affect the build data.",
+                "type": "string"
+              },
+              "weighted": {
+                "description": "Whether this group's splashes should collectively count toward one division in its parent array.\n\nIf false, splashes under this group will be spread into its parent array, so that each splash contributes toward a division in its parent array.",
+                "type": "boolean",
+                "default": false
               },
               "splashes": {
                 "$ref": "#/$defs/SplashArray"
