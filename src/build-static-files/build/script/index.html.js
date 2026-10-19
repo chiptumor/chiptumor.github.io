@@ -40,8 +40,6 @@ const template = {};
 
 template.menuBar = await Dir.readFile(Dir.file("menu-bar.html"));
 
-template.greeting = "Haio!!";
-
 template.portrait = await (async () => {
   const path = "content/portrait/list.yaml";
   const file = await Dir.readFile(Dir.root(path));

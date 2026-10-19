@@ -114,11 +114,13 @@
       <div class="content-container">
         <hgroup>
           <h2>
-            {{@ for (i in greeting)
-              }}<span style="--offset: {{ -greeting.length + 1 + parseInt(i) }}">{{
-                greeting[i]
-              }}</span>{{@
-            /for }}
+            {{@ with ({ greeting: "Haio!!" }) }}
+              {{@ for (i in greeting)
+                }}<span style="--offset: {{ -greeting.length + 1 + parseInt(i) }}">{{
+                  greeting[i]
+                }}</span>{{@
+              /for }}
+            {{@ /with }}
           </h2>
   
           <p>Welcome to my city!</p>
