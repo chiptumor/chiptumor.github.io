@@ -26,7 +26,10 @@
 
 - group: Games
   splashes:
+    - All unsaved progress will be lost!         # TODO
     - Hi, I'm Flowey! Flowey the flower!         # Undertale
+    - Super Meat Boy!                            # Super Meat Boy
+    - Are you sure you want me to die?           # TODO (The Binding of Isaac)
     - group: Roblox
       splashes:
         - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
@@ -50,6 +53,7 @@
   splashes:
     - Then Lets!                               # toastedcherries's "Old ROBLOX was better" video
     - Yesterday, I asked you...                # TODO
+    - This bit is really fresh!                # TODO (DougDoug)
     - group: Remainings
       splashes:
         - Please subscribe for more vidos!         # Remainings's 'How to Fail at Murder Mystery 2' video
@@ -72,7 +76,7 @@
     - group: Songs
       splashes:
         - I ENTRUST MYSELF TO DANGO!               # MOVE 20 STEPS by Otomata Labs and Alembic
-        - I'll make them un-alive!                 # TODO
+        - I'll make them un-alive!                 # TODO (TLT FNaF)
         - group: >
             most stories are the stories that are
             never told by roboctopus
@@ -92,13 +96,13 @@
 
 - group: Misc. media
   splashes:
-    - We gotta dump the quaaludes!             # PilotRedSun; TODO
-    - Now let's go to France!                  # TODO
+    - We gotta dump the quaaludes!             # TODO (PilotRedSun)
+    - Now let's go to France!                  # TODO (Peter Griffin 4/20)
     - group: BFDI
       splashes:
-        - I like this show!                        # TODO
+        - I like this show!                        # TODO (Firey Speaker Box)
         - Oh noio!                                 # Common Bubble exclamation
-        - Gimme that!                              # TODO
+        - Gimme that!                              # TODO (Eraser BFDIA)
 
 - group: Memes
   splashes:
@@ -118,6 +122,7 @@
     - Hi!                                      # TODO (scientists reveal the hi)
     - Just one lick will last 'til the end!    # TODO
     - Time is of no essence!                   # Ditto
+    - Rock, sock, cock, cock, cock!            # TODO
     - group: YouTube Poop
       splashes:
         - Welcome to the Weegee Tower!
