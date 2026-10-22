@@ -45,9 +45,12 @@
     
     - group: Half Life
       splashes:
-        - Ah, Freeman, it's good to see you!       # Line from Half Life scientist
-        - Hey, watch it, will ya!?                 # Line from Barney in Half Life
-        - About that beer I owed ya!               # Line from Barney in Half Life 2
+        - Ah, Freeman, it's good to see you!       # HL scientist quote
+        - Hey, watch it, will ya!?                 # HL Barney quote
+        - About that beer I owed ya!               # HL2 Barney quote
+        - Sometimes, I dream about cheese!         # HL2 NPC quote, question06
+        - Hooves and all!                          # HL2 NPC quote, question09
+        - Never gonna make a stalker outta me!     # HL2 NPC quote, question15
 
 - group: Content creators
   splashes:
