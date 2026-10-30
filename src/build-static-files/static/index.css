@@ -83,14 +83,6 @@ a {
   z-index: var(--z-index-top-fixed);
 }
 
-#menu-bar {
-  display: flex;
-  flex-direction: row;
-  align-content: flex-start;
-
-  display: none; /* TODO */
-}
-
 #music-player {
   display: grid;
   padding: 1em clamp((100vw - 64em) / 2, 50px, 8vw);
