@@ -51,11 +51,11 @@ ul, ol, menu {
 }
 
 body {
-  --accent: #e9263d;
+  --accent: #E9263D;
   --accent-text: white;
-  --secondary-text: #f7a1ab;
-  --bg-gradient-1: #47062a;
-  --bg-gradient-2: #5e0830;
+  --secondary-text: #F7A1AB;
+  --bg-gradient-1: #47062A;
+  --bg-gradient-2: #5E0830;
 
   padding: 0;
   margin: 0;
@@ -88,7 +88,7 @@ a {
   padding: 1em clamp((100vw - 64em) / 2, 50px, 8vw);
   position: relative;
 
-  background-color: #2f041f;
+  background-color: #2F041F;
 
   .meta {
     font-size: 1.5em;
@@ -306,8 +306,8 @@ section {
   &:target {
     --accent: white;
     --accent-text: black;
-    --bg-gradient-1: #47062a;
-    --bg-gradient-2: #8e0b3d;
+    --bg-gradient-1: #47062A;
+    --bg-gradient-2: #8E0B3D;
   }
 
   > h2:first-child, footer:last-child {
@@ -351,9 +351,9 @@ main > hgroup:first-child {
       text-align: center;
       text-transform: none; /* maybe uppercase? */
 
-      background-color: #2f041f;
-      border-top: 4px solid #47062a;
-      border-bottom: 4px solid #47062a;
+      background-color: #2F041F;
+      border-top: 4px solid #47062A;
+      border-bottom: 4px solid #47062A;
 
       span {
         font-size: 0;
