@@ -34,6 +34,7 @@
       splashes:
         - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
         - It's free!                               # 2011 Roblox commercial
+        - Powering Imagination!
         - Chuffff!                                 # Line from Regretevator's Flesh Cousin
         - It is evil and it is scary!              # Die of Death special round intro
         - Dethrone Baszuki!                        # CEO of Roblox
@@ -107,6 +108,23 @@
         - I like this show!                        # TODO (Firey Speaker Box)
         - Oh noio!                                 # Common Bubble exclamation
         - Gimme that!                              # TODO (Eraser BFDIA)
+    - group: Adventure Time
+      splashes:
+        - Come on, grab your friends!
+        - The fun will never end!
+        - Mathematical!
+        - You're not a genius!
+        - Do you know what Ice King MEANS!?
+        - group: Puncha yo Buns
+          weighted: true
+          splashes:
+            - I'm a buff baby!
+            - I can dance like a man!
+            - I can shake-ah my fanny!
+            - I can shake-ah my can!
+            - I'm a tough tootin' baby!
+            - I can punch-ah yo buns!
+            - I will punch you for fun!
 
 - group: Memes
   splashes:
