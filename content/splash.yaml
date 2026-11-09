@@ -30,6 +30,7 @@
     - Hi, I'm Flowey! Flowey the flower!         # Undertale
     - Super Meat Boy!                            # Super Meat Boy
     - Are you sure you want me to die?           # TODO (The Binding of Isaac)
+    - Cave Johnson here!
     - group: Roblox
       splashes:
         - Shirts Shirts Shirts!                    # Roblox's 'Shirts... And Pants. Pants Pants Pants Pants.' music video
@@ -98,6 +99,26 @@
             - Don't light 'em up!                      #
             - They'll never know!                      #
             - Most stories aren't told!                #
+        - group: "Portal OST: Still Alive"
+          weighted: true
+          splashes:
+            - This was a triumph!
+            - "I'm making a note here: huge success!"
+            - It's hard to overstate my satisfaction!
+            - Aperture Science!
+            - We do what we must because we can!
+            - For the good of all of us!
+            - Except the ones who are dead!
+            - No sense crying over every mistake!
+            - Keep on trying 'til you run out of cake!
+            - "'Til the science gets done!"
+            - "'Til you make a neat gun!"
+            - I'm not even angry!
+            - I'm being so sincere right now!
+            - Points of data make a beautiful line!
+            - We're releasing on time!
+            - Maybe Black Mesa!
+            - That was a joke, ha-ha, fat chance!
 
 - group: Misc. media
   splashes:
